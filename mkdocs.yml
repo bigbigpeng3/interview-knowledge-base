@@ -1,0 +1,54 @@
+site_name: 面试知识库
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link  # 增强标签页链接
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - toc:
+      permalink: true
+
+# 添加自定义JS
+extra_javascript:
+  - js/custom.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# 这部分是关键 - 定义导航结构
+nav:
+  # - 首页: index.md
+  - Java:
+    - Java基础: 010Java/010Basic.md
+  - Kotlin:
+    - Kotlin基础: 020Kotlin/010Basic.md
+    - Kotlin协程: 020Kotlin/020Coroutines.md
+  - Android:
+    - Android基础: 030Android/010Basic.md
+  - Jetpack:
+    - Jetpack: 040Jetpack/010Basic.md

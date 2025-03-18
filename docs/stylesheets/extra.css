@@ -1,0 +1,87 @@
+.details-toggle {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.details-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 为答案添加展开/折叠的平滑过渡 */
+details {
+  transition: height 0.3s ease;
+}
+
+details summary {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+details summary:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+details[open] .md-typeset {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-toggle {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.2s ease;
+  z-index: 10; /* 确保按钮始终位于上层 */
+  position: relative;
+}
+
+/* 确保代码块能够自动换行和垂直滚动 */
+.md-typeset pre {
+  max-height: 400px; /* 设置最大高度，超出部分垂直滚动 */
+  overflow-y: auto;
+  white-space: pre-wrap; /* 允许代码自动换行 */
+  word-wrap: break-word; /* 确保长单词也能换行 */
+}
+
+/* 确保表格能够适当滚动和换行 */
+.md-typeset table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.md-typeset td, .md-typeset th {
+  min-width: 100px;
+  word-wrap: break-word;
+}
+
+/* 改进details内容的显示 */
+details .md-typeset {
+  padding-left: 1rem;
+  border-left: 4px solid #f0f0f0;
+  margin-bottom: 1rem;
+}
+
+/* 确保所有内容元素不超出容器宽度 */
+.md-typeset {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* 优化图片显示 */
+.md-typeset img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 为代码块添加更好的阅读体验 */
+.md-typeset code {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
