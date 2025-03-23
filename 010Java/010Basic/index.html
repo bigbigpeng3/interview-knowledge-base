@@ -1,0 +1,4159 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../040MultiThreading/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Java基础 - 面试知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="面试知识库" class="md-header__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            面试知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java基础
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../020Kotlin/010Basic/" class="md-tabs__link">
+          
+  
+  Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../030Android/010Basic/" class="md-tabs__link">
+          
+  
+  Android
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../040Jetpack/010Basic/" class="md-tabs__link">
+          
+  
+  Jetpack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../041KMP/010Basic/" class="md-tabs__link">
+          
+  
+  KMP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../050SystemDesign/010Basic/" class="md-tabs__link">
+          
+  
+  System Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="面试知识库" class="md-nav__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    面试知识库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Java基础
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Java基础
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intcharlong" class="md-nav__link">
+    <span class="md-ellipsis">
+      int、char、long 各占多少字节数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      int 和 Integer 的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是内部类？内部类的作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serializable-parcelable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serializable 和 Parcelable 的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalfinallyfinalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      final、finally、finalize的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringstringbuilderstringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      String，StringBuilder，StringBuffer的区别？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String，StringBuilder，StringBuffer的区别？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. String 的不可变性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. String 的不可变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. StringBuffer 的线程安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. StringBuffer 的线程安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. StringBuilder 的非线程安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. StringBuilder 的非线程安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-abstractstringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. AbstractStringBuilder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. AbstractStringBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      new String创建了几个对象
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="new String创建了几个对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringfinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      String为什么要设计成final？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String为什么要设计成final？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 确保不可变性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 确保不可变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 安全性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 性能优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 性能优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 设计一致性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 防止方法重写
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 防止方法重写">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-a-hello-string-b-new-stringhello" class="md-nav__link">
+    <span class="md-ellipsis">
+      String a = "Hello", String b = new String("Hello") 使用 "==" 时，它们相等吗？为什么？什么原理？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM常量池，堆，栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JVM常量池，堆，栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-constant-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 常量池（Constant Pool）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 堆（Heap）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 栈（Stack）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-method-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 方法区（Method Area）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-native-method-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 本地方法栈（Native Method Stack）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      常量池
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java基础类型有哪些？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javaequals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java中equals和 "==" 的区别？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-equals-hashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java中 == equals hashCode区别和关联
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java泛型的作用及使用场景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java泛型的作用及使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型的作用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型的使用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java枚举的特点及使用场景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java枚举的特点及使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举的多种使用案例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="枚举的多种使用案例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 定义常量（星期几）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 定义常量（星期几）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 状态机（开关状态）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 状态机（开关状态）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 策略模式（加减操作）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 策略模式（加减操作）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 单例模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 单例模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 命令模式（启动和停止命令）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 命令模式（启动和停止命令）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 行星计算（质量和半径）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 行星计算（质量和半径）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态属性和静态方法是否可以被继承？是否可以被重写？以及原因。
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态内部类的设计意图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      成员内部类、静态内部类、方法内部类（局部内部类）和匿名内部类的理解，以及项目中的应用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      对象拷贝理解？深拷贝、浅拷贝的区别？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java的异常体系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载流程双亲委托机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类加载流程双亲委托机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么需要类加载流程双亲委托机制？它解决了什么问题？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么需要类加载流程双亲委托机制？它解决了什么问题？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 避免重复加载
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 保证核心类库的安全性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 确保类的唯一性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 简化类加载器的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      双亲委托机制的工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      双亲委派模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../040MultiThreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java多线程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020DataStructure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java数据结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../030Algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../050Pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java设计模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kotlin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/020Coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin协程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/020SystemSourceCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android系统源码解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/030ThirdSDKSourceCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android三方源码解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Jetpack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/020Compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    KMP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            KMP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../041KMP/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Multi Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../050SystemDesign/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intcharlong" class="md-nav__link">
+    <span class="md-ellipsis">
+      int、char、long 各占多少字节数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      int 和 Integer 的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是内部类？内部类的作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serializable-parcelable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serializable 和 Parcelable 的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalfinallyfinalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      final、finally、finalize的区别
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringstringbuilderstringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      String，StringBuilder，StringBuffer的区别？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String，StringBuilder，StringBuffer的区别？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. String 的不可变性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. String 的不可变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. StringBuffer 的线程安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. StringBuffer 的线程安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. StringBuilder 的非线程安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. StringBuilder 的非线程安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-abstractstringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. AbstractStringBuilder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. AbstractStringBuilder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码片段
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      new String创建了几个对象
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="new String创建了几个对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringfinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      String为什么要设计成final？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String为什么要设计成final？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 确保不可变性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 确保不可变性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 安全性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 性能优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 性能优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 设计一致性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 防止方法重写
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 防止方法重写">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-a-hello-string-b-new-stringhello" class="md-nav__link">
+    <span class="md-ellipsis">
+      String a = "Hello", String b = new String("Hello") 使用 "==" 时，它们相等吗？为什么？什么原理？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM常量池，堆，栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JVM常量池，堆，栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-constant-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 常量池（Constant Pool）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 堆（Heap）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 栈（Stack）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-method-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 方法区（Method Area）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-native-method-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 本地方法栈（Native Method Stack）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      常量池
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java基础类型有哪些？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javaequals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java中equals和 "==" 的区别？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-equals-hashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java中 == equals hashCode区别和关联
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java泛型的作用及使用场景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java泛型的作用及使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型的作用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      泛型的使用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java枚举的特点及使用场景
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java枚举的特点及使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举的多种使用案例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="枚举的多种使用案例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 定义常量（星期几）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 定义常量（星期几）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 状态机（开关状态）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 状态机（开关状态）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 策略模式（加减操作）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 策略模式（加减操作）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 单例模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 单例模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 命令模式（启动和停止命令）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 命令模式（启动和停止命令）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 行星计算（质量和半径）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 行星计算（质量和半径）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举定义：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方式：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态属性和静态方法是否可以被继承？是否可以被重写？以及原因。
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态内部类的设计意图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      成员内部类、静态内部类、方法内部类（局部内部类）和匿名内部类的理解，以及项目中的应用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      对象拷贝理解？深拷贝、浅拷贝的区别？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java的异常体系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载流程双亲委托机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类加载流程双亲委托机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      类加载流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么需要类加载流程双亲委托机制？它解决了什么问题？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么需要类加载流程双亲委托机制？它解决了什么问题？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 避免重复加载
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 保证核心类库的安全性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 确保类的唯一性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 简化类加载器的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      双亲委托机制的工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      双亲委派模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="java">Java核心知识点<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
+<h2 id="intcharlong">int、char、long 各占多少字节数<a class="headerlink" href="#intcharlong" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位数</th>
+<th>字节数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolen</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64</td>
+<td>8</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16</td>
+<td>2</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16</td>
+<td>2</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="int-integer">int 和 Integer 的区别<a class="headerlink" href="#int-integer" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java 为每一个基本数据类型都引入了对应的包装类，从Java 5 开始引入了自动装箱 / 拆箱机制，使得两者可以相互转化。<strong>所以最基本的一点区别就是</strong>：Integer 是int的包装类，int的初始值为零，而Integer的初值为null。int与Integer相比，会把Integer自动拆箱为int再去比。</p>
+<p>参考自：<a href="http://blog.csdn.net/login_sonata/article/details/71001851">http://blog.csdn.net/login_sonata/article/details/71001851</a></p>
+</details>
+<h2 id="_1">什么是内部类？内部类的作用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java 常见的内部类有四种：成员内部类、静态内部类、方法内部类和匿名内部类。</p>
+<p>内部类可以很好的实现隐蔽，一般的非内部类，是不允许有private和protectd等权限的，但内部类（除方法内部类）可以通过这些修饰符来实现隐蔽。</p>
+<p>内部类拥有外部类的访问权限（分静态与非静态情况），通过这一特性可以比较好的处理类之间的关联性，将一类事物的流程放在一起内部处理。</p>
+<p>通过内部类可以实现多重继承，Java默认是单继承的，我们可以通过多个内部类继承实现多个父类，接着由于外部类完全可访问内部类，所以就实现了类似多继承的效果。</p>
+<p>参考自：<a href="https://www.jianshu.com/p/7fe3af7f0f2d">https://www.jianshu.com/p/7fe3af7f0f2d</a></p>
+</details>
+<h2 id="serializable-parcelable">Serializable 和 Parcelable 的区别<a class="headerlink" href="#serializable-parcelable" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Serializable 是 Java的序列化接口。特点是简单，直接实现该接口就行了，其他工作都被系统完成了，但是对于内存开销大，序列化和反序列化需要很多的 I/O 流操作。</p>
+<p>Parcelable 是Android的序列化方式，主要用于在内存序列化上，采用该方法需要实现该接口并且手动实现序列化过程，相对复杂点。如果序列化到存储设备（文件等）或者网络传输，比较复杂，建议用Serializable 方式。</p>
+<p><strong>最大的区别就是存储媒介的不同：</strong>Serializable 使用IO读写存储在硬盘上，Parcelable 是直接在内存中读写，内存读写速度远大于IO读写，所以Parcelable 更加高效。Serializable在序列化过程中会产生大量的临时变量，会引起频繁的GC，效率低下。</p>
+</details>
+<h2 id="finalfinallyfinalize">final、finally、finalize的区别<a class="headerlink" href="#finalfinallyfinalize" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>final用于声明属性、方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。</p>
+<p>finally是异常处理语句结构的一部分，表示总是执行。</p>
+<p>finalize是Object类的一个方法，在垃圾收集器执行的时候会回调被回收对象的finalize()方法，可以覆盖此方法提供垃圾收集时其他资源的回收，例如关闭文件。</p>
+</details>
+<h2 id="stringstringbuilderstringbuffer">String，StringBuilder，StringBuffer的区别？<a class="headerlink" href="#stringstringbuilderstringbuffer" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>从源码层面分析 <code>String</code>、<code>StringBuilder</code> 和 <code>StringBuffer</code> 的特性。以下是基于 JDK 源码的详细分析：</p>
+<hr />
+<h3 id="1-string">1. <strong>String 的不可变性</strong><a class="headerlink" href="#1-string" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 的不可变性是通过以下方式实现的：
+- <strong><code>final</code> 修饰的字符数组</strong>：<code>String</code> 内部使用 <code>final</code> 修饰的 <code>char[]</code> 来存储字符串内容，确保字符数组引用不可变。
+- <strong><code>final</code> 修饰的类</strong>：<code>String</code> 类本身是 <code>final</code> 的，防止被继承和修改。</p>
+<h4 id="_2">源码片段<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 类也是final，这样确保String不会被继承。</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="p">,</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 使用 final 修饰的字符数组</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">value</span><span class="o">[]</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">String</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">original</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">original</span><span class="p">.</span><span class="na">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// 直接引用原字符数组</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">original</span><span class="p">.</span><span class="na">hash</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 其他方法...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>关键点</strong>：
+- <code>private final char value[]</code>：字符数组被 <code>final</code> 修饰，一旦初始化后，引用不可变。
+- <code>String</code> 类的所有修改操作（如 <code>concat</code>、<code>substring</code> 等）都会返回一个新的 <code>String</code> 对象，而不是修改原对象。</p>
+<hr />
+<h3 id="2-stringbuffer">2. <strong>StringBuffer 的线程安全</strong><a class="headerlink" href="#2-stringbuffer" title="Permanent link">&para;</a></h3>
+<p><code>StringBuffer</code> 的线程安全是通过以下方式实现的：
+- <strong><code>synchronized</code> 关键字</strong>：<code>StringBuffer</code> 的所有关键方法都使用 <code>synchronized</code> 修饰，确保多线程环境下的线程安全。</p>
+<h4 id="_3">源码片段<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringBuffer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractStringBuilder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 关键方法使用 synchronized 修饰</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">StringBuffer</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">toStringCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">StringBuffer</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">toStringCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">StringBuffer</span><span class="w"> </span><span class="nf">reverse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">toStringCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 其他方法...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>关键点</strong>：
+- <code>synchronized</code> 修饰的方法（如 <code>append</code>、<code>insert</code>、<code>reverse</code> 等）确保多线程环境下操作是线程安全的。
+- <code>toStringCache</code> 是一个缓存字段，用于优化 <code>toString()</code> 方法的性能。</p>
+<hr />
+<h3 id="3-stringbuilder">3. <strong>StringBuilder 的非线程安全</strong><a class="headerlink" href="#3-stringbuilder" title="Permanent link">&para;</a></h3>
+<p><code>StringBuilder</code> 是非线程安全的，它的方法与 <code>StringBuffer</code> 类似，但没有使用 <code>synchronized</code> 关键字。</p>
+<h4 id="_4">源码片段<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringBuilder</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractStringBuilder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 关键方法没有 synchronized 修饰</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">StringBuilder</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">StringBuilder</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">StringBuilder</span><span class="w"> </span><span class="nf">reverse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 其他方法...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>关键点</strong>：
+- <code>StringBuilder</code> 的方法没有 <code>synchronized</code> 修饰，因此是非线程安全的。
+- 由于没有同步开销，<code>StringBuilder</code> 的性能比 <code>StringBuffer</code> 更高。</p>
+<hr />
+<h3 id="4-abstractstringbuilder">4. <strong>AbstractStringBuilder</strong><a class="headerlink" href="#4-abstractstringbuilder" title="Permanent link">&para;</a></h3>
+<p><code>StringBuilder</code> 和 <code>StringBuffer</code> 都继承自 <code>AbstractStringBuilder</code>，它是一个抽象类，封装了大部分字符串操作的逻辑。</p>
+<h4 id="_5">源码片段<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AbstractStringBuilder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Appendable</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 字符数组，用于存储字符串内容</span>
+<span class="w">    </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 当前字符数组的长度</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 扩容方法</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ensureCapacityInternal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">minimumCapacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">minimumCapacity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">newCapacity</span><span class="p">(</span><span class="n">minimumCapacity</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 其他方法...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>关键点</strong>：
+- <code>AbstractStringBuilder</code> 使用 <code>char[] value</code> 存储字符串内容，<code>StringBuilder</code> 和 <code>StringBuffer</code> 都直接继承了这个实现。
+- <code>ensureCapacityInternal</code> 方法用于动态扩容字符数组。</p>
+<p>另外StringBuilder和StringBuffer初始化容量都是16.</p>
+<p>@IntrinsicCandidate
+public StringBuilder() {
+    super(16);
+}</p>
+<p>@IntrinsicCandidate
+public StringBuffer() {
+    super(16);
+}</p>
+<hr />
+<h3 id="_6">总结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>String</code> 的不可变性</strong>：通过 <code>final char[] value</code> 和 <code>final</code> 类实现。</li>
+<li><strong><code>StringBuffer</code> 的线程安全</strong>：通过 <code>synchronized</code> 关键字修饰方法实现。</li>
+<li><strong><code>StringBuilder</code> 的非线程安全</strong>：没有使用 <code>synchronized</code>，性能更高。</li>
+</ul>
+</details>
+<h2 id="new-string">new String创建了几个对象<a class="headerlink" href="#new-string" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>在Java中，使用 <code>new String()</code> 创建字符串对象时，会涉及到以下几个步骤：</p>
+<ol>
+<li>
+<p><strong>字符串常量池</strong>：如果字符串字面量（例如 <code>"example"</code>）已经在常量池中存在，则不会在常量池中创建新的对象。如果不存在，则会在常量池中创建一个新的字符串对象。</p>
+</li>
+<li>
+<p><strong>堆内存</strong>：使用 <code>new String()</code> 会在堆内存中创建一个新的字符串对象，即使字符串常量池中已经存在相同的字符串。</p>
+</li>
+</ol>
+<p>因此，使用 <code>new String("example")</code> 时，通常会创建 <strong>两个对象</strong>：
+- 一个在字符串常量池中（如果常量池中还没有该字符串）。
+- 一个在堆内存中。</p>
+<h3 id="_7">示例代码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;example&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 只在常量池中创建对象</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 在堆内存中创建对象，常量池中可能已存在</span>
+</code></pre></div>
+<h3 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>如果字符串常量池中不存在该字符串，<code>new String("example")</code> 会创建 <strong>两个对象</strong>（常量池和堆内存各一个）。</li>
+<li>如果字符串常量池中已存在该字符串，<code>new String("example")</code> 只会创建 <strong>一个对象</strong>（堆内存中）。</li>
+</ul>
+<p>注意：字符串常量池是JVM优化字符串存储的一种机制，目的是减少重复字符串的内存占用。</p>
+</details>
+<h2 id="stringfinal">String为什么要设计成final？<a class="headerlink" href="#stringfinal" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p><code>String</code> 类被设计为 <code>final</code> 的主要原因是为了确保 <strong>不可变性</strong>、<strong>安全性</strong> 和 <strong>性能优化</strong>。以下是详细的原因分析：</p>
+<hr />
+<h3 id="1">1. <strong>确保不可变性</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 的核心特性是不可变性，即一旦创建，其内容就不能被修改。将 <code>String</code> 类设计为 <code>final</code> 可以防止子类继承并重写其方法，从而破坏不可变性。</p>
+<h4 id="_9">示例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>如果 <code>String</code> 不是 <code>final</code>，可能会有人通过继承 <code>String</code> 并重写其方法来修改其内部状态：
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MutableString</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MutableString</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">original</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">original</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">original</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 修改内部状态</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">).</span><span class="na">toCharArray</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+如果允许这种行为，<code>String</code> 的不可变性就会被破坏，导致程序行为不可预测。</p>
+<hr />
+<h3 id="2">2. <strong>安全性</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 在 Java 中被广泛使用，尤其是在以下场景：
+- <strong>类加载机制</strong>：类名、方法名等都是 <code>String</code> 类型。
+- <strong>网络通信</strong>：URL、参数等通常是 <code>String</code> 类型。
+- <strong>文件路径</strong>：文件路径是 <code>String</code> 类型。</p>
+<p>如果 <code>String</code> 不是 <code>final</code>，恶意代码可以通过继承 <code>String</code> 并重写其方法来篡改这些关键数据，从而导致安全问题。</p>
+<h4 id="_10">示例<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>假设 <code>String</code> 不是 <code>final</code>，攻击者可以创建一个恶意子类：
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MaliciousString</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MaliciousString</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">original</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">original</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 篡改 equals 方法，破坏程序的逻辑</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+如果允许这种行为，程序的安全性将无法保证。</p>
+<hr />
+<h3 id="3">3. <strong>性能优化</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 的不可变性使得 JVM 可以进行多种性能优化：
+- <strong>字符串常量池</strong>：<code>String</code> 是不可变的，因此可以被缓存和重用。例如，字符串字面量会被放入字符串常量池，多个相同的字面量会共享同一个对象。
+- <strong>哈希值缓存</strong>：<code>String</code> 的 <code>hashCode()</code> 方法会缓存哈希值，因为 <code>String</code> 不可变，哈希值只需要计算一次。
+- <strong>线程安全</strong>：<code>String</code> 的不可变性天然支持线程安全，无需额外的同步开销。</p>
+<p>如果 <code>String</code> 不是 <code>final</code>，这些优化将无法实现，因为子类可能会修改 <code>String</code> 的状态。</p>
+<h4 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 输出 true，因为 s1 和 s2 指向常量池中的同一个对象</span>
+</code></pre></div>
+如果 <code>String</code> 不是 <code>final</code>，这种优化将无法保证。</p>
+<hr />
+<h3 id="4">4. <strong>设计一致性</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 是 Java 中最基础的类之一，它的行为必须保持一致性和可预测性。将 <code>String</code> 设计为 <code>final</code> 可以确保所有 <code>String</code> 对象都遵循相同的规则，避免因继承和多态导致的意外行为。</p>
+<hr />
+<h3 id="5">5. <strong>防止方法重写</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 类中有一些关键方法（如 <code>equals</code>、<code>hashCode</code>、<code>compareTo</code> 等），这些方法的行为必须严格遵循规范。如果 <code>String</code> 不是 <code>final</code>，子类可能会重写这些方法，导致程序行为异常。</p>
+<h4 id="_12">示例<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BadString</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 重写 equals 方法，破坏其契约</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+如果允许这种行为，<code>String</code> 的 <code>equals</code> 方法将失去其意义。</p>
+<hr />
+<h3 id="_13">总结<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><code>String</code> 类被设计为 <code>final</code> 的主要原因包括：
+1. <strong>确保不可变性</strong>：防止子类破坏 <code>String</code> 的不可变性。
+2. <strong>安全性</strong>：防止恶意代码通过继承 <code>String</code> 篡改关键数据。
+3. <strong>性能优化</strong>：支持字符串常量池、哈希值缓存等优化。
+4. <strong>设计一致性</strong>：确保 <code>String</code> 的行为一致且可预测。
+5. <strong>防止方法重写</strong>：避免子类重写关键方法导致程序行为异常。</p>
+<p>通过将 <code>String</code> 设计为 <code>final</code>，Java 确保了 <code>String</code> 的稳定性、安全性和高性能，使其成为 Java 中最重要和最常用的类之一。</p>
+</details>
+<h2 id="string-a-hello-string-b-new-stringhello">String a = "Hello", String b = new String("Hello") 使用 "==" 时，它们相等吗？为什么？什么原理？<a class="headerlink" href="#string-a-hello-string-b-new-stringhello" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>不相等，一个在常量池，一个在堆里。内存地址不一致。</p>
+</details>
+<h2 id="jvm">JVM常量池，堆，栈<a class="headerlink" href="#jvm" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>在Java中，内存管理主要由JVM（Java虚拟机）负责。JVM将内存划分为不同的区域，主要包括<strong>常量池</strong>、<strong>堆</strong>、<strong>栈</strong>等。这些内存区域各有不同的作用，下面详细解释它们的功能，并通过案例说明。</p>
+<h3 id="1-constant-pool">1. 常量池（Constant Pool）<a class="headerlink" href="#1-constant-pool" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>：
+- 常量池是JVM中的一块特殊内存区域，用于存储编译期生成的各种字面量和符号引用。
+- 字面量包括字符串、final常量、类和接口的全限定名、字段和方法的名称和描述符等。
+- 常量池是方法区的一部分，在Java 8之前，方法区是永久代（PermGen）的一部分，而在Java 8及之后，方法区被元空间（Metaspace）取代。</p>
+<p><strong>案例</strong>：
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</code></pre></div>
+- 在这个例子中，字符串<code>"Hello"</code>会被存储在常量池中。<code>str1</code>和<code>str2</code>都指向常量池中的同一个字符串对象，因此<code>str1 == str2</code>为<code>true</code>。</p>
+<h3 id="2-heap">2. 堆（Heap）<a class="headerlink" href="#2-heap" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>：
+- 堆是JVM中最大的一块内存区域，用于存储对象实例和数组。
+- 所有通过<code>new</code>关键字创建的对象都会分配在堆中。
+- 堆是线程共享的，因此需要考虑线程安全问题。
+- 堆内存分为新生代（Young Generation）和老年代（Old Generation），新生代又分为Eden区、Survivor区（From和To）。</p>
+<p><strong>案例</strong>：
+<div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+</code></pre></div>
+- 在这个例子中，<code>new Object()</code>会在堆中创建一个对象实例，<code>obj</code>变量存储的是该对象在堆中的引用。</p>
+<h3 id="3-stack">3. 栈（Stack）<a class="headerlink" href="#3-stack" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>：
+- 栈是线程私有的内存区域，每个线程都有自己的栈。
+- 栈用于存储局部变量、方法调用和部分结果。
+- 栈中的每个方法调用会创建一个栈帧（Stack Frame），栈帧中存储局部变量表、操作数栈、动态链接和方法返回地址等信息。
+- 栈的内存分配和回收是自动的，方法调用结束时，栈帧会自动弹出。</p>
+<p><strong>案例</strong>：
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+- 在这个例子中，<code>method</code>方法被调用时，JVM会为该方法创建一个栈帧，栈帧中存储局部变量<code>a</code>、<code>b</code>和<code>c</code>。方法执行完毕后，栈帧会被弹出，局部变量也随之销毁。</p>
+<h3 id="4-method-area">4. 方法区（Method Area）<a class="headerlink" href="#4-method-area" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>：
+- 方法区是线程共享的内存区域，用于存储类的元数据（如类信息、常量、静态变量、即时编译器编译后的代码等）。
+- 在Java 8之前，方法区是永久代（PermGen）的一部分，而在Java 8及之后，方法区被元空间（Metaspace）取代，元空间使用本地内存。</p>
+<p><strong>案例</strong>：
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">CONSTANT</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+- 在这个例子中，<code>CONSTANT</code>是一个静态常量，它会被存储在方法区中。<code>MyClass</code>类的元数据（如类名、方法信息等）也会存储在方法区。</p>
+<h3 id="5-native-method-stack">5. 本地方法栈（Native Method Stack）<a class="headerlink" href="#5-native-method-stack" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>：
+- 本地方法栈与栈类似，但它是为JVM调用本地方法（Native Method）服务的。
+- 本地方法栈存储的是本地方法的调用信息。</p>
+<p><strong>案例</strong>：
+- 当你调用一个用C/C++编写的本地方法时，JVM会使用本地方法栈来管理这些方法的调用。</p>
+<h3 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>常量池</strong>：存储编译期生成的字面量和符号引用。</li>
+<li><strong>堆</strong>：存储对象实例和数组，是线程共享的。</li>
+<li><strong>栈</strong>：存储局部变量和方法调用，是线程私有的。</li>
+<li><strong>方法区</strong>：存储类的元数据和静态变量，是线程共享的。</li>
+<li><strong>本地方法栈</strong>：用于支持本地方法的调用。</li>
+</ul>
+<p>这些内存区域共同协作，确保Java程序能够高效运行。理解它们的作用有助于更好地进行内存管理和性能优化。</p>
+</details>
+<h2 id="_15">常量池<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>https://blog.csdn.net/qq_41376740/article/details/80338158</p>
+</details>
+<h2 id="java_1">Java基础类型有哪些？<a class="headerlink" href="#java_1" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<div class="highlight"><pre><span></span><code><span class="n">Java有8种基本数据类型</span><span class="err">：</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">byte</span><span class="err">：</span><span class="mi">8</span><span class="n">位</span><span class="err">，</span><span class="o">-</span><span class="mi">128</span><span class="n">到127</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">short</span><span class="err">：</span><span class="mi">16</span><span class="n">位</span><span class="err">，</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">768</span><span class="n">到32</span><span class="p">,</span><span class="mi">767</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="err">：</span><span class="mi">32</span><span class="n">位</span><span class="err">，</span><span class="o">-</span><span class="mi">2</span><span class="o">^</span><span class="mi">31</span><span class="n">到2</span><span class="o">^</span><span class="mi">31</span><span class="o">-</span><span class="mi">1</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">long</span><span class="err">：</span><span class="mi">64</span><span class="n">位</span><span class="err">，</span><span class="o">-</span><span class="mi">2</span><span class="o">^</span><span class="mi">63</span><span class="n">到2</span><span class="o">^</span><span class="mi">63</span><span class="o">-</span><span class="mi">1</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">float</span><span class="err">：</span><span class="mi">32</span><span class="n">位</span><span class="err">，</span><span class="n">单精度浮点</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">double</span><span class="err">：</span><span class="mi">64</span><span class="n">位</span><span class="err">，</span><span class="n">双精度浮点</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">char</span><span class="err">：</span><span class="mi">16</span><span class="n">位</span><span class="err">，</span><span class="n">表示一个Unicode字符</span>
+<span class="o">-</span><span class="w"> </span><span class="kt">boolean</span><span class="err">：</span><span class="n">表示true</span><span class="o">/</span><span class="kc">false</span>
+
+<span class="n">基本类型的包装类分别是</span><span class="err">：</span><span class="n">Byte</span><span class="p">,</span><span class="w"> </span><span class="n">Short</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Float</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">Character和Boolean</span>
+</code></pre></div>
+</details>
+<h2 id="javaequals">Java中equals和 "==" 的区别？<a class="headerlink" href="#javaequals" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>来源链接 https://www.cnblogs.com/smyhvae/p/3929585.html</p>
+<p>【正文】
+平时在学Android和Java语言的时候，总是碰到“equals”和“==”这两个字符，老感觉差不多；其实还是有一些区别的，今天干脆把它们彻底弄清楚。</p>
+<p>一、java当中的数据类型和“==”的含义：
+- 基本数据类型（也称原始数据类型） ：byte,short,char,int,long,float,double,boolean。他们之间的比较，应用双等号（==）,比较的是他们的值。</p>
+<ul>
+<li>引用数据类型：当他们用（==）进行比较的时候，比较的是他们在内存中的存放地址（确切的说，是堆内存地址）。</li>
+</ul>
+<p>注：对于第二种类型，除非是同一个new出来的对象，他们的比较后的结果为true，否则比较后结果为false。因为每new一次，都会重新开辟堆内存空间。</p>
+<p>二、equals()方法介绍：</p>
+<p>JAVA当中所有的类都是继承于Object这个超类的，在Object类中定义了一个equals的方法，equals的源码是这样写的：
+public boolean equals(Object obj) {
+    //this - s1
+    //obj - s2
+    return (this == obj);
+}</p>
+<p>可以看到，这个方法的初始默认行为是比较对象的内存地址值，一般来说，意义不大。所以，在一些类库当中这个方法被重写了，如String、Integer、Date。在这些类当中equals有其自身的实现（一般都是用来比较对象的成员变量值是否相同），而不再是比较类在堆内存中的存放地址了。 </p>
+<p>所以说，对于复合数据类型之间进行equals比较，在没有覆写equals方法的情况下，他们之间的比较还是内存中的存放位置的地址值，跟双等号（==）的结果相同；如果被复写，按照复写的要求来。</p>
+<p>我们对上面的两段内容做个总结吧：</p>
+<p>== 的作用：</p>
+<p>基本类型：比较的就是值是否相同</p>
+<p>引用类型：比较的就是地址值是否相同</p>
+<p>equals 的作用:</p>
+<p>引用类型：默认情况下，比较的是地址值。</p>
+<p>注：不过，我们可以根据情况自己重写该方法。一般重写都是自动生成，比较对象的成员变量值是否相同</p>
+<p>关于String中的equals方法。</p>
+</details>
+<h2 id="java-equals-hashcode">Java中 == equals hashCode区别和关联<a class="headerlink" href="#java-equals-hashcode" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java中的数据类型可分为两类，基本数据类型和引用类型。基本数据类型：byte、short、char、int、long、float、double、boolean。他们之间的比较用双等号（==），比较的是值。引用类型：类、接口、数组。当他们用双等号（==）进行比较的时候，比较的是他们在内存中的存放地址。对象是放在堆中的，栈中存放的是对象的引用（地址）。由此可见，双等号是对栈中的值进行比较的。如果要比较堆中对象是否相同，那么就要重写equals方法了。</p>
+<p>默认情况下（没有覆盖equals方法）下的equals方法都是调用Object类的equals方法，而Object的equals方法主要是用于判断对象的内存地址引用是不是同一个地址（是不是同一个对象）。下面是Object类中的equals方法：</p>
+<p>public boolean equals(Object obj) {<br />
+    return (this == obj);<br />
+} 
+定义的equals方法与==是等效的。</p>
+<p>但是，要是类中覆盖了equals方法，那么就要根据具体代码来确定equals方法的作用了。<strong>覆盖后的一般都是通过对象的内容是否相等来判断对象是否相等。</strong>下面是String类对equals方法进行了重写：</p>
+<p>public boolean equals(Object anObject) {<br />
+    if (this == anObject) {<br />
+        return true;<br />
+    }<br />
+    if (anObject instanceof String) {<br />
+        String anotherString = (String)anObject;<br />
+        int n = count;<br />
+        if (n == anotherString.count) {<br />
+        char v1[] = value;<br />
+        char v2[] = anotherString.value;<br />
+        int i = offset;<br />
+        int j = anotherString.offset;<br />
+        while (n-- != 0) {<br />
+            if (v1[i++] != v2[j++])<br />
+            return false;<br />
+        }<br />
+        return true;<br />
+        }<br />
+    }<br />
+    return false;<br />
+}
+在 Object#equals 方法注释上，也给出了重写 equals 函数要遵守的规则：自反性、对称性、传递性和一致性，并且给出了具体示例。注释中还给出了，重写 equals 方法时也要重写 hashCode 方法，从而维持 hashCode 的语义，即如果对象相等，那么他们的哈希值必须相同。</p>
+<p>hashCode()方法返回的就是一个数值，从方法名上来看，其目的就是生成一个hash码，hash码的主要用途就是在对对象进行散列的时候作为key输入。</p>
+<p>参考自：http://blog.csdn.net/hla199106/article/details/46907725</p>
+</details>
+<h2 id="java_2">Java泛型的作用及使用场景<a class="headerlink" href="#java_2" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java泛型（Generics）是Java 5引入的一项重要特性，它允许在定义类、接口和方法时使用类型参数，从而使代码更加通用、类型安全，并减少类型转换的需求。泛型的主要作用是增强代码的可重用性和类型安全性。</p>
+<h3 id="_16">泛型的作用<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>类型安全</strong>：</li>
+<li>泛型在编译时进行类型检查，确保只有指定类型的对象可以被使用，从而避免运行时的<code>ClassCastException</code>。</li>
+<li>
+<p>例如，使用<code>List&lt;String&gt;</code>可以确保列表中只能存储<code>String</code>类型的对象。</p>
+</li>
+<li>
+<p><strong>代码复用</strong>：</p>
+</li>
+<li>泛型允许编写通用的代码，适用于多种类型，而不需要为每种类型编写重复的代码。</li>
+<li>
+<p>例如，可以编写一个通用的<code>Box&lt;T&gt;</code>类，用于存储任何类型的对象。</p>
+</li>
+<li>
+<p><strong>减少类型转换</strong>：</p>
+</li>
+<li>使用泛型后，编译器会自动插入类型转换代码，减少了手动类型转换的需求。</li>
+<li>
+<p>例如，从<code>List&lt;String&gt;</code>中获取元素时，不需要手动将<code>Object</code>转换为<code>String</code>。</p>
+</li>
+<li>
+<p><strong>增强代码可读性</strong>：</p>
+</li>
+<li>泛型使代码更加清晰，类型信息一目了然，提高了代码的可读性和可维护性。</li>
+</ol>
+<h3 id="_17">泛型的使用场景<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>集合类（Collections）</strong>：</li>
+<li>Java集合框架中的类（如<code>List</code>、<code>Set</code>、<code>Map</code>等）都使用了泛型。通过泛型，可以指定集合中存储的元素类型。</li>
+<li>
+<p>例如：
+    <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 不需要类型转换</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>自定义泛型类和接口</strong>：</p>
+</li>
+<li>可以定义自己的泛型类或接口，以适应不同的类型需求。</li>
+<li>
+<p>例如：
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setItem</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">getItem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Box</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stringBox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Box</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">stringBox</span><span class="p">.</span><span class="na">setItem</span><span class="p">(</span><span class="s">&quot;Generic Box&quot;</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringBox</span><span class="p">.</span><span class="na">getItem</span><span class="p">();</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>泛型方法</strong>：</p>
+</li>
+<li>可以在方法中使用泛型，使方法能够处理不同类型的参数。</li>
+<li>
+<p>例如：
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printArray</span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">intArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">strArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">};</span>
+<span class="n">printArray</span><span class="p">(</span><span class="n">intArray</span><span class="p">);</span>
+<span class="n">printArray</span><span class="p">(</span><span class="n">strArray</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>泛型与继承</strong>：</p>
+</li>
+<li>泛型可以与继承结合使用，创建更加灵活的类层次结构。</li>
+<li>
+<p>例如：
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Cage</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">animal</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAnimal</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">animal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">animal</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">getAnimal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">animal</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Cage</span><span class="o">&lt;</span><span class="n">Dog</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dogCage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cage</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">dogCage</span><span class="p">.</span><span class="na">setAnimal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">());</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>通配符（Wildcards）</strong>：</p>
+</li>
+<li>泛型通配符（<code>?</code>）用于表示未知类型，通常用于方法参数中，以增加灵活性。</li>
+<li>
+<p>例如：
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<span class="n">printList</span><span class="p">(</span><span class="n">intList</span><span class="p">);</span>
+<span class="n">printList</span><span class="p">(</span><span class="n">strList</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>边界通配符（Bounded Wildcards）</strong>：</p>
+</li>
+<li>通过<code>&lt;? extends T&gt;</code>和<code>&lt;? super T&gt;</code>可以限制通配符的范围，增加类型安全性。</li>
+<li>例如：
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processNumbers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Number</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Number</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">doubleList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.2</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">);</span>
+<span class="n">processNumbers</span><span class="p">(</span><span class="n">intList</span><span class="p">);</span>
+<span class="n">processNumbers</span><span class="p">(</span><span class="n">doubleList</span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+<h3 id="_18">总结<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>Java泛型通过类型参数化提高了代码的通用性和类型安全性，广泛应用于集合类、自定义类、方法等场景。泛型不仅减少了类型转换的需求，还增强了代码的可读性和可维护性。合理使用泛型可以显著提升Java程序的健壮性和灵活性。</p>
+</details>
+<h2 id="java_3">Java枚举的特点及使用场景<a class="headerlink" href="#java_3" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java 枚举（<code>enum</code>）是一种特殊的类，用于定义一组固定的常量。枚举类型在 Java 5 中引入，提供了更安全、更可读的方式来处理常量。以下是 Java 枚举的特点及使用场景：</p>
+<h3 id="_19">特点<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>类型安全</strong>：</li>
+<li>
+<p>枚举提供了一种类型安全的方式来定义常量。与使用整数或字符串常量相比，枚举可以避免传入无效的值。</p>
+</li>
+<li>
+<p><strong>固定的常量集合</strong>：</p>
+</li>
+<li>
+<p>枚举定义了一组固定的常量，这些常量在编译时就已经确定，不能在运行时修改。</p>
+</li>
+<li>
+<p><strong>可添加方法和字段</strong>：</p>
+</li>
+<li>
+<p>枚举可以像普通类一样拥有字段、方法和构造函数。这使得枚举不仅可以表示常量，还可以封装相关的行为。</p>
+</li>
+<li>
+<p><strong>实现接口</strong>：</p>
+</li>
+<li>
+<p>枚举可以实现接口，从而提供更多的灵活性和功能。</p>
+</li>
+<li>
+<p><strong>支持 switch 语句</strong>：</p>
+</li>
+<li>
+<p>枚举可以与 <code>switch</code> 语句一起使用，使代码更简洁和易读。</p>
+</li>
+<li>
+<p><strong>内置方法</strong>：</p>
+</li>
+<li>
+<p>枚举提供了内置方法，如 <code>values()</code> 和 <code>valueOf()</code>，用于遍历枚举常量或根据名称获取枚举常量。</p>
+</li>
+<li>
+<p><strong>单例模式</strong>：</p>
+</li>
+<li>枚举常量是单例的，每个枚举常量在 JVM 中只有一个实例。这使得枚举非常适合实现单例模式。</li>
+</ol>
+<h3 id="_20">使用场景<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>定义常量</strong>：</li>
+<li>当需要定义一组相关的常量时，枚举是一个理想的选择。例如，定义星期几、颜色、状态等。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MONDAY</span><span class="p">,</span><span class="w"> </span><span class="n">TUESDAY</span><span class="p">,</span><span class="w"> </span><span class="n">WEDNESDAY</span><span class="p">,</span><span class="w"> </span><span class="n">THURSDAY</span><span class="p">,</span><span class="w"> </span><span class="n">FRIDAY</span><span class="p">,</span><span class="w"> </span><span class="n">SATURDAY</span><span class="p">,</span><span class="w"> </span><span class="n">SUNDAY</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>状态机</strong>：</li>
+<li>枚举可以用于表示对象的状态，并且可以在枚举中定义状态转换的逻辑。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ON</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">OFF</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">OFF</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">ON</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>策略模式</strong>：</li>
+<li>枚举可以用于实现策略模式，每个枚举常量代表一种策略，并且可以封装相应的行为。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Operation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PLUS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">MINUS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>单例模式</strong>：</li>
+<li>枚举是实现单例模式的最佳方式之一，因为枚举常量是单例的，并且线程安全。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">INSTANCE</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 单例方法</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>命令模式</strong>：</li>
+<li>枚举可以用于实现命令模式，每个枚举常量代表一个命令，并且可以封装相应的操作。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">START</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Starting...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">STOP</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Stopping...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_21">示例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Planet</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MERCURY</span><span class="p">(</span><span class="mf">3.303e+23</span><span class="p">,</span><span class="w"> </span><span class="mf">2.4397e6</span><span class="p">),</span>
+<span class="w">    </span><span class="n">VENUS</span><span class="p">(</span><span class="mf">4.869e+24</span><span class="p">,</span><span class="w"> </span><span class="mf">6.0518e6</span><span class="p">),</span>
+<span class="w">    </span><span class="n">EARTH</span><span class="p">(</span><span class="mf">5.976e+24</span><span class="p">,</span><span class="w"> </span><span class="mf">6.37814e6</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span><span class="w">   </span><span class="c1">// in kilograms</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"> </span><span class="c1">// in meters</span>
+
+<span class="w">    </span><span class="n">Planet</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getMass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getRadius</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">surfaceGravity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.67300E-11</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">surfaceWeight</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">otherMass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">otherMass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">surfaceGravity</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在这个示例中，<code>Planet</code> 枚举定义了行星的质量和半径，并提供了计算表面重力的方法。</p>
+<h3 id="_22">总结<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>Java 枚举是一种强大的工具，适用于定义常量、状态机、策略模式、单例模式等多种场景。枚举的类型安全性和灵活性使其成为处理固定常量集合的理想选择。</p>
+</details>
+<h2 id="_23">枚举的多种使用案例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<h3 id="1_1">1. <strong>定义常量（星期几）</strong><a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="_24">枚举定义：<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MONDAY</span><span class="p">,</span><span class="w"> </span><span class="n">TUESDAY</span><span class="p">,</span><span class="w"> </span><span class="n">WEDNESDAY</span><span class="p">,</span><span class="w"> </span><span class="n">THURSDAY</span><span class="p">,</span><span class="w"> </span><span class="n">FRIDAY</span><span class="p">,</span><span class="w"> </span><span class="n">SATURDAY</span><span class="p">,</span><span class="w"> </span><span class="n">SUNDAY</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_25">使用方式：<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Day</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Day</span><span class="p">.</span><span class="na">WEDNESDAY</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// 使用 switch 语句</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">today</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">MONDAY</span><span class="p">:</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;今天是星期一，努力工作！&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEDNESDAY</span><span class="p">:</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;今天是星期三，加油！&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">FRIDAY</span><span class="p">:</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;今天是星期五，周末快到了！&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">default</span><span class="p">:</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;今天是&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;，继续努力！&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 遍历所有枚举值</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;一周的每一天：&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Day</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Day</span><span class="p">.</span><span class="na">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">day</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="2_1">2. <strong>状态机（开关状态）</strong><a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="_26">枚举定义：<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ON</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">OFF</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">OFF</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">ON</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="nf">next</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_27">使用方式：<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">State</span><span class="w"> </span><span class="n">currentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">State</span><span class="p">.</span><span class="na">OFF</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;当前状态: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentState</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 切换到下一个状态</span>
+<span class="w">        </span><span class="n">currentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentState</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;切换后状态: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentState</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 再次切换</span>
+<span class="w">        </span><span class="n">currentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentState</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;切换后状态: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">currentState</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="3_1">3. <strong>策略模式（加减操作）</strong><a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h4 id="_28">枚举定义：<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Operation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PLUS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">MINUS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_29">使用方式：<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// 使用加法</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Operation</span><span class="p">.</span><span class="na">PLUS</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;加法结果: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 使用减法</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Operation</span><span class="p">.</span><span class="na">MINUS</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;减法结果: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="4_1">4. <strong>单例模式</strong><a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<h4 id="_30">枚举定义：<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">INSTANCE</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;单例模式正在执行操作...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_31">使用方式：<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 获取单例实例</span>
+<span class="w">        </span><span class="n">Singleton</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Singleton</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// 调用方法</span>
+<span class="w">        </span><span class="n">instance</span><span class="p">.</span><span class="na">doSomething</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="5_1">5. <strong>命令模式（启动和停止命令）</strong><a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<h4 id="_32">枚举定义：<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">START</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;系统正在启动...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">STOP</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;系统正在停止...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_33">使用方式：<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 执行启动命令</span>
+<span class="w">        </span><span class="n">Command</span><span class="w"> </span><span class="n">startCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span><span class="p">.</span><span class="na">START</span><span class="p">;</span>
+<span class="w">        </span><span class="n">startCommand</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 执行停止命令</span>
+<span class="w">        </span><span class="n">Command</span><span class="w"> </span><span class="n">stopCommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span><span class="p">.</span><span class="na">STOP</span><span class="p">;</span>
+<span class="w">        </span><span class="n">stopCommand</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="6">6. <strong>行星计算（质量和半径）</strong><a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h4 id="_34">枚举定义：<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Planet</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MERCURY</span><span class="p">(</span><span class="mf">3.303e+23</span><span class="p">,</span><span class="w"> </span><span class="mf">2.4397e6</span><span class="p">),</span>
+<span class="w">    </span><span class="n">VENUS</span><span class="p">(</span><span class="mf">4.869e+24</span><span class="p">,</span><span class="w"> </span><span class="mf">6.0518e6</span><span class="p">),</span>
+<span class="w">    </span><span class="n">EARTH</span><span class="p">(</span><span class="mf">5.976e+24</span><span class="p">,</span><span class="w"> </span><span class="mf">6.37814e6</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span><span class="w">   </span><span class="c1">// 质量（千克）</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"> </span><span class="c1">// 半径（米）</span>
+
+<span class="w">    </span><span class="n">Planet</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getMass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getRadius</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">surfaceGravity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.67300E-11</span><span class="p">;</span><span class="w"> </span><span class="c1">// 万有引力常数</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">surfaceWeight</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">otherMass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">otherMass</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">surfaceGravity</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_35">使用方式：<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">earthWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">70</span><span class="p">;</span><span class="w"> </span><span class="c1">// 假设一个人在地球上的重量是 70 kg</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">earthWeight</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Planet</span><span class="p">.</span><span class="na">EARTH</span><span class="p">.</span><span class="na">surfaceGravity</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 计算在不同行星上的重量</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;在地球上的重量: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">earthWeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; kg&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;在火星上的重量: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Planet</span><span class="p">.</span><span class="na">MERCURY</span><span class="p">.</span><span class="na">surfaceWeight</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; kg&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;在金星上的重量: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Planet</span><span class="p">.</span><span class="na">VENUS</span><span class="p">.</span><span class="na">surfaceWeight</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; kg&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="_36">总结<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p>通过这些示例，你可以看到枚举在实际开发中的灵活性和强大功能。无论是定义常量、实现状态机、策略模式，还是单例模式，枚举都能提供简洁、安全且易于维护的解决方案。希望这些示例能帮助你更好地理解和使用 Java 枚举！</p>
+</details>
+<h2 id="_37">静态属性和静态方法是否可以被继承？是否可以被重写？以及原因。<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>静态属性和静态方法可以被继承，但是没有被重写而是被隐藏。</p>
+<p>静态方法和属性是属于类的，调用的时候直接通过 类名.方法名 完成，不需要继承机制就可以调用。如果子类里面定义了静态方法和属性，那么这时候父类的静态方法或属性称之为“隐藏”。至于是否继承一说，子类是有继承静态方法和属性，但是跟实例方法和属性不太一样，存在隐藏这种情况。</p>
+<p>多态之所以能够实现依赖于继承、接口和重写、重载（继承和重写最为关键）。有了继承和重写就可以实现父类的引用指向不同子类的对象。 重写的功能是：重写后子类的优先级高于父类的优先级，但是隐藏是没有这个优先级之分的。</p>
+<p>静态属性、静态方法和非静态的属性都可以被继承和隐藏而不能被重写，因此不能实现多态，不能实现父类的引用可以指向不同子类的对象。</p>
+<p>非静态方法可以被继承和重写，因此可以实现多态。</p>
+</details>
+<h2 id="_38">静态内部类的设计意图<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>只是为了降低包的深度，方便类的使用，静态内部类适用于包含类当中，但又不依赖于外在的类，不用使用外在类的非静态属性和方法，只是为了方便管理类结构而定义。在创建静态内部类的时候，不需要外部类对象的引用。</p>
+<p>非静态内部类有一个很大的优点：可以自由使用外部类中的变量和方法。</p>
+<p>static class Outer {
+    class Inner {}
+    static class StaticInner {}
+}</p>
+<p>Outer outer = new Outer();
+Outer.Inner inner = outer.new Inner();
+Outer.StaticInner inner0 = new Outer.StaticInner();
+参考自：https://www.zhihu.com/question/28197253</p>
+</details>
+<h2 id="_39">成员内部类、静态内部类、方法内部类（局部内部类）和匿名内部类的理解，以及项目中的应用<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>成员内部类：</p>
+<div class="highlight"><pre><span></span><code>最普通的内部类，它的定义位于一个类的内部，这样看起来，成员内部类相当于外部类的一个成员，成员内部类可以无条件访问外部类的所有成员属性和成员方法（包括private成员和静态成员）。不过需要注意的是，当成员内部类拥有和外部类同名的成员变量或者方法时，会发生隐藏现象，即默认情况下访问的是成员内部类的成员。如果要访问外部类的同名成员，形式如下：
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">外部类</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">成员变量</span>
+<span class="n">外部类</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">成员方法</span>
+</code></pre></div>
+<p>虽然成员内部类可以无条件的访问外部类的成员，而外部类想访问成员内部类的成员却不是那么随心所欲了。成员内部类是依附外部类而存在的，也就是说，如果要创建成员内部类的对象，前提必须存在一个外部类对象。创建成员内部类对象的一般方式如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w">  </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//第一种方式：</span>
+<span class="w">        </span><span class="n">Outter</span><span class="w"> </span><span class="n">outter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outter</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Outter</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outter</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="nf">Inner</span><span class="p">();</span><span class="w">  </span><span class="c1">//必须通过Outter对象来创建</span>
+
+<span class="w">        </span><span class="c1">//第二种方式：</span>
+<span class="w">        </span><span class="n">Outter</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outter</span><span class="p">.</span><span class="na">getInnerInstance</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Outter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Inner</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Outter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Inner</span><span class="w"> </span><span class="nf">getInnerInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">inner</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">            </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Inner</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">inner</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">class</span> <span class="nc">Inner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Inner</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>内部类可以拥有private、protected、public以及包访问权限。如果成员内部类用private修饰，则只能在外部类的内部访问，如果用public修饰，则任何地方都能访问，如果用protected修饰，则只能在同一个包下或者继承外部类的情况下访问，如果是默认访问权限，则只能是同一个包下访问。这一点和外部类有一点不一样，外部类只能被public和包访问两种权限修饰。由于成员内部类看起来像外部类的一个成员，所以可以像类的成员一样拥有多种修饰权限。</p>
+<p>静态内部类：</p>
+<div class="highlight"><pre><span></span><code>静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。静态内部类是不需要依赖外部类的，这点和类的静态成员属性有点相似，并且它不能使用外部类的非static成员变量或者方法。这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非static成员就会产生矛盾，因为外部类的非static成员必须依赖于具体的对象。
+</code></pre></div>
+<p>局部内部类：</p>
+<div class="highlight"><pre><span></span><code>局部内部类是定义在一个方法或者一个作用域里面的的类，它和成员内部类的区别在于局部内部类的访问权限仅限于方法内或者该作用域内。注意，局部内部类就像是方法里面的一个局部变量一样，是不能有public、protected、private以及static修饰符的。
+</code></pre></div>
+<p>匿名内部类：</p>
+<div class="highlight"><pre><span></span><code>匿名内部类不能有访问修饰符和static修饰符的，一般用于编写监听代码。匿名内部类是唯一一个没有构造器的类。正因为没有构造器，所以匿名内部类的适用范围非常有限，大部分匿名内部类用于接口回调。一般来说，匿名内部类用于继承其他类或者实现接口，并不需要增加额外的方法，只是对继承方法的实现或者是重写。
+</code></pre></div>
+<p>应用场景：</p>
+<ol>
+<li>
+<p>最重要的一点，每个内部类都能独立的继承一个接口的实现，无论外部类是否已经继承了某个接口的实现，对于内部类都没有影响。内部类使得多继承的解决方案变得完整。</p>
+<ol>
+<li>方便将存在一定逻辑关系的类组织在一起，又可以对外界隐蔽。</li>
+<li>方便编写事件驱动程序</li>
+<li>方便编写线程代码</li>
+</ol>
+</li>
+</ol>
+<p>总结：</p>
+<div class="highlight"><pre><span></span><code>对于成员内部类，必须先产生外部类的实例化对象，才能产生内部类的实例化对象。而非静态内部类不用产生外部类的实例化对象即可产生内部类的实例化对象。
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">创建静态内部类对象的一般形式</span><span class="err">：</span>
+<span class="n">外部类类名</span><span class="p">.</span><span class="na">内部类类名</span><span class="w"> </span><span class="n">xxx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">外部类类名</span><span class="p">.</span><span class="na">内部类类名</span><span class="p">()</span>
+<span class="n">创建成员内部类对象的一般形式</span><span class="err">：</span>
+<span class="n">外部类类名</span><span class="p">.</span><span class="na">内部类类名</span><span class="w"> </span><span class="n">xxx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">外部类对象名</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="nf">内部类类名</span><span class="p">()</span>
+</code></pre></div>
+<p>参考自：<a href="http://www.cnblogs.com/latter/p/5665015.html">http://www.cnblogs.com/latter/p/5665015.html</a></p>
+</details>
+<h2 id="_40">对象拷贝理解？深拷贝、浅拷贝的区别？<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>首先要先明白为什么需要使用克隆呢？</p>
+<p>克隆的对象可能包含一些已经修改过的属性，而 new 出来的对象的属性都还是初始化时候的值，所以当需要一个新的对象来保存当前对象的 "状态" 就需要克隆了。</p>
+<p>那如何实现对象克隆呢？有两种办法：</p>
+<p>实现 Cloneable 接口并重写 Object 类中的 clone() 方法
+实现 Serialiable 接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆
+深拷贝和浅拷贝的区别是什么？</p>
+<p>浅拷贝</p>
+<p>当对象被复制的时候只复制它本身和其中包含的值类型的成员变量，而引用类型的成员变量并没有复制。</p>
+<p>深拷贝</p>
+<p>除了对象本身被复制外，对象所包含的所有成员变量也将被复制。</p>
+<p>Java 默认的是浅拷贝，如果想实现深拷贝，就需要对象所包含的引用类型的成员变量也需要实现 Cloneable 接口，或者实现 Serialiable 接口。</p>
+</details>
+<h2 id="java_4">Java的异常体系<a class="headerlink" href="#java_4" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>异常简介：异常是阻止当前方法继续执行的问题，如：文件找不到、网络连接失败、非法参数等等。发现异常的理想时期是编译阶段，然而编译阶段不能找出所有的异常，余下的问题必须在运行期间。</p>
+<p>Java中的异常分为可查异常和不可查异常。</p>
+<p>可查异常：</p>
+<p>即编译时异常，只编译器在编译时可以发现的错误，程序在运行时很容易出现的异常状况，这些异常可以预计，所以在编译阶段就必须手动进行捕捉处理，即要用try-catch语句捕获它，要么用throws子句声明抛出，否者编译无法通过，如：IOException、SQLException以及用户自定义Exception异常。
+不可查异常：</p>
+<p>不可查异常包括<strong>运行时异常</strong>和<strong>错误</strong>，他们都是在程序运行时出现的。异常和错误的区别：异常能被程序本身处理，错误是无法处理的。<strong>运行时异常指的是</strong>程序在运行时才会出现的错误，由程序员自己分析代码决定是否用try...catch进行捕获处理。如空指针异常、类转换异常、数组下标越界异常等等。<strong>错误是指</strong>程序无法处理的错误，表示运行应用程序中较严重的问题，如系统崩溃、虚拟机错误、动态连接失败等等。大多数错误与代码编写者执行的操作无关，而表示代码运行时JVM出现的问题。
+Java异常类层次结构图：</p>
+<p><img alt="" src="../../images/error_img.png" /></p>
+<p>从上图可以看出Java通过API中Throwable类的众多子类描述各种不同的异常。因而，Java异常都是对象，是Throwable子类的实例。</p>
+<p>异常处理机制：</p>
+<p>当异常发生时，将使用new在堆上创建一个异常对象，对于这个异常对象，有两种处理方式：</p>
+<p>使用throw关键字将异常对象抛出，则当前执行路径被终止，异常处理机制将在其他地方寻找catch快对异常进行处理
+使用try...catch在当前逻辑中进行捕获处理
+throws 和 throw：</p>
+<p>throws：一个方法在声明时可以使用throws关键字声明可能会产生的若干异常</p>
+<p>throw：抛出异常，并退出当前方法或作用域</p>
+<p>使用 finally 清理：</p>
+<p>在 Java 中的 finally 的存在并不是为了释放内存资源，因为 Java 有垃圾回收机制，因此需要 Java 释放的资源主要是：已经打开的文件或者网络连接等。</p>
+<p>在 try 中无论有没有捕获异常，finally 都会被执行。</p>
+<p>参考自：https://www.jianshu.com/p/ffca876ce719</p>
+</details>
+<h2 id="_41">类加载流程双亲委托机制<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<h3 id="_42">类加载流程<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<p>装载
+链接
+验证
+准备
+解析
+初始化
+双亲委托机制</p>
+<p>某个特定的类加载器在接到加载类的请求时，首先将加载任务委托给父类加载器，依次递归，如果父类加载器可以完成类加载任务，就成功返回；只有父类加载器无法完成此加载任务时，才会自己去加载。</p>
+<p>使用双亲委托模型的好处在于Java类随着它的类加载器一起具备类一种带有优先级的层次关系。例如类java.lang.Object，它存在rt.jar中，无论哪一个类加载器要加载这个类，最终都会委托处于模型最顶端的Bootstrap ClassLoader进行加载，因此Object类在程序的各类加载器环境中都是同一个类。相反，如果没有双亲委派模型，而是由各个类加载器自行加载的话，如果用户编写了一个java.lang.Object的同名类并放在ClassPath中，那么系统中将会出现多个不同的Object类，程序将变得混乱。因此，如果开发者尝试编写一个与rt.jar类库中重名的Java类，可以正常编译，但是永远无法被加载运行。</p>
+<p>当前ClassLoader首先从自己已经加载的类中查询是否此类已经记载，如果已经加载则可以直接返回已经加载的类。</p>
+<p>每个类加载器都有自己的加载缓存，当一个类被加载了以后就会放入缓存，等下次加载的时候就可以直接返回了。</p>
+<p>当前ClassLoader的缓存中没有找到被加载的类的时候，会委托父类加载器去加载，父类加载器采用同样的策略，首先查看自己的缓存，然后委托父类的父类去加载，一直到BootStrap ClassLoader。</p>
+<p>当所有的父类加载器都没有加载的时候，再有当前的类加载器加载，并将其放入它自己的缓存中，以便下次加载请求时直接返回。</p>
+<p>为什么需要这样的委托机制呢？理解这个问题，我们要引入另外一个关于ClassLoader的概念“命名空间”，它是指要确定某一个类，需要类的全限定名以及加载此类的ClassLoader来共同确定。也就是说，即使两个类的全限定名相同，但是因为不同的ClassLoader加载了此类，那么在JVM中它是不同的类。明白了命名空间以后，我们再来看看委托模型。采用了委托模型以后加大了不同的ClassLoader的交互能力，比如上面说的，我们JDK本身提供的类库，比如HashMap、LinkedList等等，这些类由bootstrap类加载器加载以后，无论你程序中有多少个类加载器，那么这些类其实都是可以共享的，这样就避免了不同的类加载器加载了同样名字的不同类以后造成混乱。</p>
+</details>
+<h2 id="_43">为什么需要类加载流程双亲委托机制？它解决了什么问题？<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Java 的类加载流程采用双亲委托机制，主要是为了解决以下问题：</p>
+<h3 id="1_2">1. <strong>避免重复加载</strong><a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>：如果一个类被多个类加载器加载，可能会导致同一个类在内存中存在多个版本，引发冲突。</li>
+<li><strong>解决</strong>：双亲委托机制确保类加载请求先交给父类加载器处理，父类加载器已加载的类，子类加载器不会重复加载，从而避免类的重复加载。</li>
+</ul>
+<h3 id="2_2">2. <strong>保证核心类库的安全性</strong><a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>：用户自定义的类加载器可能加载恶意代码，替换核心类库（如 <code>java.lang.String</code>），破坏系统安全。</li>
+<li><strong>解决</strong>：双亲委托机制优先由启动类加载器加载核心类库，防止用户自定义类替换核心类，确保核心类库的安全性。</li>
+</ul>
+<h3 id="3_2">3. <strong>确保类的唯一性</strong><a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>：不同类加载器加载同一个类，可能导致类的行为不一致。</li>
+<li><strong>解决</strong>：双亲委托机制确保类由同一个加载器加载，保证类的唯一性，避免因不同加载器导致的类行为差异。</li>
+</ul>
+<h3 id="4_2">4. <strong>简化类加载器的实现</strong><a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>：类加载器需要处理复杂的类加载逻辑，实现难度大。</li>
+<li><strong>解决</strong>：双亲委托机制将类加载请求逐级委托，简化了类加载器的实现，只需关注特定路径的类加载。</li>
+</ul>
+<h3 id="_44">双亲委托机制的工作流程<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>检查类是否已加载</strong>：类加载器先检查类是否已被加载。</li>
+<li><strong>委托父类加载器</strong>：若未加载，将请求委托给父类加载器。</li>
+<li><strong>父类加载器处理</strong>：父类加载器重复此过程，直到启动类加载器。</li>
+<li><strong>自行加载</strong>：若父类加载器无法加载，子类加载器才尝试加载。</li>
+</ol>
+<h3 id="_45">示例<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ClassLoader</span><span class="w"> </span><span class="n">classLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Main</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">classLoader</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">classLoader</span><span class="p">);</span>
+<span class="w">            </span><span class="n">classLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">classLoader</span><span class="p">.</span><span class="na">getParent</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+输出可能为：
+<div class="highlight"><pre><span></span><code>sun.misc.Launcher$AppClassLoader@18b4aac2
+sun.misc.Launcher$ExtClassLoader@6d06d69c
+</code></pre></div>
+显示类加载器的层次结构。</p>
+<h3 id="_46">总结<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<p>双亲委托机制通过避免重复加载、确保核心类库安全、保证类的唯一性和简化类加载器实现，解决了类加载过程中的多个问题。</p>
+</details>
+<h2 id="_47">双亲委派模型<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>类加载器大致分为3类：启动类加载器、扩展类加载器、应用程序类加载器。</p>
+<p>启动类加载器主要加载 jre/lib下的jar文件。</p>
+<p>扩展类加载器主要加载 jre/lib/ext 下的jar文件。</p>
+<p>应用程序类加载器主要加载 classpath 下的文件。</p>
+<p>所谓的双亲委派模型就是当加载一个类时，会优先使用父类加载器加载，当父类加载器无法加载时才会使用子类加载器去加载。这么做的目的是为了避免类的重复加载。</p>
+</details>
+<h2 id="_48"><a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
