@@ -45,10 +45,26 @@ nav:
   # - 首页: index.md
   - Java:
     - Java基础: 010Java/010Basic.md
+    - Java多线程: 010Java/040MultiThreading.md
+    - Java数据结构: 010Java/020DataStructure.md
+    - Java算法: 010Java/030Algorithm.md
+    - Java设计模式: 010Java/050Pattern.md
+
   - Kotlin:
     - Kotlin基础: 020Kotlin/010Basic.md
     - Kotlin协程: 020Kotlin/020Coroutines.md
+
   - Android:
     - Android基础: 030Android/010Basic.md
+    - Android系统源码解析: 030Android/020SystemSourceCode.md
+    - Android三方源码解析: 030Android/030ThirdSDKSourceCode.md
+
   - Jetpack:
     - Jetpack: 040Jetpack/010Basic.md
+    - Compose: 040Jetpack/020Compose.md
+    
+  - KMP:
+    - Kotlin Multi Platform: 041KMP/010Basic.md
+
+  - System Design:
+    - 系统设计: 050SystemDesign/010Basic.md
