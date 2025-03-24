@@ -757,7 +757,119 @@
 
 ## Gson源码解析
 ??? answer "答案"
+    Gson 是 Google 提供的一个用于在 Java 对象和 JSON 数据之间进行序列化和反序列化的开源库。它广泛用于 Android 开发中，用于处理 JSON 数据。下面是对 Gson 源码的简要解析，帮助你理解其核心实现原理。
 
+    ### 1. Gson 的核心类
+    Gson 的核心类是 `com.google.gson.Gson`，它提供了主要的 API 用于序列化和反序列化。
+
+    #### 1.1 Gson 类的主要方法
+    - `toJson(Object src)`: 将 Java 对象转换为 JSON 字符串。
+    - `fromJson(String json, Class<T> classOfT)`: 将 JSON 字符串转换为 Java 对象。
+    - `toJson(Object src, Appendable writer)`: 将 Java 对象转换为 JSON 并写入到 `Appendable`（如 `StringWriter`）。
+    - `fromJson(Reader json, Class<T> classOfT)`: 从 `Reader` 中读取 JSON 数据并转换为 Java 对象。
+
+    ### 2. Gson 的核心组件
+    Gson 的实现依赖于几个核心组件：
+
+    #### 2.1 `JsonElement` 及其子类
+    `JsonElement` 是 Gson 中表示 JSON 元素的基类，它有以下几个子类：
+    - `JsonObject`: 表示 JSON 对象，类似于 Java 中的 `Map<String, JsonElement>`。
+    - `JsonArray`: 表示 JSON 数组，类似于 Java 中的 `List<JsonElement>`。
+    - `JsonPrimitive`: 表示 JSON 的基本类型（如字符串、数字、布尔值）。
+    - `JsonNull`: 表示 JSON 的 `null` 值。
+
+    #### 2.2 `TypeAdapter`
+    `TypeAdapter` 是 Gson 中用于处理特定类型序列化和反序列化的核心类。它有两个主要方法：
+    - `write(JsonWriter out, T value)`: 将 Java 对象写入 JSON。
+    - `read(JsonReader in)`: 从 JSON 中读取并转换为 Java 对象。
+
+    Gson 为大多数常见类型（如 `String`、`Integer`、`Boolean` 等）提供了内置的 `TypeAdapter`。
+
+    #### 2.3 `JsonReader` 和 `JsonWriter`
+    - `JsonReader`: 用于从 JSON 数据流中读取数据。
+    - `JsonWriter`: 用于将数据写入 JSON 数据流。
+
+    这两个类负责处理 JSON 数据的解析和生成。
+
+    ### 3. Gson 的序列化过程
+    当你调用 `Gson.toJson(Object src)` 时，Gson 会执行以下步骤：
+    1. **查找合适的 `TypeAdapter`**: Gson 会根据对象的类型查找对应的 `TypeAdapter`。如果找不到，它会尝试创建一个新的 `TypeAdapter`。
+    2. **使用 `JsonWriter` 写入 JSON**: `TypeAdapter` 会使用 `JsonWriter` 将 Java 对象转换为 JSON 字符串。
+
+    ### 4. Gson 的反序列化过程
+    当你调用 `Gson.fromJson(String json, Class<T> classOfT)` 时，Gson 会执行以下步骤：
+    1. **查找合适的 `TypeAdapter`**: Gson 会根据目标类型查找对应的 `TypeAdapter`。如果找不到，它会尝试创建一个新的 `TypeAdapter`。
+    2. **使用 `JsonReader` 读取 JSON**: `TypeAdapter` 会使用 `JsonReader` 从 JSON 字符串中读取数据并转换为 Java 对象。
+
+    ### 5. 自定义序列化和反序列化
+    Gson 允许你通过 `TypeAdapter` 或 `JsonSerializer`/`JsonDeserializer` 自定义序列化和反序列化过程。
+
+    #### 5.1 使用 `TypeAdapter`
+    你可以通过继承 `TypeAdapter` 并重写 `write` 和 `read` 方法来实现自定义的序列化和反序列化逻辑。
+
+    ```java
+    public class CustomTypeAdapter extends TypeAdapter<MyClass> {
+        @Override
+        public void write(JsonWriter out, MyClass value) throws IOException {
+            // 自定义序列化逻辑
+        }
+
+        @Override
+        public MyClass read(JsonReader in) throws IOException {
+            // 自定义反序列化逻辑
+        }
+    }
+    ```
+
+    然后通过 `GsonBuilder` 注册这个 `TypeAdapter`：
+
+    ```java
+    Gson gson = new GsonBuilder()
+        .registerTypeAdapter(MyClass.class, new CustomTypeAdapter())
+        .create();
+    ```
+
+    #### 5.2 使用 `JsonSerializer` 和 `JsonDeserializer`
+    你也可以通过实现 `JsonSerializer` 和 `JsonDeserializer` 接口来自定义序列化和反序列化逻辑。
+
+    ```java
+    public class CustomSerializer implements JsonSerializer<MyClass> {
+        @Override
+        public JsonElement serialize(MyClass src, Type typeOfSrc, JsonSerializationContext context) {
+            // 自定义序列化逻辑
+        }
+    }
+
+    public class CustomDeserializer implements JsonDeserializer<MyClass> {
+        @Override
+        public MyClass deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            // 自定义反序列化逻辑
+        }
+    }
+    ```
+
+    然后通过 `GsonBuilder` 注册这些序列化和反序列化器：
+
+    ```java
+    Gson gson = new GsonBuilder()
+        .registerTypeAdapter(MyClass.class, new CustomSerializer())
+        .registerTypeAdapter(MyClass.class, new CustomDeserializer())
+        .create();
+    ```
+
+    ### 6. Gson 的缓存机制
+    Gson 内部使用了缓存机制来提高性能。例如，`TypeAdapter` 会被缓存以避免重复创建。此外，Gson 还会缓存反射操作的结果，以减少反射调用的开销。
+
+    ### 7. Gson 的线程安全性
+    Gson 是线程安全的，你可以在多线程环境中共享同一个 `Gson` 实例。这是因为 Gson 内部的状态是不可变的，且所有的操作都是无状态的。
+
+    ### 8. Gson 的扩展性
+    Gson 提供了多种扩展点，允许你通过自定义 `TypeAdapter`、`JsonSerializer`、`JsonDeserializer` 等来扩展其功能。此外，你还可以通过 `GsonBuilder` 配置 Gson 的行为，例如设置日期格式、是否格式化输出等。
+
+    ### 9. 总结
+    Gson 是一个功能强大且灵活的 JSON 处理库，它的核心在于 `TypeAdapter`、`JsonReader` 和 `JsonWriter`。通过理解这些核心组件的工作原理，你可以更好地使用 Gson，并在需要时进行自定义扩展。
+
+    希望这个解析对你理解 Gson 的源码有所帮助！如果你有更多问题，欢迎继续提问。
 
 
 ## 源码角度分析LeakCanary实现原理

@@ -3,6 +3,9 @@
 
 ## Android Activity的启动过程
 ??? answer "答案"
+    一些网络资料
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-Activity%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B.md
+
     这个我强烈建议每个Android开发人员都要清楚的知道，并且跟一下源码，几个核心类的作用。你会对Android有一个更好的认识。
     
     Android Activity的启动过程涉及多个步骤和组件之间的交互，主要包括以下几个阶段：
@@ -1291,6 +1294,9 @@
 
 ## Android Binder机制
 ??? answer "答案"
+
+    https://gityuan.com/2015/10/31/binder-prepare/
+
     Android Binder机制是Android系统中用于进程间通信（IPC）的核心机制。它允许不同进程之间进行高效、安全的通信，是Android框架的重要组成部分。以下是对Binder机制的详细解析：
 
     ### 1. **Binder机制概述**
@@ -1631,13 +1637,28 @@
     DexClassLoader，可以加载 jar/apk/dex，可以从 SD卡中加载未安装的 apk
 
 
-## 
+## Andriod 系统启动过程
 ??? answer "答案"
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B.md
 
 
-## 
+
+## Android - SurfaceFlinger 图形系统
 ??? answer "答案"
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-SurfaceFlinger%E5%9B%BE%E5%BD%A2%E7%B3%BB%E7%BB%9F.md
 
 
-## 
+## Android - Service 启动过程
 ??? answer "答案"
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-Service%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B.md
+
+
+
+## Android - PackageMangerService 分析
+??? answer "答案"
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-PackageManagerService%E5%88%86%E6%9E%90.md
+
+
+## Android - PowerManagerService 启动
+??? answer "答案"
+    https://github.com/jeanboydev/Android-ReadTheFuckingSourceCode/blob/master/article/android/framework/Android-PowerManagerService-%E5%90%AF%E5%8A%A8.md

@@ -1,0 +1,4086 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../020SystemSourceCode/">
+      
+      
+        <link rel="next" href="../../040Jetpack/010Basic/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Android三方源码解析 - 面试知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#okhttp" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="面试知识库" class="md-header__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            面试知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Android三方源码解析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../010Java/010Basic/" class="md-tabs__link">
+          
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../020Kotlin/010Basic/" class="md-tabs__link">
+          
+  
+  Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../010Basic/" class="md-tabs__link">
+          
+  
+  Android
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../040Jetpack/010Basic/" class="md-tabs__link">
+          
+  
+  Jetpack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../041KMP/010Basic/" class="md-tabs__link">
+          
+  
+  KMP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../050SystemDesign/010Basic/" class="md-tabs__link">
+          
+  
+  System Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="面试知识库" class="md-nav__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    面试知识库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/040MultiThreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java多线程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/020DataStructure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java数据结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/030Algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/050Pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java设计模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kotlin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/020Coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin协程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Android
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020SystemSourceCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android系统源码解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Android三方源码解析
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Android三方源码解析
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#okhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      OkHttp源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OkHttp源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心类与组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 请求执行流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 拦截器链
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 连接管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 缓存机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 异步请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-http2" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. HTTP/2 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. WebSocket 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 源码结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 设计模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 核心组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Retrofit 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-servicemethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 ServiceMethod 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-calladapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 CallAdapter 接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Converter 接口
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键设计模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofitokhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit和Okhttp的关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit和Okhttp的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 关系概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 关联点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 关联点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 依赖关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Call 对象
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 请求执行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 具体关联
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 具体关联">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-callfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Call.Factory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-okhttpcall" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 OkHttpCall
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit的动态代理到底做了什么？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit的动态代理到底做了什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 动态代理的核心逻辑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 动态代理后的代码大致实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-invocationhandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. InvocationHandler 的具体逻辑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 动态代理后的调用流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态代理的对象是否在内存中？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 动态代理对象的生成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 代理对象的内存结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 代理对象的使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 代理对象的生命周期
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 动态代理的性能开销
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      将动态代理对象持久化到本地。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glide源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Glide源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-glide" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Glide 的核心调度机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 调度流程分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 调度流程分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 请求发起
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 任务调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-decodejob" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) DecodeJob 的执行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      (4) 资源分发
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 线程池与并发控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 缓存机制与调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 生命周期绑定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 关键源码类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gson源码解析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leakcanary" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码角度分析LeakCanary实现原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="源码角度分析LeakCanary实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 源码分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 源码分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 监控 Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-refwatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 RefWatcher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-heap-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Heap Dump 分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpshttps" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS是如何保证通信安全的？涉及到Https通信流程。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTPS是如何保证通信安全的？涉及到Https通信流程。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 加密
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 认证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS通信流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么通过中间人攻击可以抓到HTTPS的包，什么原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么通过中间人攻击可以抓到HTTPS的包，什么原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 中间人攻击原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 抓包工具的工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 为什么可以抓取HTTPS包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 安全风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git原理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      多渠道打包原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多渠道打包原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gradle-productflavors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Gradle 的 productFlavors 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Gradle 的 productFlavors 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-walle" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 美团 Walle 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 美团 Walle 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vasdolly" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. VasDolly 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. VasDolly 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Jetpack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/020Compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    KMP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            KMP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../041KMP/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Multi Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../050SystemDesign/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#okhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      OkHttp源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OkHttp源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心类与组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 请求执行流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 拦截器链
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 连接管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 缓存机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 异步请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-http2" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. HTTP/2 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-websocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. WebSocket 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 源码结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 设计模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 核心组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Retrofit 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-servicemethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 ServiceMethod 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-calladapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 CallAdapter 接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Converter 接口
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键设计模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofitokhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit和Okhttp的关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit和Okhttp的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 关系概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 关联点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 关联点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 依赖关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Call 对象
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 请求执行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 具体关联
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 具体关联">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-callfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Call.Factory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-okhttpcall" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 OkHttpCall
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrofit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrofit的动态代理到底做了什么？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrofit的动态代理到底做了什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 动态代理的核心逻辑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 动态代理后的代码大致实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-invocationhandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. InvocationHandler 的具体逻辑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 动态代理后的调用流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态代理的对象是否在内存中？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 动态代理对象的生成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 代理对象的内存结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 代理对象的使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 代理对象的生命周期
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 动态代理的性能开销
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      将动态代理对象持久化到本地。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glide源码解析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Glide源码解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-glide" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Glide 的核心调度机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 调度流程分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 调度流程分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      (1) 请求发起
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      (2) 任务调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-decodejob" class="md-nav__link">
+    <span class="md-ellipsis">
+      (3) DecodeJob 的执行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      (4) 资源分发
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 线程池与并发控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 缓存机制与调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 生命周期绑定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 关键源码类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gson源码解析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leakcanary" class="md-nav__link">
+    <span class="md-ellipsis">
+      源码角度分析LeakCanary实现原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="源码角度分析LeakCanary实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 核心原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 源码分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 源码分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 监控 Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-refwatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 RefWatcher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-heap-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Heap Dump 分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpshttps" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS是如何保证通信安全的？涉及到Https通信流程。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTPS是如何保证通信安全的？涉及到Https通信流程。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 加密
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 认证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTPS通信流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么通过中间人攻击可以抓到HTTPS的包，什么原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么通过中间人攻击可以抓到HTTPS的包，什么原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 中间人攻击原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 抓包工具的工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 为什么可以抓取HTTPS包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 安全风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git原理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      多渠道打包原理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多渠道打包原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gradle-productflavors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Gradle 的 productFlavors 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Gradle 的 productFlavors 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-walle" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 美团 Walle 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 美团 Walle 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vasdolly" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. VasDolly 实现多渠道打包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. VasDolly 实现多渠道打包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      渠道信息存储位置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Android三方源码解析</h1>
+
+<h2 id="okhttp">OkHttp源码解析<a class="headerlink" href="#okhttp" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>OkHttp 是一个广泛使用的开源 HTTP 客户端库，适用于 Android 和 Java 应用程序。它由 Square 公司开发，旨在简化 HTTP 请求和响应的处理。以下是从源码角度对 OkHttp 的分析：</p>
+<h3 id="1">1. <strong>核心类与组件</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的核心类主要包括 <code>OkHttpClient</code>、<code>Request</code>、<code>Response</code>、<code>Call</code> 和 <code>Interceptor</code>。</p>
+<ul>
+<li>
+<p><strong>OkHttpClient</strong>: 这是 OkHttp 的核心类，用于创建和管理 HTTP 请求。它封装了连接池、缓存、拦截器、代理等配置。<code>OkHttpClient</code> 使用了 Builder 模式来配置各种参数。</p>
+</li>
+<li>
+<p><strong>Request</strong>: 表示一个 HTTP 请求，包含 URL、方法（GET、POST 等）、头信息、请求体等。</p>
+</li>
+<li>
+<p><strong>Response</strong>: 表示一个 HTTP 响应，包含状态码、头信息、响应体等。</p>
+</li>
+<li>
+<p><strong>Call</strong>: 表示一个准备执行的请求。<code>Call</code> 是一个接口，具体的实现类是 <code>RealCall</code>。<code>Call</code> 可以同步或异步执行。</p>
+</li>
+<li>
+<p><strong>Interceptor</strong>: 拦截器是 OkHttp 的一个强大功能，允许你在请求和响应的处理过程中插入自定义逻辑。拦截器可以用于日志记录、重试、缓存等。</p>
+</li>
+</ul>
+<h3 id="2">2. <strong>请求执行流程</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的请求执行流程可以分为以下几个步骤：</p>
+<ol>
+<li>
+<p><strong>创建请求</strong>: 使用 <code>Request.Builder</code> 构建一个 <code>Request</code> 对象。</p>
+</li>
+<li>
+<p><strong>创建 Call</strong>: 通过 <code>OkHttpClient.newCall(Request)</code> 方法创建一个 <code>Call</code> 对象。</p>
+</li>
+<li>
+<p><strong>执行请求</strong>: 调用 <code>Call.execute()</code> 进行同步请求，或者调用 <code>Call.enqueue(Callback)</code> 进行异步请求。</p>
+</li>
+<li>
+<p><strong>拦截器链</strong>: 请求会经过一系列的拦截器（Interceptor），每个拦截器可以对请求进行处理，然后将请求传递给下一个拦截器，最终到达网络层。</p>
+</li>
+<li>
+<p><strong>网络请求</strong>: 在网络层，OkHttp 使用 <code>HttpURLConnection</code> 或 <code>Http2Connection</code> 进行实际的网络请求。</p>
+</li>
+<li>
+<p><strong>响应处理</strong>: 响应会经过拦截器链返回，最终返回给调用者。</p>
+</li>
+</ol>
+<h3 id="3">3. <strong>拦截器链</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的拦截器链是其核心机制之一。拦截器链是一个责任链模式的应用，每个拦截器都可以对请求和响应进行处理。拦截器链的顺序如下：</p>
+<ol>
+<li>
+<p><strong>应用拦截器</strong>: 最先执行的拦截器，通常用于处理与业务逻辑相关的操作，如日志记录、请求重试等。</p>
+</li>
+<li>
+<p><strong>重试和重定向拦截器</strong>: 负责处理请求的重试和重定向。</p>
+</li>
+<li>
+<p><strong>桥接拦截器</strong>: 负责将用户构建的请求转换为网络请求，如添加必要的头信息、处理 Cookie 等。</p>
+</li>
+<li>
+<p><strong>缓存拦截器</strong>: 负责处理缓存逻辑，如果请求的响应已经在缓存中，则直接返回缓存响应。</p>
+</li>
+<li>
+<p><strong>连接拦截器</strong>: 负责管理与服务器的连接，包括连接池的管理。</p>
+</li>
+<li>
+<p><strong>网络拦截器</strong>: 最后执行的拦截器，负责实际的网络请求。</p>
+</li>
+</ol>
+<h3 id="4">4. <strong>连接管理</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>OkHttp 使用连接池（<code>ConnectionPool</code>）来管理 HTTP 连接，以减少重复创建和销毁连接的开销。连接池中的连接可以被复用，从而提高性能。</p>
+<ul>
+<li>
+<p><strong>ConnectionPool</strong>: 管理 HTTP 和 HTTP/2 连接的池。它使用一个后台线程定期清理空闲连接。</p>
+</li>
+<li>
+<p><strong>RealConnection</strong>: 表示一个实际的网络连接，封装了 Socket 和协议（HTTP/1.1 或 HTTP/2）。</p>
+</li>
+</ul>
+<h3 id="5">5. <strong>缓存机制</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>OkHttp 提供了内置的缓存机制，可以通过 <code>Cache</code> 类来配置。缓存机制基于 HTTP 缓存规范，支持缓存响应的存储和读取。</p>
+<ul>
+<li>
+<p><strong>Cache</strong>: 负责管理缓存文件，缓存文件存储在磁盘上。</p>
+</li>
+<li>
+<p><strong>CacheStrategy</strong>: 决定是否使用缓存、是否发起网络请求等。</p>
+</li>
+</ul>
+<h3 id="6">6. <strong>异步请求</strong><a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的异步请求通过 <code>Call.enqueue(Callback)</code> 方法实现。异步请求使用了一个线程池来执行网络请求，请求完成后通过回调接口 <code>Callback</code> 返回结果。</p>
+<ul>
+<li><strong>Dispatcher</strong>: 负责管理异步请求的执行和取消。它维护了一个线程池，用于执行异步请求。</li>
+</ul>
+<h3 id="7-http2">7. <strong>HTTP/2 支持</strong><a class="headerlink" href="#7-http2" title="Permanent link">&para;</a></h3>
+<p>OkHttp 支持 HTTP/2 协议，HTTP/2 提供了多路复用、头部压缩等特性，可以显著提高网络性能。</p>
+<ul>
+<li><strong>Http2Connection</strong>: 表示一个 HTTP/2 连接，封装了 HTTP/2 的帧、流等概念。</li>
+</ul>
+<h3 id="8-websocket">8. <strong>WebSocket 支持</strong><a class="headerlink" href="#8-websocket" title="Permanent link">&para;</a></h3>
+<p>OkHttp 还支持 WebSocket 协议，允许客户端与服务器进行全双工通信。</p>
+<ul>
+<li><strong>RealWebSocket</strong>: 表示一个 WebSocket 连接，负责处理 WebSocket 的握手、消息发送和接收等。</li>
+</ul>
+<h3 id="9">9. <strong>源码结构</strong><a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的源码结构清晰，主要分为以下几个模块：</p>
+<ul>
+<li><strong>okhttp</strong>: 核心模块，包含 HTTP 请求、响应、拦截器、连接管理等。</li>
+<li><strong>okhttp-tls</strong>: 处理 TLS/SSL 相关的功能。</li>
+<li><strong>okhttp-logging-interceptor</strong>: 提供了日志记录拦截器。</li>
+<li><strong>okhttp-urlconnection</strong>: 提供了与 <code>HttpURLConnection</code> 兼容的 API。</li>
+<li><strong>okhttp-sse</strong>: 支持服务器发送事件（Server-Sent Events）。</li>
+</ul>
+<h3 id="10">10. <strong>设计模式</strong><a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<p>OkHttp 的源码中使用了多种设计模式，如 Builder 模式、责任链模式、工厂模式等，这些设计模式使得 OkHttp 的代码结构清晰、易于扩展和维护。</p>
+<h3 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>OkHttp 是一个功能强大、设计优雅的 HTTP 客户端库。通过拦截器链、连接池、缓存机制等核心组件，OkHttp 提供了高效、灵活的 HTTP 请求处理能力。其源码结构清晰，设计模式应用得当，非常适合学习和借鉴。</p>
+</details>
+<h2 id="retrofit">Retrofit源码解析<a class="headerlink" href="#retrofit" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Retrofit 是一个广泛使用的 HTTP 客户端库，专为 Android 和 Java 应用设计。它通过将 HTTP API 转换为 Java 接口，简化了网络请求的处理。以下是从源码角度对 Retrofit 的分析：</p>
+<h3 id="1_1">1. 核心组件<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11-retrofit">1.1 <code>Retrofit</code> 类<a class="headerlink" href="#11-retrofit" title="Permanent link">&para;</a></h4>
+<p><code>Retrofit</code> 类是库的核心，负责创建 API 接口的实例。它使用构建器模式进行配置，允许设置基础 URL、转换器工厂、调用适配器等。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Retrofit</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Method</span><span class="p">,</span><span class="w"> </span><span class="n">ServiceMethod</span><span class="o">&lt;?&gt;&gt;</span><span class="w"> </span><span class="n">serviceMethodCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Call</span><span class="p">.</span><span class="na">Factory</span><span class="w"> </span><span class="n">callFactory</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">HttpUrl</span><span class="w"> </span><span class="n">baseUrl</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Converter</span><span class="p">.</span><span class="na">Factory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converterFactories</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CallAdapter</span><span class="p">.</span><span class="na">Factory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callAdapterFactories</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Executor</span><span class="w"> </span><span class="n">callbackExecutor</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">validateEagerly</span><span class="p">;</span>
+
+<span class="n">Retrofit</span><span class="p">(</span><span class="n">Call</span><span class="p">.</span><span class="na">Factory</span><span class="w"> </span><span class="n">callFactory</span><span class="p">,</span><span class="w"> </span><span class="n">HttpUrl</span><span class="w"> </span><span class="n">baseUrl</span><span class="p">,</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Converter</span><span class="p">.</span><span class="na">Factory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">converterFactories</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CallAdapter</span><span class="p">.</span><span class="na">Factory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callAdapterFactories</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Executor</span><span class="w"> </span><span class="n">callbackExecutor</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">validateEagerly</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">callFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">baseUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baseUrl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">converterFactories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">converterFactories</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">callAdapterFactories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callAdapterFactories</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">callbackExecutor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callbackExecutor</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">validateEagerly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validateEagerly</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Utils</span><span class="p">.</span><span class="na">validateServiceInterface</span><span class="p">(</span><span class="n">service</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">validateEagerly</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">eagerlyValidateMethods</span><span class="p">(</span><span class="n">service</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">Proxy</span><span class="p">.</span><span class="na">newProxyInstance</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">InvocationHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Platform</span><span class="w"> </span><span class="n">platform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Platform</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">emptyArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">        </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// If the method is a method from Object then defer to normal invocation.</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="p">.</span><span class="na">getDeclaringClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">platform</span><span class="p">.</span><span class="na">isDefaultMethod</span><span class="p">(</span><span class="n">method</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">platform</span><span class="p">.</span><span class="na">invokeDefaultMethod</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">loadServiceMethod</span><span class="p">(</span><span class="n">method</span><span class="p">).</span><span class="na">invoke</span><span class="p">(</span><span class="n">args</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">emptyArgs</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="n">ServiceMethod</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="nf">loadServiceMethod</span><span class="p">(</span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ServiceMethod</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceMethodCache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">method</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">serviceMethodCache</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceMethodCache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">method</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServiceMethod</span><span class="p">.</span><span class="na">parseAnnotations</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">);</span>
+<span class="w">        </span><span class="n">serviceMethodCache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="12-servicemethod">1.2 <code>ServiceMethod</code> 类<a class="headerlink" href="#12-servicemethod" title="Permanent link">&para;</a></h4>
+<p><code>ServiceMethod</code> 负责解析接口方法上的注解（如 <code>@GET</code>, <code>@POST</code>），并生成对应的 HTTP 请求。它使用 <code>RequestFactory</code> 和 <code>CallAdapter</code> 来处理请求和响应。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ServiceMethod</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ServiceMethod</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">parseAnnotations</span><span class="p">(</span><span class="n">Retrofit</span><span class="w"> </span><span class="n">retrofit</span><span class="p">,</span><span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RequestFactory</span><span class="w"> </span><span class="n">requestFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RequestFactory</span><span class="p">.</span><span class="na">parseAnnotations</span><span class="p">(</span><span class="n">retrofit</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Type</span><span class="w"> </span><span class="n">returnType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="na">getGenericReturnType</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Utils</span><span class="p">.</span><span class="na">hasUnresolvableType</span><span class="p">(</span><span class="n">returnType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">methodError</span><span class="p">(</span><span class="n">method</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Method return type must not include a type variable or wildcard: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">returnType</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">returnType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">void</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">methodError</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Service methods cannot return void.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">HttpServiceMethod</span><span class="p">.</span><span class="na">parseAnnotations</span><span class="p">(</span><span class="n">retrofit</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">requestFactory</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">abstract</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="13-calladapter">1.3 <code>CallAdapter</code> 接口<a class="headerlink" href="#13-calladapter" title="Permanent link">&para;</a></h4>
+<p><code>CallAdapter</code> 负责将 <code>Call</code> 对象适配为其他类型（如 <code>Observable</code>, <code>Completable</code>），允许 Retrofit 与 RxJava 等库集成。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CallAdapter</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="n">Type</span><span class="w"> </span><span class="nf">responseType</span><span class="p">();</span>
+<span class="n">T</span><span class="w"> </span><span class="nf">adapt</span><span class="p">(</span><span class="n">Call</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">call</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="14-converter">1.4 <code>Converter</code> 接口<a class="headerlink" href="#14-converter" title="Permanent link">&para;</a></h4>
+<p><code>Converter</code> 负责将 HTTP 请求和响应的数据转换为 Java 对象。常见的转换器包括 Gson、Jackson 等。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Converter</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="n">T</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2_1">2. 工作流程<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>创建 Retrofit 实例</strong>：通过 <code>Retrofit.Builder</code> 配置基础 URL、转换器、调用适配器等。</li>
+<li><strong>创建 API 接口实例</strong>：使用 <code>Retrofit.create()</code> 方法生成接口的代理对象。</li>
+<li><strong>解析注解</strong>：调用接口方法时，Retrofit 解析方法上的注解，生成 <code>ServiceMethod</code> 对象。</li>
+<li><strong>创建 HTTP 请求</strong>：<code>ServiceMethod</code> 使用 <code>RequestFactory</code> 生成 HTTP 请求。</li>
+<li><strong>执行请求</strong>：通过 <code>CallAdapter</code> 将 <code>Call</code> 对象适配为所需类型，并执行请求。</li>
+<li><strong>处理响应</strong>：使用 <code>Converter</code> 将响应数据转换为 Java 对象。</li>
+</ol>
+<h3 id="3_1">3. 关键设计模式<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>动态代理</strong>：Retrofit 使用 Java 的动态代理机制生成 API 接口的实例。</li>
+<li><strong>构建器模式</strong>：<code>Retrofit.Builder</code> 用于配置和创建 <code>Retrofit</code> 实例。</li>
+<li><strong>适配器模式</strong>：<code>CallAdapter</code> 和 <code>Converter</code> 使用适配器模式，使 Retrofit 能够灵活支持多种数据格式和调用方式。</li>
+</ul>
+<h3 id="4_1">4. 总结<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p>Retrofit 通过动态代理、注解解析和适配器模式，简化了 HTTP 请求的处理。其模块化设计使得扩展和定制变得容易，能够满足各种复杂的网络请求需求。</p>
+</details>
+<h2 id="retrofitokhttp">Retrofit和Okhttp的关系<a class="headerlink" href="#retrofitokhttp" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Retrofit 和 OkHttp 是两个紧密相关的库，通常一起使用来处理网络请求。它们之间的关系和关联点可以从以下几个方面来分析：</p>
+<h3 id="1_2">1. 关系概述<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OkHttp</strong>：OkHttp 是一个高效的 HTTP 客户端，负责底层的网络通信，包括连接管理、请求发送、响应接收等。</li>
+<li><strong>Retrofit</strong>：Retrofit 是一个基于 OkHttp 的高级 REST 客户端，它通过将 HTTP API 转换为 Java 接口，简化了网络请求的处理。Retrofit 依赖于 OkHttp 来处理实际的网络请求。</li>
+</ul>
+<h3 id="2_2">2. 关联点<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 依赖关系<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>Retrofit 依赖于 OkHttp 来处理底层的网络请求。在 Retrofit 的构建过程中，通常会配置一个 <code>OkHttpClient</code> 实例作为 <code>Call.Factory</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">OkHttpClient</span><span class="w"> </span><span class="n">okHttpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OkHttpClient</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addInterceptor</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LoggingInterceptor</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">Retrofit</span><span class="w"> </span><span class="n">retrofit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Retrofit</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="s">&quot;https://api.example.com/&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">client</span><span class="p">(</span><span class="n">okHttpClient</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addConverterFactory</span><span class="p">(</span><span class="n">GsonConverterFactory</span><span class="p">.</span><span class="na">create</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="22-call">2.2 <code>Call</code> 对象<a class="headerlink" href="#22-call" title="Permanent link">&para;</a></h4>
+<p>在 Retrofit 中，接口方法的返回类型可以是 <code>Call&lt;T&gt;</code>，这里的 <code>Call</code> 是 Retrofit 的 <code>Call</code> 接口，但它实际上是由 OkHttp 的 <code>Call</code> 实现的。Retrofit 的 <code>Call</code> 接口是对 OkHttp 的 <code>Call</code> 的封装。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">MyApiService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@GET</span><span class="p">(</span><span class="s">&quot;users/{user}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在这个例子中，<code>getUser</code> 方法返回的是 Retrofit 的 <code>Call&lt;User&gt;</code>，但实际执行网络请求时，使用的是 OkHttp 的 <code>Call</code>。</p>
+<h4 id="23">2.3 请求执行<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<p>当调用 Retrofit 的 <code>Call</code> 对象的 <code>enqueue</code> 或 <code>execute</code> 方法时，Retrofit 会将请求委托给 OkHttp 的 <code>Call</code> 来执行。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myApiService</span><span class="p">.</span><span class="na">getUser</span><span class="p">(</span><span class="s">&quot;octocat&quot;</span><span class="p">);</span>
+<span class="n">call</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Callback</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResponse</span><span class="p">(</span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">isSuccessful</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="p">();</span>
+<span class="w">            </span><span class="c1">// 处理用户数据</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 处理错误</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onFailure</span><span class="p">(</span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 处理失败</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>在这个例子中，<code>call.enqueue</code> 实际上是通过 OkHttp 的 <code>Call</code> 来执行异步请求的。</p>
+<h3 id="3_2">3. 具体关联<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<h4 id="31-callfactory">3.1 <code>Call.Factory</code><a class="headerlink" href="#31-callfactory" title="Permanent link">&para;</a></h4>
+<p>在 Retrofit 的构建过程中，可以通过 <code>client</code> 方法设置一个 <code>OkHttpClient</code> 实例作为 <code>Call.Factory</code>。这个 <code>Call.Factory</code> 负责创建 Retrofit 的 <code>Call</code> 对象。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Retrofit</span><span class="w"> </span><span class="n">retrofit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Retrofit</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="s">&quot;https://api.example.com/&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">client</span><span class="p">(</span><span class="n">okHttpClient</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addConverterFactory</span><span class="p">(</span><span class="n">GsonConverterFactory</span><span class="p">.</span><span class="na">create</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="32-okhttpcall">3.2 <code>OkHttpCall</code><a class="headerlink" href="#32-okhttpcall" title="Permanent link">&para;</a></h4>
+<p>Retrofit 的 <code>Call</code> 接口的实现类是 <code>OkHttpCall</code>，它封装了 OkHttp 的 <code>Call</code> 对象，并提供了与 Retrofit 的 <code>Call</code> 接口一致的方法。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OkHttpCall</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Call</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RequestFactory</span><span class="w"> </span><span class="n">requestFactory</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="p">.</span><span class="na">Factory</span><span class="w"> </span><span class="n">callFactory</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Converter</span><span class="o">&lt;</span><span class="n">ResponseBody</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">responseConverter</span><span class="p">;</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">canceled</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="w"> </span><span class="n">rawCall</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="n">creationFailure</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">executed</span><span class="p">;</span>
+
+<span class="n">OkHttpCall</span><span class="p">(</span><span class="n">RequestFactory</span><span class="w"> </span><span class="n">requestFactory</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="p">.</span><span class="na">Factory</span><span class="w"> </span><span class="n">callFactory</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Converter</span><span class="o">&lt;</span><span class="n">ResponseBody</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">responseConverter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">requestFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">requestFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">callFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">responseConverter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responseConverter</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Callback</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">executed</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Already executed.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">executed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="w"> </span><span class="n">call</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Throwable</span><span class="w"> </span><span class="n">failure</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">canceled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">failure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IOException</span><span class="p">(</span><span class="s">&quot;Canceled&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawCall</span><span class="p">;</span>
+<span class="w">        </span><span class="n">failure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">creationFailure</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">call</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">failure</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rawCall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createRawCall</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">failure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">creationFailure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">failure</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">callback</span><span class="p">.</span><span class="na">onFailure</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">failure</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">canceled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">call</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">call</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Callback</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResponse</span><span class="p">(</span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Response</span><span class="w"> </span><span class="n">rawResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">response</span><span class="p">;</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseResponse</span><span class="p">(</span><span class="n">rawResponse</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">callSuccess</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onFailure</span><span class="p">(</span><span class="n">okhttp3</span><span class="p">.</span><span class="na">Call</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callFailure</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callFailure</span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callback</span><span class="p">.</span><span class="na">onFailure</span><span class="p">(</span><span class="n">OkHttpCall</span><span class="p">.</span><span class="na">this</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callSuccess</span><span class="p">(</span><span class="n">Response</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callback</span><span class="p">.</span><span class="na">onResponse</span><span class="p">(</span><span class="n">OkHttpCall</span><span class="p">.</span><span class="na">this</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4_2">4. 总结<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Retrofit 依赖于 OkHttp</strong>：Retrofit 使用 OkHttp 作为底层的 HTTP 客户端来处理网络请求。</li>
+<li><strong><code>Call</code> 对象的关联</strong>：Retrofit 的 <code>Call</code> 接口是对 OkHttp 的 <code>Call</code> 的封装，实际执行网络请求时使用的是 OkHttp 的 <code>Call</code>。</li>
+<li><strong>请求执行</strong>：Retrofit 通过 <code>OkHttpCall</code> 类将请求委托给 OkHttp 来执行。</li>
+</ul>
+<p>通过这种设计，Retrofit 能够利用 OkHttp 的强大功能，同时提供更高级的抽象和更简洁的 API，使得开发者能够更轻松地处理网络请求。</p>
+</details>
+<h2 id="retrofit_1">Retrofit的动态代理到底做了什么？<a class="headerlink" href="#retrofit_1" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>Retrofit 使用 Java 的动态代理机制来生成 API 接口的实例。动态代理的核心是通过 <code>Proxy.newProxyInstance</code> 方法创建一个代理对象，这个代理对象会拦截所有对接口方法的调用，并将这些调用转发给 <code>InvocationHandler</code> 处理。</p>
+<p>以下是对 <code>MyApiService</code> 接口的动态代理过程的详细分析，以及动态代理后的代码大致实现。</p>
+<hr />
+<h3 id="1_3">1. 动态代理的核心逻辑<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<p>当调用 <code>Retrofit.create(MyApiService.class)</code> 时，Retrofit 会通过动态代理生成一个 <code>MyApiService</code> 的代理对象。这个代理对象的核心逻辑如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">Proxy</span><span class="p">.</span><span class="na">newProxyInstance</span><span class="p">(</span>
+<span class="w">        </span><span class="n">service</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">(),</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">InvocationHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Platform</span><span class="w"> </span><span class="n">platform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Platform</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">            </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">emptyArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 如果方法是 Object 的方法（如 toString, equals 等），直接调用</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="p">.</span><span class="na">getDeclaringClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="c1">// 如果是默认方法（Java 8+），调用默认方法的实现</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">platform</span><span class="p">.</span><span class="na">isDefaultMethod</span><span class="p">(</span><span class="n">method</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">platform</span><span class="p">.</span><span class="na">invokeDefaultMethod</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="c1">// 加载 ServiceMethod 并调用</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">loadServiceMethod</span><span class="p">(</span><span class="n">method</span><span class="p">).</span><span class="na">invoke</span><span class="p">(</span><span class="n">args</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">emptyArgs</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="2_3">2. 动态代理后的代码大致实现<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<p>假设我们有一个 <code>MyApiService</code> 接口：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">MyApiService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@GET</span><span class="p">(</span><span class="s">&quot;users/{user}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>动态代理生成的代理对象会拦截对 <code>getUser</code> 方法的调用，并将其转发给 <code>InvocationHandler</code>。以下是代理对象的大致实现逻辑：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 动态代理生成的伪代码</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApiServiceProxy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MyApiService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">InvocationHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MyApiServiceProxy</span><span class="p">(</span><span class="n">InvocationHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">handler</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 调用 InvocationHandler 的 invoke 方法</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">handler</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span>
+<span class="w">                </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="c1">// 代理对象</span>
+<span class="w">                </span><span class="n">MyApiService</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getMethod</span><span class="p">(</span><span class="s">&quot;getUser&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">),</span><span class="w"> </span><span class="c1">// 方法对象</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 方法参数</span>
+<span class="w">            </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="3-invocationhandler">3. <code>InvocationHandler</code> 的具体逻辑<a class="headerlink" href="#3-invocationhandler" title="Permanent link">&para;</a></h3>
+<p>在 <code>InvocationHandler</code> 的 <code>invoke</code> 方法中，Retrofit 会执行以下步骤：</p>
+<ol>
+<li><strong>解析方法注解</strong>：通过 <code>ServiceMethod.parseAnnotations</code> 解析方法上的注解（如 <code>@GET</code>, <code>@Path</code> 等），生成一个 <code>ServiceMethod</code> 对象。</li>
+<li><strong>创建 HTTP 请求</strong>：使用 <code>ServiceMethod</code> 和传入的参数生成一个 OkHttp 的 <code>Request</code> 对象。</li>
+<li><strong>执行请求</strong>：通过 <code>OkHttpCall</code> 将请求委托给 OkHttp 执行。</li>
+<li><strong>返回 <code>Call</code> 对象</strong>：返回一个 Retrofit 的 <code>Call</code> 对象，供调用者使用。</li>
+</ol>
+<p>以下是 <code>InvocationHandler</code> 的 <code>invoke</code> 方法的伪代码：</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1. 解析方法注解，生成 ServiceMethod</span>
+<span class="w">    </span><span class="n">ServiceMethod</span><span class="o">&lt;</span><span class="n">Call</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">serviceMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loadServiceMethod</span><span class="p">(</span><span class="n">method</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 2. 创建 OkHttpCall</span>
+<span class="w">    </span><span class="n">OkHttpCall</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">okHttpCall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OkHttpCall</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">serviceMethod</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 3. 返回 Call 对象</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">okHttpCall</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="4_3">4. 动态代理后的调用流程<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<p>当我们调用 <code>myApiService.getUser("octocat")</code> 时，实际的调用流程如下：</p>
+<ol>
+<li><strong>代理对象拦截调用</strong>：动态代理对象拦截对 <code>getUser</code> 方法的调用。</li>
+<li><strong>调用 <code>InvocationHandler.invoke</code></strong>：将方法调用转发给 <code>InvocationHandler</code>。</li>
+<li><strong>解析注解并创建 <code>ServiceMethod</code></strong>：Retrofit 解析 <code>@GET</code> 和 <code>@Path</code> 注解，生成一个 <code>ServiceMethod</code> 对象。</li>
+<li><strong>创建 <code>OkHttpCall</code></strong>：使用 <code>ServiceMethod</code> 和参数生成一个 <code>OkHttpCall</code> 对象。具体操作是HttpServiceMethod。</li>
+<li><strong>返回 <code>Call</code> 对象</strong>：将 <code>OkHttpCall</code> 对象返回给调用者。</li>
+</ol>
+<hr />
+<h3 id="5_1">5. 总结<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<p>动态代理的核心作用是拦截对接口方法的调用，并将这些调用转发给 Retrofit 的内部逻辑处理。具体来说：</p>
+<ul>
+<li>Retrofit 通过动态代理生成一个代理对象，这个代理对象实现了 <code>MyApiService</code> 接口。</li>
+<li>当调用接口方法时，代理对象会拦截调用，并通过 <code>InvocationHandler</code> 处理。</li>
+<li><code>InvocationHandler</code> 会解析方法注解、创建 HTTP 请求，并返回一个 <code>Call</code> 对象。</li>
+</ul>
+<p>通过动态代理，Retrofit 能够将 HTTP API 的定义转换为 Java 接口，并自动处理网络请求的细节，极大地简化了开发者的工作。</p>
+<h3 id="_2">动态代理的对象是否在内存中？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>是的，动态代理生成的代理对象是在内存中的。具体来说，当调用 <code>Retrofit.create(MyApiService.class)</code> 时，Retrofit 会通过 Java 的 <code>Proxy.newProxyInstance</code> 方法在内存中动态生成一个代理对象。这个代理对象实现了指定的接口（如 <code>MyApiService</code>），并且会拦截所有对接口方法的调用，将其转发给 <code>InvocationHandler</code> 处理。</p>
+<hr />
+<h3 id="1_4">1. 动态代理对象的生成<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<p>动态代理对象的生成是通过 <code>Proxy.newProxyInstance</code> 方法完成的。这个方法会在内存中创建一个新的对象，该对象实现了指定的接口。以下是 <code>Proxy.newProxyInstance</code> 的核心逻辑：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">newProxyInstance</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ClassLoader</span><span class="w"> </span><span class="n">loader</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Class</span><span class="o">&lt;?&gt;[]</span><span class="w"> </span><span class="n">interfaces</span><span class="p">,</span>
+<span class="w">    </span><span class="n">InvocationHandler</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1. 生成代理类的字节码</span>
+<span class="w">    </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getProxyClass0</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span><span class="w"> </span><span class="n">interfaces</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 2. 通过反射创建代理对象</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">Constructor</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">cons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">getConstructor</span><span class="p">(</span><span class="n">InvocationHandler</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cons</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong><code>ClassLoader loader</code></strong>：用于加载代理类的类加载器。</li>
+<li><strong><code>Class&lt;?&gt;[] interfaces</code></strong>：代理类需要实现的接口列表。</li>
+<li><strong><code>InvocationHandler h</code></strong>：处理代理对象方法调用的处理器。</li>
+</ul>
+<p>生成的代理对象在内存中，并且可以通过引用来访问。</p>
+<hr />
+<h3 id="2_4">2. 代理对象的内存结构<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<p>代理对象在内存中的结构大致如下：</p>
+<ul>
+<li><strong>代理类</strong>：<code>Proxy.newProxyInstance</code> 会动态生成一个类，这个类实现了指定的接口（如 <code>MyApiService</code>）。</li>
+<li><strong>代理对象</strong>：生成的代理类的一个实例，持有 <code>InvocationHandler</code> 的引用。</li>
+<li><strong><code>InvocationHandler</code></strong>：负责处理代理对象的方法调用。</li>
+</ul>
+<p>以下是一个简化的内存结构示意图：</p>
+<div class="highlight"><pre><span></span><code>+-------------------+
+| 代理对象           |
+|-------------------|
+| InvocationHandler | --&gt; 指向 Retrofit 提供的 InvocationHandler 实例
+| 接口方法实现       | --&gt; 所有方法调用都会转发给 InvocationHandler
++-------------------+
+</code></pre></div>
+<hr />
+<h3 id="3_3">3. 代理对象的使用<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<p>当我们调用 <code>Retrofit.create(MyApiService.class)</code> 时，Retrofit 会返回一个代理对象。这个代理对象在内存中，可以通过引用来访问。例如：</p>
+<div class="highlight"><pre><span></span><code><span class="n">MyApiService</span><span class="w"> </span><span class="n">myApiService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retrofit</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">MyApiService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
+<p>此时，<code>myApiService</code> 是一个动态生成的代理对象，它实现了 <code>MyApiService</code> 接口。当我们调用 <code>myApiService.getUser("octocat")</code> 时，代理对象会拦截这个调用，并将其转发给 <code>InvocationHandler</code>。</p>
+<hr />
+<h3 id="4_4">4. 代理对象的生命周期<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>创建</strong>：代理对象在调用 <code>Retrofit.create</code> 时创建，并存储在内存中。</li>
+<li><strong>使用</strong>：通过引用（如 <code>myApiService</code>）访问代理对象，并调用其方法。</li>
+<li><strong>销毁</strong>：当代理对象不再被引用时，Java 的垃圾回收器（GC）会将其从内存中回收。</li>
+</ul>
+<hr />
+<h3 id="5_2">5. 动态代理的性能开销<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h3>
+<p>动态代理的生成和调用会带来一定的性能开销，主要包括：</p>
+<ol>
+<li><strong>类生成开销</strong>：<code>Proxy.newProxyInstance</code> 需要动态生成代理类的字节码。</li>
+<li><strong>方法调用开销</strong>：每次调用代理对象的方法时，都需要通过 <code>InvocationHandler</code> 转发。</li>
+</ol>
+<p>不过，这些开销在现代 JVM 中通常是可以接受的，尤其是在网络请求这种 I/O 密集型操作中，动态代理的开销相对较小。</p>
+<hr />
+<h3 id="6_1">6. 总结<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>动态代理生成的代理对象是在内存中的，通过 <code>Proxy.newProxyInstance</code> 方法动态创建。</li>
+<li>代理对象实现了指定的接口（如 <code>MyApiService</code>），并持有 <code>InvocationHandler</code> 的引用。</li>
+<li>代理对象的方法调用会被拦截，并转发给 <code>InvocationHandler</code> 处理。</li>
+<li>代理对象的生命周期由 JVM 管理，当不再被引用时会被垃圾回收。</li>
+</ul>
+<p>通过动态代理，Retrofit 能够将 HTTP API 的定义转换为 Java 接口，并自动处理网络请求的细节，极大地简化了开发者的工作。</p>
+<h3 id="_3">将动态代理对象持久化到本地。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>获取动态代理类的字节码
+Java 的动态代理类是通过 Proxy.newProxyInstance 动态生成的，它们的字节码并不直接存储在磁盘上。但是，你可以通过以下方法获取这些字节码：</li>
+</ol>
+<p>方法 1：使用 ProxyGenerator 生成字节码
+Java 提供了一个内部工具类 sun.misc.ProxyGenerator，可以用来生成动态代理类的字节码。你可以通过反射调用这个工具类，将生成的字节码保存到文件中。</p>
+<p>运行上述代码后，你会在当前目录下看到一个名为 GeneratedProxy.class 的文件，这就是动态生成的代理类的字节码。</p>
+<p>方法 2：使用字节码操作库（如 ASM 或 ByteBuddy）
+如果你需要更灵活地操作字节码，可以使用字节码操作库（如 ASM 或 ByteBuddy）来生成或修改动态代理类的字节码。</p>
+<ol>
+<li>反编译字节码文件
+生成的 .class 文件是字节码文件，不能直接阅读。你可以使用反编译工具将其转换为 Java 源代码。常用的反编译工具有：</li>
+</ol>
+<p>JD-GUI：一个图形化工具，可以直接打开 .class 文件并查看反编译后的代码。</p>
+<p>CFR：一个命令行工具，可以将 .class 文件反编译为 Java 源代码。</p>
+<p>Jadx：一个强大的反编译工具，支持将 .class 文件或 .jar 文件反编译为 Java 代码。</p>
+</details>
+<h2 id="glide">Glide源码解析<a class="headerlink" href="#glide" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>https://juejin.cn/post/6844903986412126216</p>
+<p>Glide 是一个广泛使用的 Android 图片加载库，其源码设计精良，具有高效的图片加载和缓存机制。以下是从源码调度角度对 Glide 框架的分析，重点围绕其核心调度机制展开。</p>
+<hr />
+<h3 id="1-glide">1. <strong>Glide 的核心调度机制</strong><a class="headerlink" href="#1-glide" title="Permanent link">&para;</a></h3>
+<p>Glide 的调度机制主要围绕以下几个核心组件：
+- <strong>RequestManager</strong>：负责管理图片请求的生命周期。
+- <strong>Engine</strong>：负责调度图片加载任务。
+- <strong>DecodeJob</strong>：负责具体的图片解码和转换任务。
+- <strong>ExecutorService</strong>：用于管理线程池，执行异步任务。
+- <strong>ResourceCacheGenerator</strong> 和 <strong>DataCacheGenerator</strong>：负责从缓存中获取资源。
+- <strong>SourceGenerator</strong>：负责从原始数据源（如网络、文件）加载资源。</p>
+<hr />
+<h3 id="2_5">2. <strong>调度流程分析</strong><a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<p>以下是 Glide 图片加载的调度流程：</p>
+<h4 id="1_5">(1) <strong>请求发起</strong><a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>当调用 <code>Glide.with(context).load(url).into(imageView)</code> 时，Glide 会创建一个 <code>Request</code> 对象。</li>
+<li><code>RequestManager</code> 负责管理请求的生命周期，确保请求与 Activity/Fragment 的生命周期绑定。</li>
+</ul>
+<h4 id="2_6">(2) <strong>任务调度</strong><a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>RequestManager</code> 将请求交给 <code>Engine</code> 处理。</li>
+<li><code>Engine</code> 负责调度任务，首先检查内存缓存（ActiveResources 和 MemoryCache）是否有可用的资源。</li>
+<li>如果有，直接返回资源。</li>
+<li>如果没有，创建一个 <code>DecodeJob</code> 任务。</li>
+</ul>
+<h4 id="3-decodejob">(3) <strong>DecodeJob 的执行</strong><a class="headerlink" href="#3-decodejob" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>DecodeJob</code> 是一个 <code>Runnable</code>，会被提交到线程池中执行。</li>
+<li><code>DecodeJob</code> 的执行分为多个阶段：</li>
+<li><strong>从缓存加载</strong>：<ul>
+<li>使用 <code>ResourceCacheGenerator</code> 和 <code>DataCacheGenerator</code> 检查磁盘缓存。</li>
+<li>如果缓存命中，直接解码并返回资源。</li>
+</ul>
+</li>
+<li><strong>从数据源加载</strong>：<ul>
+<li>如果缓存未命中，使用 <code>SourceGenerator</code> 从原始数据源（如网络）加载数据。</li>
+</ul>
+</li>
+<li><strong>解码和转换</strong>：<ul>
+<li>加载到的原始数据会被解码为 Bitmap 或其他资源类型。</li>
+<li>根据配置的 <code>Transformation</code> 对资源进行转换（如裁剪、圆角等）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="4_5">(4) <strong>资源分发</strong><a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>当 <code>DecodeJob</code> 完成后，资源会被传递到主线程。</li>
+<li><code>EngineJob</code> 负责将资源分发给 <code>Target</code>（通常是 <code>ImageViewTarget</code>），最终显示到 <code>ImageView</code> 上。</li>
+</ul>
+<hr />
+<h3 id="3_4">3. <strong>线程池与并发控制</strong><a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h3>
+<p>Glide 使用多个线程池来管理任务的执行：
+- <strong>DiskCacheExecutor</strong>：用于执行磁盘缓存相关的任务（如读取缓存）。
+- <strong>SourceExecutor</strong>：用于执行从数据源加载数据的任务（如网络请求）。
+- <strong>AnimationExecutor</strong>：用于执行动画相关的任务。
+- <strong>MainThreadExecutor</strong>：用于在主线程中分发结果。</p>
+<p>这些线程池的配置和管理由 <code>GlideExecutor</code> 类负责，确保任务的高效执行和资源合理利用。</p>
+<hr />
+<h3 id="4_6">4. <strong>缓存机制与调度</strong><a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h3>
+<p>Glide 的缓存机制是其高效调度的关键：
+- <strong>ActiveResources</strong>：存储当前正在使用的资源，采用弱引用机制，避免内存泄漏。
+- <strong>MemoryCache</strong>：存储最近使用过的资源，采用 LRU 算法管理。
+- <strong>DiskCache</strong>：存储磁盘缓存，分为原始数据缓存和转换后的资源缓存。</p>
+<p>在调度过程中，Glide 会优先从缓存中获取资源，避免重复加载和解码，从而提升性能。</p>
+<hr />
+<h3 id="5_3">5. <strong>生命周期绑定</strong><a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
+<p>Glide 通过 <code>RequestManager</code> 将图片请求与 Activity/Fragment 的生命周期绑定：
+- 当 Activity/Fragment 销毁时，<code>RequestManager</code> 会自动取消未完成的请求，并释放相关资源。
+- 这种机制避免了内存泄漏和无效的资源加载。</p>
+<hr />
+<h3 id="6_2">6. <strong>关键源码类</strong><a class="headerlink" href="#6_2" title="Permanent link">&para;</a></h3>
+<p>以下是与调度相关的关键类：
+- <strong>Glide</strong>：入口类，负责初始化和管理全局配置。
+- <strong>RequestManager</strong>：管理请求的生命周期。
+- <strong>Engine</strong>：核心调度类，负责任务的分发和执行。
+- <strong>DecodeJob</strong>：负责具体的解码和转换任务。
+- <strong>EngineJob</strong>：负责管理 <code>DecodeJob</code> 的执行和资源分发。
+- <strong>GlideExecutor</strong>：负责管理线程池。</p>
+<hr />
+<h3 id="7">7. <strong>总结</strong><a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>Glide 的调度机制通过以下设计实现高效图片加载：
+- 多级缓存机制，减少重复加载。
+- 多线程池管理，合理分配资源。
+- 生命周期绑定，避免内存泄漏。
+- 模块化设计，职责清晰，易于扩展。</p>
+<p>通过分析源码，可以更好地理解 Glide 的工作原理，并在实际开发中优化其使用。</p>
+</details>
+<h2 id="gson">Gson源码解析<a class="headerlink" href="#gson" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+</details>
+<h2 id="leakcanary">源码角度分析LeakCanary实现原理<a class="headerlink" href="#leakcanary" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>LeakCanary 是一个用于检测 Android 应用中内存泄漏的开源工具。它通过监控对象的内存分配和回收，帮助开发者发现潜在的内存泄漏问题。以下是从源码角度分析 LeakCanary 的实现原理。</p>
+<h3 id="1_6">1. 核心原理<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h3>
+<p>LeakCanary 的核心原理是通过 <code>ReferenceQueue</code> 和 <code>WeakReference</code> 来监控对象的回收情况。具体步骤如下：</p>
+<ol>
+<li><strong>监控对象</strong>：LeakCanary 会监控 Activity、Fragment 等对象。</li>
+<li><strong>弱引用</strong>：将这些对象包装在 <code>WeakReference</code> 中，并关联一个 <code>ReferenceQueue</code>。</li>
+<li><strong>检测回收</strong>：当对象被回收时，<code>WeakReference</code> 会被放入 <code>ReferenceQueue</code> 中。</li>
+<li><strong>分析泄漏</strong>：如果对象没有被回收，LeakCanary 会触发内存泄漏分析。</li>
+</ol>
+<h3 id="2_7">2. 源码分析<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1 初始化<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<p>LeakCanary 的初始化通常在 <code>Application</code> 的 <code>onCreate</code> 方法中完成：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">LeakCanary</span><span class="p">.</span><span class="na">isInAnalyzerProcess</span><span class="p">(</span><span class="k">this</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">LeakCanary</span><span class="p">.</span><span class="na">install</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>LeakCanary.install(this)</code> 会初始化 LeakCanary 的核心组件。</p>
+<h4 id="22-activity">2.2 监控 Activity<a class="headerlink" href="#22-activity" title="Permanent link">&para;</a></h4>
+<p>LeakCanary 通过 <code>ActivityRefWatcher</code> 监控 Activity 的生命周期：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ActivityRefWatcher</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="n">application</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RefWatcher</span><span class="w"> </span><span class="n">refWatcher</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">install</span><span class="p">(</span><span class="n">Application</span><span class="w"> </span><span class="n">application</span><span class="p">,</span><span class="w"> </span><span class="n">RefWatcher</span><span class="w"> </span><span class="n">refWatcher</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ActivityRefWatcher</span><span class="p">(</span><span class="n">application</span><span class="p">,</span><span class="w"> </span><span class="n">refWatcher</span><span class="p">).</span><span class="na">watchActivities</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">watchActivities</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">application</span><span class="p">.</span><span class="na">registerActivityLifecycleCallbacks</span><span class="p">(</span><span class="n">lifecycleCallbacks</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="na">ActivityLifecycleCallbacks</span><span class="w"> </span><span class="n">lifecycleCallbacks</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="na">ActivityLifecycleCallbacks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nd">@Override</span>
+<span class="w">                </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onActivityDestroyed</span><span class="p">(</span><span class="n">Activity</span><span class="w"> </span><span class="n">activity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">refWatcher</span><span class="p">.</span><span class="na">watch</span><span class="p">(</span><span class="n">activity</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="c1">// 其他生命周期方法省略</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在 <code>onActivityDestroyed</code> 方法中，LeakCanary 会调用 <code>refWatcher.watch(activity)</code> 来监控 Activity 对象。</p>
+<h4 id="23-refwatcher">2.3 RefWatcher<a class="headerlink" href="#23-refwatcher" title="Permanent link">&para;</a></h4>
+<p><code>RefWatcher</code> 是 LeakCanary 的核心类，负责监控对象的回收情况：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RefWatcher</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">WatchExecutor</span><span class="w"> </span><span class="n">watchExecutor</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DebuggerControl</span><span class="w"> </span><span class="n">debuggerControl</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">GcTrigger</span><span class="w"> </span><span class="n">gcTrigger</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">HeapDumper</span><span class="w"> </span><span class="n">heapDumper</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">HeapDump</span><span class="p">.</span><span class="na">Listener</span><span class="w"> </span><span class="n">heapDumpListener</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExcludedRefs</span><span class="w"> </span><span class="n">excludedRefs</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">watch</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">watchedReference</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">referenceName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DISABLED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">checkNotNull</span><span class="p">(</span><span class="n">watchedReference</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;watchedReference&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">checkNotNull</span><span class="p">(</span><span class="n">referenceName</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;referenceName&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">watchStartNanoTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">        </span><span class="n">retainedKeys</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">KeyedWeakReference</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">KeyedWeakReference</span><span class="p">(</span><span class="n">watchedReference</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">referenceName</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">ensureGoneAsync</span><span class="p">(</span><span class="n">watchStartNanoTime</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ensureGoneAsync</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">watchStartNanoTime</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">KeyedWeakReference</span><span class="w"> </span><span class="n">reference</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">watchExecutor</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Retryable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="n">Retryable</span><span class="p">.</span><span class="na">Result</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">ensureGone</span><span class="p">(</span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="n">watchStartNanoTime</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Retryable</span><span class="p">.</span><span class="na">Result</span><span class="w"> </span><span class="nf">ensureGone</span><span class="p">(</span><span class="n">KeyedWeakReference</span><span class="w"> </span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">watchStartNanoTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">gcStartNanoTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">watchDurationMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NANOSECONDS</span><span class="p">.</span><span class="na">toMillis</span><span class="p">(</span><span class="n">gcStartNanoTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">watchStartNanoTime</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">removeWeaklyReachableReferences</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gone</span><span class="p">(</span><span class="n">reference</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Retryable</span><span class="p">.</span><span class="na">Result</span><span class="p">.</span><span class="na">DONE</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">gcTrigger</span><span class="p">.</span><span class="na">runGc</span><span class="p">();</span>
+<span class="w">        </span><span class="n">removeWeaklyReachableReferences</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">gone</span><span class="p">(</span><span class="n">reference</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">startDumpHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">gcDurationMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NANOSECONDS</span><span class="p">.</span><span class="na">toMillis</span><span class="p">(</span><span class="n">startDumpHeap</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">gcStartNanoTime</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">File</span><span class="w"> </span><span class="n">heapDumpFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heapDumper</span><span class="p">.</span><span class="na">dumpHeap</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heapDumpFile</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">Retryable</span><span class="p">.</span><span class="na">Result</span><span class="p">.</span><span class="na">RETRY</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">heapDumpDurationMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NANOSECONDS</span><span class="p">.</span><span class="na">toMillis</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startDumpHeap</span><span class="p">);</span>
+<span class="w">            </span><span class="n">heapDumpListener</span><span class="p">.</span><span class="na">analyze</span><span class="p">(</span>
+<span class="w">                    </span><span class="k">new</span><span class="w"> </span><span class="n">HeapDump</span><span class="p">(</span><span class="n">heapDumpFile</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="p">.</span><span class="na">key</span><span class="p">,</span><span class="w"> </span><span class="n">reference</span><span class="p">.</span><span class="na">name</span><span class="p">,</span><span class="w"> </span><span class="n">excludedRefs</span><span class="p">,</span><span class="w"> </span><span class="n">watchDurationMs</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">gcDurationMs</span><span class="p">,</span><span class="w"> </span><span class="n">heapDumpDurationMs</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Retryable</span><span class="p">.</span><span class="na">Result</span><span class="p">.</span><span class="na">DONE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">gone</span><span class="p">(</span><span class="n">KeyedWeakReference</span><span class="w"> </span><span class="n">reference</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">retainedKeys</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">reference</span><span class="p">.</span><span class="na">key</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeWeaklyReachableReferences</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">KeyedWeakReference</span><span class="w"> </span><span class="n">ref</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">KeyedWeakReference</span><span class="p">)</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">retainedKeys</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">ref</span><span class="p">.</span><span class="na">key</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>watch 方法</strong>：将对象包装成 <code>KeyedWeakReference</code>，并放入 <code>retainedKeys</code> 集合中。</li>
+<li><strong>ensureGoneAsync 方法</strong>：异步执行内存泄漏检测。</li>
+<li><strong>ensureGone 方法</strong>：检查对象是否被回收，如果没有回收，则触发 GC 并再次检查。如果对象仍然存在，则生成 Heap Dump 并进行分析。</li>
+<li><strong>removeWeaklyReachableReferences 方法</strong>：从 <code>ReferenceQueue</code> 中移除已被回收的对象。</li>
+</ul>
+<h4 id="24-heap-dump">2.4 Heap Dump 分析<a class="headerlink" href="#24-heap-dump" title="Permanent link">&para;</a></h4>
+<p>LeakCanary 使用 <code>HeapAnalyzer</code> 分析 Heap Dump 文件，找出内存泄漏的根源：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HeapAnalyzer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">AnalysisResult</span><span class="w"> </span><span class="nf">checkForLeak</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">heapDumpFile</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">referenceKey</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">HprofBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryMappedFileBuffer</span><span class="p">(</span><span class="n">heapDumpFile</span><span class="p">);</span>
+<span class="w">            </span><span class="n">HprofParser</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HprofParser</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Snapshot</span><span class="w"> </span><span class="n">snapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">parse</span><span class="p">();</span>
+<span class="w">            </span><span class="n">deduplicateGcRoots</span><span class="p">(</span><span class="n">snapshot</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">Instance</span><span class="w"> </span><span class="n">leakingRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findLeakingReference</span><span class="p">(</span><span class="n">referenceKey</span><span class="p">,</span><span class="w"> </span><span class="n">snapshot</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">leakingRef</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">AnalysisResult</span><span class="p">.</span><span class="na">noLeak</span><span class="p">(</span><span class="n">referenceKey</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">findLeakTrace</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span><span class="w"> </span><span class="n">leakingRef</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Throwable</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">AnalysisResult</span><span class="p">.</span><span class="na">failure</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">referenceKey</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="nf">findLeakingReference</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">referenceKey</span><span class="p">,</span><span class="w"> </span><span class="n">Snapshot</span><span class="w"> </span><span class="n">snapshot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ClassObj</span><span class="w"> </span><span class="n">refClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snapshot</span><span class="p">.</span><span class="na">findClass</span><span class="p">(</span><span class="n">KeyedWeakReference</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Instance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">leakingRefs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Instance</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">refClass</span><span class="p">.</span><span class="na">getInstancesList</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">keyCandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">asString</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="na">getField</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">referenceKey</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">keyCandidate</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">leakingRefs</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">instance</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">leakingRefs</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">leakingRefs</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">AnalysisResult</span><span class="w"> </span><span class="nf">findLeakTrace</span><span class="p">(</span><span class="n">Snapshot</span><span class="w"> </span><span class="n">snapshot</span><span class="p">,</span><span class="w"> </span><span class="n">Instance</span><span class="w"> </span><span class="n">leakingRef</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ShortestPathFinder</span><span class="w"> </span><span class="n">pathFinder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ShortestPathFinder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">ShortestPathFinder</span><span class="p">.</span><span class="na">Result</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pathFinder</span><span class="p">.</span><span class="na">findPath</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span><span class="w"> </span><span class="n">leakingRef</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">AnalysisResult</span><span class="p">.</span><span class="na">leakDetected</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">leakingNode</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="na">leakTrace</span><span class="p">,</span><span class="w"> </span><span class="n">referenceKey</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>checkForLeak 方法</strong>：解析 Heap Dump 文件，查找泄漏的引用。</li>
+<li><strong>findLeakingReference 方法</strong>：通过 <code>KeyedWeakReference</code> 的 <code>key</code> 查找泄漏的对象。</li>
+<li><strong>findLeakTrace 方法</strong>：使用 <code>ShortestPathFinder</code> 查找泄漏路径。</li>
+</ul>
+<h3 id="3_5">3. 总结<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h3>
+<p>LeakCanary 通过 <code>WeakReference</code> 和 <code>ReferenceQueue</code> 监控对象的回收情况，结合 Heap Dump 分析工具，帮助开发者发现和解决内存泄漏问题。其核心在于异步检测、GC 触发和 Heap Dump 分析，确保能够准确捕捉到内存泄漏的根源。</p>
+</details>
+<h2 id="httpshttps">HTTPS是如何保证通信安全的？涉及到Https通信流程。<a class="headerlink" href="#httpshttps" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>HTTPS通过加密和认证机制确保通信安全，以下是其核心流程：</p>
+<h3 id="1_7">1. 加密<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>对称加密</strong>：使用同一密钥加密和解密数据，速度快，但密钥传输存在风险。</li>
+<li><strong>非对称加密</strong>：使用公钥加密、私钥解密，安全性高，但速度较慢。</li>
+<li><strong>混合加密</strong>：结合两者，HTTPS在握手阶段使用非对称加密交换对称密钥，后续通信使用对称加密。</li>
+</ul>
+<h3 id="2_8">2. 认证<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数字证书</strong>：由CA签发，包含服务器公钥和身份信息，确保证书真实有效。</li>
+<li><strong>CA（证书颁发机构）</strong>：负责验证服务器身份并签发证书。</li>
+</ul>
+<h3 id="https">HTTPS通信流程<a class="headerlink" href="#https" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>客户端发起请求</strong>：客户端发送HTTPS请求，包含支持的TLS版本和加密套件。</p>
+</li>
+<li>
+<p><strong>服务器响应</strong>：服务器返回选择的TLS版本、加密套件及数字证书。</p>
+</li>
+<li>
+<p><strong>证书验证</strong>：客户端验证证书的有效性，包括CA签名和域名匹配。</p>
+</li>
+<li>
+<p><strong>密钥交换</strong>：客户端生成预主密钥，用服务器公钥加密后发送，服务器用私钥解密。</p>
+</li>
+<li>
+<p><strong>会话密钥生成</strong>：双方使用预主密钥生成相同的会话密钥，用于对称加密。</p>
+</li>
+<li>
+<p><strong>加密通信</strong>：使用会话密钥加密和解密数据，确保传输安全。</p>
+</li>
+</ol>
+<h3 id="_4">总结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>HTTPS通过混合加密和数字证书认证，确保数据在传输过程中的机密性、完整性和身份真实性。</p>
+</details>
+<h2 id="https_1">为什么通过中间人攻击可以抓到HTTPS的包，什么原理<a class="headerlink" href="#https_1" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>本地证书 MIIT攻击
+使用Charles、Fiddler等抓包工具抓取HTTPS包，本质上是进行了中间人攻击（MITM）。以下是其工作原理和步骤：</p>
+<h3 id="1_8">1. 中间人攻击原理<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<p>中间人攻击通过拦截客户端和服务器的通信，伪装成服务器与客户端通信，同时伪装成客户端与服务器通信，从而获取传输的数据。</p>
+<h3 id="2_9">2. 抓包工具的工作流程<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>安装根证书</strong>：</li>
+<li>
+<p>抓包工具生成自签名根证书并安装到客户端设备的受信任根证书存储中，使客户端信任工具签发的证书。</p>
+</li>
+<li>
+<p><strong>拦截HTTPS请求</strong>：</p>
+</li>
+<li>
+<p>客户端发起HTTPS请求时，工具拦截并伪装成服务器，使用自签名证书与客户端建立连接。</p>
+</li>
+<li>
+<p><strong>建立与服务器的连接</strong>：</p>
+</li>
+<li>
+<p>工具作为客户端，与真实服务器建立HTTPS连接，获取服务器证书。</p>
+</li>
+<li>
+<p><strong>解密和重新加密</strong>：</p>
+</li>
+<li>
+<p>工具使用服务器证书与服务器通信，获取数据后解密，再用自签名证书加密并发送给客户端。</p>
+</li>
+<li>
+<p><strong>客户端接收数据</strong>：</p>
+</li>
+<li>客户端接收工具发送的数据，由于信任了工具的根证书，认为连接是安全的。</li>
+</ol>
+<h3 id="3-https">3. 为什么可以抓取HTTPS包<a class="headerlink" href="#3-https" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>信任根证书</strong>：客户端信任了抓包工具的根证书，接受其签发的证书。</li>
+<li><strong>中间人角色</strong>：工具作为中间人，分别与客户端和服务器建立连接，解密和重新加密数据。</li>
+</ul>
+<h3 id="4_7">4. 安全风险<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>隐私泄露</strong>：抓包工具可以查看和修改HTTPS数据，存在隐私泄露风险。</li>
+<li><strong>证书信任</strong>：安装不受信任的根证书可能导致其他中间人攻击。</li>
+</ul>
+<h3 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>抓包工具通过安装自签名根证书并充当中间人，解密和重新加密HTTPS数据，从而实现抓包。这依赖于客户端对工具根证书的信任。</p>
+</details>
+<h2 id="git">Git原理<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>暂无</p>
+</details>
+<h2 id="_6">多渠道打包原理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>EOCD
+是否支持V3 V4目前还没有验证。
+Android 多渠道打包的几种常见工具（如 Gradle、美团 Walle、VasDolly）各有不同的实现原理和工作流程，下面分别讲解它们的原理、工作流程以及渠道信息的存储位置。</p>
+<hr />
+<h3 id="1-gradle-productflavors">1. <strong>Gradle 的 <code>productFlavors</code> 实现多渠道打包</strong><a class="headerlink" href="#1-gradle-productflavors" title="Permanent link">&para;</a></h3>
+<h4 id="_7">原理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>Gradle 的 <code>productFlavors</code> 是通过在编译时为每个渠道生成独立的 APK 文件。每个渠道的 APK 文件是独立编译的，渠道信息通过 <code>manifestPlaceholders</code> 注入到 <code>AndroidManifest.xml</code> 中。</p>
+<h4 id="_8">工作流程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>配置渠道</strong>：
+在 <code>build.gradle</code> 中定义 <code>productFlavors</code>，为每个渠道指定不同的配置：
+<div class="highlight"><pre><span></span><code><span class="n">android</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">flavorDimensions</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<span class="w">    </span><span class="n">productFlavors</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">channel1</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">manifestPlaceholders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="nl">CHANNEL:</span><span class="w"> </span><span class="s2">&quot;channel1&quot;</span><span class="o">]</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">        </span><span class="n">channel2</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="n">manifestPlaceholders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="nl">CHANNEL:</span><span class="w"> </span><span class="s2">&quot;channel2&quot;</span><span class="o">]</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>注入渠道信息</strong>：
+在 <code>AndroidManifest.xml</code> 中通过占位符 <code>${CHANNEL}</code> 引用渠道信息：
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;meta-data</span>
+<span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;CHANNEL&quot;</span>
+<span class="w">    </span><span class="na">android:value=</span><span class="s">&quot;${CHANNEL}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>生成多渠道包</strong>：
+运行 Gradle 命令生成多渠道包：
+<div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>assembleRelease
+</code></pre></div>
+这会为每个渠道生成一个独立的 APK 文件。</p>
+</li>
+<li>
+<p><strong>读取渠道信息</strong>：
+在应用启动时，通过代码读取 <code>AndroidManifest.xml</code> 中的渠道信息：
+<div class="highlight"><pre><span></span><code><span class="n">ApplicationInfo</span><span class="w"> </span><span class="n">appInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getPackageManager</span><span class="p">().</span><span class="na">getApplicationInfo</span><span class="p">(</span><span class="n">getPackageName</span><span class="p">(),</span><span class="w"> </span><span class="n">PackageManager</span><span class="p">.</span><span class="na">GET_META_DATA</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">appInfo</span><span class="p">.</span><span class="na">metaData</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;CHANNEL&quot;</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="_9">渠道信息存储位置<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>渠道信息存储在 <code>AndroidManifest.xml</code> 的 <code>&lt;meta-data&gt;</code> 标签中，最终打包到 APK 文件的 <code>AndroidManifest.xml</code> 文件中。</li>
+</ul>
+<hr />
+<h3 id="2-walle">2. <strong>美团 Walle 实现多渠道打包</strong><a class="headerlink" href="#2-walle" title="Permanent link">&para;</a></h3>
+<h4 id="_10">原理<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>美团 Walle 的原理是通过在 APK 文件的 <code>META-INF</code> 目录下插入一个空文件（或修改文件内容）来存储渠道信息。由于 <code>META-INF</code> 目录下的文件不会影响 APK 的签名，因此可以在不重新签名的情况下快速生成多渠道包。</p>
+<h4 id="_11">工作流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>配置 Walle</strong>：
+在 <code>build.gradle</code> 中引入 Walle 插件并配置渠道列表：
+<div class="highlight"><pre><span></span><code><span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">&#39;walle&#39;</span>
+
+<span class="n">walle</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">channelFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="o">(</span><span class="s2">&quot;channel.txt&quot;</span><span class="o">)</span><span class="w"> </span><span class="c1">// 渠道列表文件</span>
+<span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>生成基础 APK</strong>：
+先生成一个未注入渠道信息的基础 APK 文件：
+<div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>assembleRelease
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>注入渠道信息</strong>：
+使用 Walle 工具为每个渠道生成对应的 APK 文件：
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>walle-cli-all.jar<span class="w"> </span>batch<span class="w"> </span>-c<span class="w"> </span>channel1,channel2<span class="w"> </span>base.apk
+</code></pre></div>
+这会在 <code>META-INF</code> 目录下生成一个空文件（如 <code>channel_channel1</code>），文件名包含渠道信息。</p>
+</li>
+<li>
+<p><strong>读取渠道信息</strong>：
+在应用启动时，通过 Walle 提供的 API 读取渠道信息：
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WalleChannelReader</span><span class="p">.</span><span class="na">getChannel</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="_12">渠道信息存储位置<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>渠道信息存储在 APK 文件的 <code>META-INF</code> 目录下，以空文件的形式保存（文件名包含渠道信息）。</li>
+</ul>
+<hr />
+<h3 id="3-vasdolly">3. <strong>VasDolly 实现多渠道打包</strong><a class="headerlink" href="#3-vasdolly" title="Permanent link">&para;</a></h3>
+<h4 id="_13">原理<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>VasDolly 的原理是通过在 APK 文件的 ZIP 文件注释区域（ZIP Comment）中插入渠道信息。由于 ZIP 文件格式允许在文件末尾添加注释，且不会影响 APK 的签名，因此可以在不重新签名的情况下快速生成多渠道包。</p>
+<h4 id="_14">工作流程<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>配置 VasDolly</strong>：
+在 <code>build.gradle</code> 中引入 VasDolly 插件并配置渠道列表：
+<div class="highlight"><pre><span></span><code><span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">&#39;com.tencent.vasdolly&#39;</span>
+
+<span class="n">channel</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">channelFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="o">(</span><span class="s2">&quot;channel.txt&quot;</span><span class="o">)</span><span class="w"> </span><span class="c1">// 渠道列表文件</span>
+<span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>生成基础 APK</strong>：
+先生成一个未注入渠道信息的基础 APK 文件：
+<div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>assembleRelease
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>注入渠道信息</strong>：
+使用 VasDolly 工具为每个渠道生成对应的 APK 文件：
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>VasDolly.jar<span class="w"> </span>put<span class="w"> </span>-c<span class="w"> </span>channel1<span class="w"> </span>base.apk
+</code></pre></div>
+这会将渠道信息写入 APK 文件的 ZIP 注释区域。</p>
+</li>
+<li>
+<p><strong>读取渠道信息</strong>：
+在应用启动时，通过 VasDolly 提供的 API 读取渠道信息：
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChannelReader</span><span class="p">.</span><span class="na">getChannel</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="_15">渠道信息存储位置<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<ul>
+<li>渠道信息存储在 APK 文件的 ZIP 注释区域（ZIP Comment），这是一个不影响 APK 签名的区域。</li>
+</ul>
+<hr />
+<h3 id="_16">总结对比<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>工具/方法</th>
+<th>原理</th>
+<th>渠道信息存储位置</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gradle (<code>productFlavors</code>)</td>
+<td>为每个渠道独立编译 APK，渠道信息注入到 <code>AndroidManifest.xml</code></td>
+<td><code>AndroidManifest.xml</code> 的 <code>&lt;meta-data&gt;</code></td>
+<td>官方支持，配置简单</td>
+<td>打包速度慢，每个渠道需重新编译</td>
+</tr>
+<tr>
+<td>美团 Walle</td>
+<td>在 APK 的 <code>META-INF</code> 目录下插入空文件存储渠道信息</td>
+<td><code>META-INF</code> 目录下的空文件</td>
+<td>打包速度快，无需重新签名</td>
+<td>依赖第三方工具</td>
+</tr>
+<tr>
+<td>VasDolly</td>
+<td>在 APK 的 ZIP 注释区域插入渠道信息</td>
+<td>APK 文件的 ZIP 注释区域</td>
+<td>打包速度快，无需重新签名</td>
+<td>依赖第三方工具</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果需要快速生成大量渠道包，推荐使用 <strong>Walle</strong> 或 <strong>VasDolly</strong>。</li>
+<li>如果需要为不同渠道定制化代码或资源，推荐使用 <strong>Gradle 的 <code>productFlavors</code></strong>。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
