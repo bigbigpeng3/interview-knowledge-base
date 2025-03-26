@@ -1,3 +1,184 @@
+# Compose
+
+## 基础Compose知识
+??? answer "答案"
+    # Jetpack Compose 面试题及答案
+
+    ## 基础概念
+
+    ### 1. 什么是 Jetpack Compose？
+    **答案**：Jetpack Compose 是 Google 推出的现代 Android UI 工具包，使用 Kotlin 编写，采用声明式编程范式。它简化了 UI 开发过程，通过可组合函数构建界面，自动处理 UI 更新，无需传统 View 系统的繁琐操作。
+
+    ### 2. 声明式 UI 和命令式 UI 有什么区别？
+    **答案**：
+    - **命令式 UI**：开发者需要明确指示如何创建和更新 UI（如 findViewById 和 setText）
+    - **声明式 UI**：开发者描述 UI 应该是什么样子（基于当前状态），框架负责如何实现
+
+    ### 3. Composable 函数有什么特点？
+    **答案**：
+    - 使用 `@Composable` 注解标记
+    - 可以调用其他 Composable 函数
+    - 没有返回值（返回 Unit）
+    - 应该是幂等的（相同输入产生相同输出）
+    - 没有副作用（不应修改全局状态）
+
+    ## 核心概念
+
+    ### 4. 解释 Compose 中的状态管理
+    **答案**：
+    Compose 使用 `remember` 和 `mutableStateOf` 来管理状态。当状态变化时，只有依赖该状态的 Composable 会重组。
+
+    ```kotlin
+    @Composable
+    fun Counter() {
+        var count by remember { mutableStateOf(0) }
+        Button(onClick = { count++ }) {
+            Text("Clicked $count times")
+        }
+    }
+    ```
+
+    ### 5. 什么是重组（Recomposition）？
+    **答案**：重组是 Compose 在状态变化时重新执行 Composable 函数以更新 UI 的过程。Compose 会智能地只重组需要更新的部分，而不是整个 UI 树。
+
+    ### 6. 如何优化重组性能？
+    **答案**：
+    - 使用 `remember` 缓存计算结果
+    - 将列表项使用 `key` 函数提供稳定键
+    - 使用 `derivedStateOf` 减少不必要的重组
+    - 将不常变化的部分提取到单独的 Composable
+    - 避免在 Composable 中进行耗时操作
+
+    ## 高级主题
+
+    ### 7. 解释 Compose 中的副作用
+    **答案**：副作用是在 Composable 函数之外发生的操作（如网络请求、数据库访问）。Compose 提供了副作用 API：
+    - `LaunchedEffect`：协程作用域
+    - `rememberCoroutineScope`：获取组合感知的协程作用域
+    - `DisposableEffect`：需要清理的资源
+    - `SideEffect`：每次成功重组后运行
+
+    ### 8. 如何在 Compose 中处理主题和样式？
+    **答案**：
+    Compose 使用 `MaterialTheme` 提供主题系统：
+    ```kotlin
+    MaterialTheme(
+        colors = darkColors(),
+        typography = Typography(),
+        shapes = Shapes()
+    ) {
+        // 应用内容
+    }
+    ```
+    可以通过 `MaterialTheme.colors`、`MaterialTheme.typography` 等访问主题值。
+
+    ### 9. Compose 如何与 View 系统互操作？
+    **答案**：
+    - **Compose in Views**：使用 `AndroidViewBinding` 或 `ComposeView`
+    - **Views in Compose**：使用 `AndroidView` Composable
+    - 互操作层允许逐步迁移现有应用
+
+    ### 10. 解释 Compose 中的 Modifier 系统
+    **答案**：
+    Modifier 是 Compose 中用于装饰或增强组件的工具链。它们可以：
+    - 更改布局行为（大小、填充）
+    - 添加交互（点击、滚动）
+    - 设置外观（背景、边框）
+    - 处理手势
+
+    ```kotlin
+    Text(
+        text = "Hello",
+        modifier = Modifier
+            .padding(16.dp)
+            .clickable { onClick() }
+            .background(Color.Blue)
+    )
+    ```
+
+    ## 实战问题
+
+    ### 11. 如何在 Compose 中实现列表？
+    **答案**：
+    使用 `LazyColumn`（垂直）或 `LazyRow`（水平）：
+    ```kotlin
+    LazyColumn {
+        items(100) { index ->
+            Text("Item #$index")
+        }
+        
+        item { Footer() }
+    }
+    ```
+
+    ### 12. 解释 Compose 中的导航
+    **答案**：
+    使用 `Navigation` 组件：
+    ```kotlin
+    val navController = rememberNavController()
+
+    NavHost(navController, startDestination = "home") {
+        composable("home") { HomeScreen(navController) }
+        composable("details/{id}") { backStackEntry ->
+            DetailsScreen(backStackEntry.arguments?.getString("id"))
+        }
+    }
+
+    // 导航到详情页
+    navController.navigate("details/123")
+    ```
+
+    ### 13. 如何在 Compose 中测试 UI？
+    **答案**：
+    使用 Compose 测试 API：
+    - `createComposeRule()` 设置测试环境
+    - `onNodeWithText()` 等查找器定位元素
+    - `assertIsDisplayed()` 等断言验证状态
+    - `performClick()` 等操作模拟交互
+
+    ```kotlin
+    @Test
+    fun testButtonClick() {
+        composeTestRule.setContent { MyApp() }
+        
+        onNodeWithText("Click me").performClick()
+        onNodeWithText("Clicked!").assertIsDisplayed()
+    }
+    ```
+
+    ### 14. 解释 Compose 中的自定义布局
+    **答案**：
+    使用 `Layout` Composable 创建自定义布局：
+    ```kotlin
+    @Composable
+    fun CustomLayout() {
+        Layout(content = {
+            Text("Hello")
+            Text("World")
+        }) { measurables, constraints ->
+            // 测量和布局逻辑
+        }
+    }
+    ```
+
+    ### 15. Compose 与 ViewModel 如何配合使用？
+    **答案**：
+    通过 `viewModel()` 获取 ViewModel 实例：
+    ```kotlin
+    @Composable
+    fun MyScreen(viewModel: MyViewModel = viewModel()) {
+        val data by viewModel.data.collectAsState()
+        
+        if (data.isLoading) {
+            LoadingIndicator()
+        } else {
+            DataList(data.items)
+        }
+    }
+    ```
+
+    希望这些问题能帮助你准备 Jetpack Compose 相关的面试！记住，理解核心概念比死记硬背答案更重要。
+
 
 ## Compose常用控件使用案例，以及注意事项
 ??? answer "答案"

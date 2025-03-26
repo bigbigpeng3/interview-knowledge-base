@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kmp" class="md-skip">
+        <a href="#kmp-kotlin-multiplatform" class="md-skip">
           跳转至
         </a>
       
@@ -902,38 +902,500 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kmp-kotlin-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是KMP Kotlin MultiPlatForm，它能做什么？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是KMP Kotlin MultiPlatForm，它能做什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#kmp" class="md-nav__link">
     <span class="md-ellipsis">
-      什么是KMP，它能做什么？
+      KMP 的核心功能
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kmp_1" class="md-nav__link">
     <span class="md-ellipsis">
-      哪些是目前KMP的局限？
+      KMP 的应用场景
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#kmpui" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      可以通过KMP实现UI的跨平台吗？
+      示例
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kmp_2" class="md-nav__link">
     <span class="md-ellipsis">
-      哪些是官方KMP目前没有办法实现的？举几个例子。
+      哪些是目前KMP的局限？
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="哪些是目前KMP的局限？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 成熟度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 平台特定代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 性能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 工具和 IDE 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 学习曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 互操作性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 第三方库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 调试和测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpui" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前可以通过KMP实现UI的跨平台吗？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="目前可以通过KMP实现UI的跨平台吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compose-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose Multiplatform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他 KMP UI 解决方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际应用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpkmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      哪些是官方KMP目前没有办法实现的功能？举几个例子。KMP的优势和局限。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="哪些是官方KMP目前没有办法实现的功能？举几个例子。KMP的优势和局限。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      官方KMP目前难以实现的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP的局限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpandroid-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      你是否推荐使用KMP跨端？Android iOS。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你是否推荐使用KMP跨端？Android iOS。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP在业务逻辑层的成熟度评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      我的推荐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP涉及网络，数据，和逻辑的案例。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP涉及网络，数据，和逻辑的案例。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心组件解释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      优势
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpokhttp-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP能否使用Okhttp Retrofit这类已经很易用的库？并且还能够跨平台？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP能否使用Okhttp Retrofit这类已经很易用的库？并且还能够跨平台？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#okhttp-retrofit-kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      OkHttp 和 Retrofit 在 KMP 中的使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      替代方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际方案
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP常用库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP项目常用库及其作用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP项目常用库及其作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据存储
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发与异步
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      依赖注入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      日期/时间处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      图像处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI相关（共享视图模型）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他实用工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP 常规面试题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1050,38 +1512,500 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kmp-kotlin-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是KMP Kotlin MultiPlatForm，它能做什么？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是KMP Kotlin MultiPlatForm，它能做什么？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#kmp" class="md-nav__link">
     <span class="md-ellipsis">
-      什么是KMP，它能做什么？
+      KMP 的核心功能
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kmp_1" class="md-nav__link">
     <span class="md-ellipsis">
-      哪些是目前KMP的局限？
+      KMP 的应用场景
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#kmpui" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      可以通过KMP实现UI的跨平台吗？
+      示例
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kmp_2" class="md-nav__link">
     <span class="md-ellipsis">
-      哪些是官方KMP目前没有办法实现的？举几个例子。
+      哪些是目前KMP的局限？
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="哪些是目前KMP的局限？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 成熟度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 平台特定代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 性能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 工具和 IDE 支持
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 学习曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 互操作性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 第三方库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 调试和测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpui" class="md-nav__link">
+    <span class="md-ellipsis">
+      目前可以通过KMP实现UI的跨平台吗？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="目前可以通过KMP实现UI的跨平台吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compose-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose Multiplatform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      当前状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他 KMP UI 解决方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际应用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpkmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      哪些是官方KMP目前没有办法实现的功能？举几个例子。KMP的优势和局限。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="哪些是官方KMP目前没有办法实现的功能？举几个例子。KMP的优势和局限。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      官方KMP目前难以实现的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP的局限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpandroid-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      你是否推荐使用KMP跨端？Android iOS。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你是否推荐使用KMP跨端？Android iOS。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kmp_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP在业务逻辑层的成熟度评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      我的推荐
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP涉及网络，数据，和逻辑的案例。
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP涉及网络，数据，和逻辑的案例。">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心组件解释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      优势
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmpokhttp-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP能否使用Okhttp Retrofit这类已经很易用的库？并且还能够跨平台？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP能否使用Okhttp Retrofit这类已经很易用的库？并且还能够跨平台？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#okhttp-retrofit-kmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      OkHttp 和 Retrofit 在 KMP 中的使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      替代方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际方案
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP常用库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP项目常用库及其作用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KMP项目常用库及其作用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据存储
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      序列化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发与异步
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      依赖注入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      日期/时间处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      图像处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI相关（共享视图模型）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他实用工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      KMP 常规面试题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1101,21 +2025,864 @@
 
 
 
-  <h1>Kotlin Multi Platform</h1>
+<h2 id="kmp-kotlin-multiplatform">什么是KMP Kotlin MultiPlatForm，它能做什么？<a class="headerlink" href="#kmp-kotlin-multiplatform" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>KMP（Kotlin Multiplatform）是 JetBrains 推出的一项技术，旨在让开发者使用 Kotlin 编写跨平台代码，能够在多个平台上共享业务逻辑，同时保留各平台的特定实现。</p>
+<h3 id="kmp">KMP 的核心功能<a class="headerlink" href="#kmp" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>代码共享</strong>：</li>
+<li>
+<p>允许在多个平台（如 Android、iOS、Web、桌面等）之间共享代码，减少重复开发。</p>
+</li>
+<li>
+<p><strong>平台特定实现</strong>：</p>
+</li>
+<li>
+<p>支持在共享代码中调用平台特定的 API，确保各平台的独特性。</p>
+</li>
+<li>
+<p><strong>互操作性</strong>：</p>
+</li>
+<li>
+<p>与现有代码库兼容，支持与 Java、Swift、JavaScript 等语言的互操作。</p>
+</li>
+<li>
+<p><strong>工具支持</strong>：</p>
+</li>
+<li>提供 Gradle 插件和 IDE 支持，简化跨平台项目的配置和开发。</li>
+</ol>
+<h3 id="kmp_1">KMP 的应用场景<a class="headerlink" href="#kmp_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>移动开发</strong>：</li>
+<li>
+<p>在 Android 和 iOS 之间共享业务逻辑，UI 层仍使用原生开发。</p>
+</li>
+<li>
+<p><strong>全栈开发</strong>：</p>
+</li>
+<li>
+<p>前后端使用相同的 Kotlin 代码，提升开发效率。</p>
+</li>
+<li>
+<p><strong>桌面应用</strong>：</p>
+</li>
+<li>
+<p>开发跨 Windows、macOS、Linux 的桌面应用。</p>
+</li>
+<li>
+<p><strong>库开发</strong>：</p>
+</li>
+<li>创建跨平台的库，供不同平台使用。</li>
+</ol>
+<h3 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>以下是一个简单的 KMP 项目结构：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// commonMain - 共享代码</span>
+<span class="kd">expect</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">platformName</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span>
 
-<h2 id="kmp">什么是KMP，它能做什么？<a class="headerlink" href="#kmp" title="Permanent link">&para;</a></h2>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello from </span><span class="si">${</span><span class="n">platformName</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// androidMain - Android 实现</span>
+<span class="kd">actual</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">platformName</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Android&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// iosMain - iOS 实现</span>
+<span class="kd">actual</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">platformName</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;iOS&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>KMP 通过代码共享和平台特定实现，帮助开发者高效构建跨平台应用，减少重复工作，同时保持各平台的独特性。</p>
+</details>
+<h2 id="kmp_2">哪些是目前KMP的局限？<a class="headerlink" href="#kmp_2" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>尽管 Kotlin Multiplatform (KMP) 提供了强大的跨平台开发能力，但它仍有一些局限和挑战。以下是一些主要的限制：</p>
+<h3 id="1">1. <strong>成熟度</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>生态系统</strong>：KMP 的生态系统仍在发展中，某些库和工具可能不如原生开发成熟。</li>
+<li><strong>社区支持</strong>：虽然 Kotlin 社区活跃，但 KMP 的社区相对较小，资源和支持有限。</li>
+</ul>
+<h3 id="2">2. <strong>平台特定代码</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>复杂性</strong>：虽然 KMP 允许共享代码，但平台特定代码的编写和管理可能增加复杂性。</li>
+<li><strong>维护成本</strong>：不同平台的特定实现需要额外维护，可能增加开发成本。</li>
+</ul>
+<h3 id="3">3. <strong>性能</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>运行时开销</strong>：KMP 的跨平台代码可能引入额外的运行时开销，影响性能。</li>
+<li><strong>优化难度</strong>：跨平台代码的优化可能比原生代码更具挑战性。</li>
+</ul>
+<h3 id="4-ide">4. <strong>工具和 IDE 支持</strong><a class="headerlink" href="#4-ide" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>工具链</strong>：KMP 的工具链仍在完善中，某些功能可能不如原生开发工具成熟。</li>
+<li><strong>IDE 支持</strong>：虽然 IntelliJ IDEA 和 Android Studio 对 KMP 提供了良好支持，但在某些情况下可能会遇到问题。</li>
+</ul>
+<h3 id="5">5. <strong>学习曲线</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>新技术</strong>：KMP 引入了新的概念和工具，开发者需要时间学习和适应。</li>
+<li><strong>文档和教程</strong>：尽管 Kotlin 的文档较为完善，但 KMP 的特定文档和教程相对较少。</li>
+</ul>
+<h3 id="6">6. <strong>互操作性</strong><a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>语言兼容性</strong>：虽然 KMP 支持与 Java、Swift 等语言的互操作，但在某些情况下可能会遇到兼容性问题。</li>
+<li><strong>API 差异</strong>：不同平台的 API 差异可能导致跨平台代码的复杂性增加。</li>
+</ul>
+<h3 id="7">7. <strong>第三方库</strong><a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>库支持</strong>：并非所有第三方库都支持 KMP，可能需要自行实现或寻找替代方案。</li>
+<li><strong>依赖管理</strong>：跨平台项目的依赖管理可能比单一平台项目更复杂。</li>
+</ul>
+<h3 id="8">8. <strong>调试和测试</strong><a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>调试工具</strong>：跨平台代码的调试工具可能不如原生开发工具成熟。</li>
+<li><strong>测试复杂性</strong>：跨平台代码的测试可能需要覆盖多个平台，增加测试复杂性。</li>
+</ul>
+<h3 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>KMP 提供了强大的跨平台开发能力，但在成熟度、性能、工具支持、学习曲线、互操作性和第三方库支持等方面仍存在一些局限。开发者在选择 KMP 时需要权衡这些因素，并根据项目需求做出决策。随着 KMP 生态系统的不断发展，这些局限有望逐步得到改善。</p>
+</details>
+<h2 id="kmpui">目前可以通过KMP实现UI的跨平台吗？<a class="headerlink" href="#kmpui" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>目前 KMP（Kotlin Multiplatform）确实可以实现 UI 的跨平台开发，但与业务逻辑的跨平台相比，UI 跨平台还在发展中。以下是当前 KMP 在 UI 跨平台方面的情况：</p>
+<h3 id="compose-multiplatform">Compose Multiplatform<a class="headerlink" href="#compose-multiplatform" title="Permanent link">&para;</a></h3>
+<p>最主要的 KMP UI 解决方案是 Compose Multiplatform（原名 Jetpack Compose for Desktop/Web），它是 Android 上 Jetpack Compose 声明式 UI 框架的跨平台版本。</p>
+<p>Compose Multiplatform 允许开发者：
+- 在 Android、iOS、桌面（Windows、macOS、Linux）和 Web 上共享 UI 代码
+- 使用相同的 Compose 声明式 API 构建界面
+- 复用 UI 组件和状态管理逻辑</p>
+<h3 id="_4">当前状态<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Android</strong>：完全支持，这是 Compose 的发源地</li>
+<li><strong>桌面</strong>：已正式发布，支持 Windows、macOS 和 Linux</li>
+<li><strong>Web</strong>：通过 Compose HTML 可以将 Compose 编译到 JavaScript，但仍处于实验阶段</li>
+<li><strong>iOS</strong>：支持已经进入 Alpha 阶段，2023 年底 JetBrains 发布了 Compose Multiplatform for iOS 的预览版</li>
+</ol>
+<h3 id="kmp-ui">其他 KMP UI 解决方案<a class="headerlink" href="#kmp-ui" title="Permanent link">&para;</a></h3>
+<p>除了 Compose Multiplatform 外，还有一些其他 UI 解决方案：</p>
+<ol>
+<li>
+<p><strong>KMM (Kotlin Multiplatform Mobile)</strong>：专注于 Android 和 iOS 的共享代码，但通常建议使用各平台原生 UI（SwiftUI/UIKit 和 Jetpack Compose/XML）</p>
+</li>
+<li>
+<p><strong>Moko</strong>：一系列帮助实现跨平台 UI 交互的库，包括视图模型、资源共享等</p>
+</li>
+<li>
+<p><strong>Kodee</strong>：提供了一套抽象层，允许使用单一 API 访问各平台的原生 UI 框架</p>
+</li>
+</ol>
+<h3 id="_5">实际应用情况<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>尽管 KMP 的 UI 跨平台能力在不断进步，但在生产环境中：</p>
+<ul>
+<li>许多团队选择共享业务逻辑和数据层，但使用各平台原生 UI 框架</li>
+<li>对于需要高度定制 UI 或平台特定功能的应用，混合方法（共享部分 UI 代码，部分使用原生）较为常见</li>
+<li>完全跨平台 UI 解决方案仍在成熟中，特别是在 iOS 支持方面</li>
+</ul>
+<p>总的来说，KMP 的 UI 跨平台能力是存在的，但相比业务逻辑的共享，它还没有那么成熟和广泛应用。不过随着 Compose Multiplatform 的持续发展，这一领域正在快速进步。</p>
+</details>
+<h2 id="kmpkmp">哪些是官方KMP目前没有办法实现的功能？举几个例子。KMP的优势和局限。<a class="headerlink" href="#kmpkmp" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>KMP（Kotlin Multiplatform）有许多优势，但也存在一些当前无法实现或需要特殊处理的功能。以下是一些例子和对KMP优势与局限的分析：</p>
+<h3 id="kmp_3">官方KMP目前难以实现的功能<a class="headerlink" href="#kmp_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>原生平台特定功能</strong>：</li>
+<li>iOS特有的生物识别（如FaceID的某些高级功能）</li>
+<li>Android特有的后台服务和权限系统</li>
+<li>
+<p>特定平台专有硬件访问（如苹果的LiDAR扫描仪）</p>
+</li>
+<li>
+<p><strong>高性能图形和游戏</strong>：</p>
+</li>
+<li>直接访问Metal/OpenGL ES/Vulkan等低级图形API</li>
+<li>
+<p>需要平台特定优化的高性能游戏引擎功能</p>
+</li>
+<li>
+<p><strong>特定平台SDK集成</strong>：</p>
+</li>
+<li>苹果生态系统特有功能（如Apple Watch集成、HealthKit深度功能）</li>
+<li>
+<p>谷歌专属服务（如高级Google Maps功能、特定Google Play服务）</p>
+</li>
+<li>
+<p><strong>复杂UI交互</strong>：</p>
+</li>
+<li>平台特有的手势识别系统</li>
+<li>
+<p>特定平台的高级动画和过渡效果</p>
+</li>
+<li>
+<p><strong>系统级集成</strong>：</p>
+</li>
+<li>默认应用替换（如默认浏览器、默认相机）</li>
+<li>系统级权限和深度操作系统集成</li>
+</ol>
+<h3 id="kmp_4">KMP的优势<a class="headerlink" href="#kmp_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>代码共享效率</strong>：</li>
+<li>可以共享高达70%的代码，减少维护成本和bug出现概率</li>
+<li>
+<p>业务逻辑、网络层、数据处理可以完全跨平台</p>
+</li>
+<li>
+<p><strong>渐进式采用</strong>：</p>
+</li>
+<li>可以逐步集成到现有项目中，不需要完全重写</li>
+<li>
+<p>允许团队决定哪些部分共享，哪些部分保持平台特定</p>
+</li>
+<li>
+<p><strong>保留原生性能</strong>：</p>
+</li>
+<li>编译为真正的原生代码，而非解释执行</li>
+<li>
+<p>比许多其他跨平台解决方案性能更好</p>
+</li>
+<li>
+<p><strong>类型安全和现代语言特性</strong>：</p>
+</li>
+<li>
+<p>利用Kotlin的所有优势，如协程、流、函数式编程</p>
+</li>
+<li>
+<p><strong>强大的工具支持</strong>：</p>
+</li>
+<li>JetBrains IDE集成</li>
+<li>官方支持和持续发展</li>
+</ol>
+<h3 id="kmp_5">KMP的局限<a class="headerlink" href="#kmp_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>生态系统成熟度</strong>：</li>
+<li>与React Native或Flutter相比，库和组件生态系统较小</li>
+<li>
+<p>跨平台UI解决方案（如Compose Multiplatform）仍在成熟中</p>
+</li>
+<li>
+<p><strong>学习曲线</strong>：</p>
+</li>
+<li>需要了解各目标平台的特性</li>
+<li>
+<p>配置和构建系统较复杂</p>
+</li>
+<li>
+<p><strong>调试复杂性</strong>：</p>
+</li>
+<li>跨平台调试有时候比单平台开发更复杂</li>
+<li>
+<p>某些平台特定问题难以在共享代码中诊断</p>
+</li>
+<li>
+<p><strong>团队技能要求</strong>：</p>
+</li>
+<li>理想情况下需要团队熟悉Kotlin</li>
+<li>
+<p>在过渡期可能需要同时维护多个平台的知识</p>
+</li>
+<li>
+<p><strong>依赖管理</strong>：</p>
+</li>
+<li>管理多平台依赖可能复杂</li>
+<li>某些库可能不提供多平台版本</li>
+</ol>
+<p>KMP特别适合那些已经在Android上使用Kotlin，并希望将业务逻辑扩展到iOS或其他平台的团队。对于需要高度定制UI体验或大量使用平台特定功能的应用，通常采用混合策略最有效：共享核心逻辑，但保留平台特定UI和功能的原生实现。</p>
+</details>
+<h2 id="kmpandroid-ios">你是否推荐使用KMP跨端？Android iOS。<a class="headerlink" href="#kmpandroid-ios" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>KMP（Kotlin Multiplatform）在业务逻辑层面的跨平台开发已经相当成熟，尤其是针对Android和iOS的共享代码场景。基于当前的状态，我会建议：</p>
+<h3 id="kmp_6">KMP在业务逻辑层的成熟度评估<a class="headerlink" href="#kmp_6" title="Permanent link">&para;</a></h3>
+<p>KMP对于共享业务逻辑、网络层、数据处理等非UI部分已经相当稳定，很多企业级项目已经在生产环境中使用，包括：</p>
+<ul>
+<li>Cash App (由Square开发)</li>
+<li>Netflix的部分功能</li>
+<li>Philips、VMware、Autodesk等企业的应用</li>
+<li>JetBrains自己的应用如Space</li>
+</ul>
+<h3 id="_6">我的推荐<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>是的，对于Android和iOS的<strong>业务逻辑部分</strong>跨平台开发，我会推荐使用KMP，基于以下理由：</p>
+<ol>
+<li><strong>代码复用收益明显</strong>：</li>
+<li>网络层、数据处理、状态管理等代码可以高效共享</li>
+<li>
+<p>减少在两个平台上实现相同业务逻辑的重复工作</p>
+</li>
+<li>
+<p><strong>JetBrains的长期支持</strong>：</p>
+</li>
+<li>KMP是JetBrains的战略项目，持续获得投资和改进</li>
+<li>
+<p>Kotlin 1.8+版本大幅改善了多平台支持</p>
+</li>
+<li>
+<p><strong>成熟的生态系统</strong>：</p>
+</li>
+<li>核心库如Ktor（网络）、SQLDelight（数据库）、Kotlinx.serialization（序列化）等已经非常稳定</li>
+<li>越来越多第三方库提供KMP支持</li>
+</ol>
+<h3 id="_7">使用建议<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>如果你决定采用KMP，我建议：</p>
+<ol>
+<li><strong>从共享核心业务逻辑开始</strong>：</li>
+<li>首先迁移网络层、数据模型和业务规则</li>
+<li>
+<p>保留平台特定的UI实现（SwiftUI/UIKit和Jetpack Compose/XML）</p>
+</li>
+<li>
+<p><strong>采用渐进式方法</strong>：</p>
+</li>
+<li>不要试图一次性将所有内容转换为KMP</li>
+<li>
+<p>从一个功能模块开始，验证流程，然后扩展</p>
+</li>
+<li>
+<p><strong>使用KMM插件</strong>：</p>
+</li>
+<li>利用Android Studio的Kotlin Multiplatform Mobile插件简化开发</li>
+<li>
+<p>它提供了针对移动平台的特定工具和模板</p>
+</li>
+<li>
+<p><strong>注意平台差异</strong>：</p>
+</li>
+<li>使用expect/actual模式处理平台特定功能</li>
+<li>为iOS开发设置适当的内存管理策略</li>
+</ol>
+<p>总的来说，对于业务逻辑层面的共享，KMP已经足够成熟可用于生产环境。它能显著减少维护两套代码的成本，同时保持良好的性能和原生体验。不过UI层面的共享（通过Compose Multiplatform）目前仍处于发展阶段，在生产环境中应谨慎使用。</p>
+</details>
+<h2 id="kmp_7">KMP涉及网络，数据，和逻辑的案例。<a class="headerlink" href="#kmp_7" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>下面我为你提供一个具体的KMP案例，展示如何实现跨平台的网络请求、数据模型和业务规则。这个例子将创建一个简单的天气应用的核心逻辑层。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 项目结构</span>
+<span class="c1">// </span>
+<span class="c1">// - shared/</span>
+<span class="c1">//   - build.gradle.kts  (Kotlin Multiplatform 项目配置)</span>
+<span class="c1">//   - src/</span>
+<span class="c1">//     - commonMain/     (共享代码)</span>
+<span class="c1">//     - androidMain/    (Android 特定实现)</span>
+<span class="c1">//     - iosMain/        (iOS 特定实现)</span>
+
+<span class="c1">// build.gradle.kts (共享模块)</span>
+<span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;multiplatform&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;1.9.0&quot;</span>
+<span class="w">    </span><span class="n">kotlin</span><span class="p">(</span><span class="s">&quot;plugin.serialization&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;1.9.0&quot;</span>
+<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;com.android.library&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">kotlin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">android</span><span class="p">()</span>
+<span class="w">    </span><span class="n">ios</span><span class="p">()</span>
+
+<span class="w">    </span><span class="n">sourceSets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">commonMain</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">getting</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 网络请求</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;io.ktor:ktor-client-core:2.3.2&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;io.ktor:ktor-client-content-negotiation:2.3.2&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;io.ktor:ktor-serialization-kotlinx-json:2.3.2&quot;</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// 序列化</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1&quot;</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c1">// 协程</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">androidMain</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">getting</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;io.ktor:ktor-client-android:2.3.2&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">iosMain</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">getting</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;io.ktor:ktor-client-darwin:2.3.2&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 1. 数据模型层 - 共享代码 (commonMain)</span>
+
+<span class="c1">// 数据模型使用 kotlinx.serialization</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.serialization.Serializable</span>
+
+<span class="nd">@Serializable</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">WeatherData</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">location</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">temperature</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">humidity</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">windSpeed</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">condition</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">forecast</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DailyForecast</span><span class="o">&gt;</span>
+<span class="p">)</span>
+
+<span class="nd">@Serializable</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">DailyForecast</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">day</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">minTemp</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">maxTemp</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">condition</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="p">)</span>
+
+<span class="c1">// 2. 网络层 - 共享代码 (commonMain)</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.plugins.contentnegotiation.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.serialization.kotlinx.json.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.request.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.call.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.serialization.json.Json</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">WeatherApi</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 创建 HTTP 客户端实例</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">install</span><span class="p">(</span><span class="n">ContentNegotiation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">json</span><span class="p">(</span><span class="n">Json</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ignoreUnknownKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="n">prettyPrint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="n">isLenient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 网络请求函数</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getWeatherData</span><span class="p">(</span><span class="n">city</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="n">WeatherData</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;https://api.weatherexample.com/data&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">parameter</span><span class="p">(</span><span class="s">&quot;city&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="p">)</span>
+<span class="w">            </span><span class="n">parameter</span><span class="p">(</span><span class="s">&quot;units&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;metric&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}.</span><span class="na">body</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 清理资源</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">close</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">client</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. 平台特定代码 - 定义预期的平台功能</span>
+
+<span class="c1">// commonMain - 定义期望实现</span>
+<span class="kd">expect</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">LocationProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getCurrentLocation</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span>
+<span class="p">}</span>
+
+<span class="c1">// androidMain - 实际实现</span>
+<span class="kd">actual</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">LocationProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">actual</span><span class="w"> </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getCurrentLocation</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 在实际应用中，这里会使用 Android 的位置服务</span>
+<span class="w">        </span><span class="c1">// 为简化示例，直接返回默认值</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Beijing&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// iosMain - 实际实现</span>
+<span class="kd">actual</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">LocationProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">actual</span><span class="w"> </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getCurrentLocation</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 在实际应用中，这里会使用 iOS 的 CoreLocation</span>
+<span class="w">        </span><span class="c1">// 为简化示例，直接返回默认值</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Beijing&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 4. 业务逻辑层 - 共享代码 (commonMain)</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.Flow</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.MutableStateFlow</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.flow.asStateFlow</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">WeatherRepository</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">api</span><span class="p">:</span><span class="w"> </span><span class="n">WeatherApi</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">locationProvider</span><span class="p">:</span><span class="w"> </span><span class="n">LocationProvider</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 使用 StateFlow 存储当前天气状态</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">_weatherData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableStateFlow</span><span class="o">&lt;</span><span class="n">WeatherState</span><span class="o">&gt;</span><span class="p">(</span><span class="n">WeatherState</span><span class="p">.</span><span class="na">Loading</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">weatherData</span><span class="p">:</span><span class="w"> </span><span class="n">Flow</span><span class="o">&lt;</span><span class="n">WeatherState</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_weatherData</span><span class="p">.</span><span class="na">asStateFlow</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// 业务逻辑：获取天气信息</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">fetchWeather</span><span class="p">(</span><span class="n">city</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_weatherData</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">.</span><span class="na">Loading</span>
+
+<span class="w">            </span><span class="c1">// 如果没有指定城市，使用当前位置</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">locationToUse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">locationProvider</span><span class="p">.</span><span class="na">getCurrentLocation</span><span class="p">()</span>
+
+<span class="w">            </span><span class="c1">// 调用 API 获取数据</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="na">getWeatherData</span><span class="p">(</span><span class="n">locationToUse</span><span class="p">)</span>
+
+<span class="w">            </span><span class="c1">// 处理业务规则 - 例如温度格式化、天气警告等</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">processedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processWeatherData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="w">            </span><span class="n">_weatherData</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">.</span><span class="na">Success</span><span class="p">(</span><span class="n">processedData</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_weatherData</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">.</span><span class="na">Error</span><span class="p">(</span><span class="s">&quot;无法获取天气数据: </span><span class="si">${</span><span class="n">e</span><span class="p">.</span><span class="na">message</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 业务规则：处理天气数据</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">processWeatherData</span><span class="p">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">WeatherData</span><span class="p">):</span><span class="w"> </span><span class="n">WeatherData</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 示例业务规则1：如果温度过高，添加高温警告</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">temperature</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">35</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;</span><span class="si">${</span><span class="n">data</span><span class="p">.</span><span class="na">condition</span><span class="si">}</span><span class="s"> (高温警告)&quot;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">data</span><span class="p">.</span><span class="na">condition</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 示例业务规则2：预测未来几天的最高温度趋势</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">forecast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">forecast</span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">daily</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="c1">// 如果最高温度超过30度，添加标记</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">updatedCondition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">daily</span><span class="p">.</span><span class="na">maxTemp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s">&quot;</span><span class="si">${</span><span class="n">daily</span><span class="p">.</span><span class="na">condition</span><span class="si">}</span><span class="s"> (较热)&quot;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">daily</span><span class="p">.</span><span class="na">condition</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">daily</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">updatedCondition</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">condition</span><span class="p">,</span><span class="w"> </span><span class="n">forecast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forecast</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义状态</span>
+<span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">WeatherState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Loading</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Success</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">WeatherData</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Error</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">WeatherState</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 5. 示例：如何在Android/iOS中使用这个共享代码</span>
+
+<span class="c1">// 在Android ViewModel中使用</span>
+<span class="cm">/*</span>
+<span class="cm">class AndroidWeatherViewModel(application: Application) : AndroidViewModel(application) {</span>
+<span class="cm">    private val repository = WeatherRepository(</span>
+<span class="cm">        WeatherApi(),</span>
+<span class="cm">        LocationProvider()</span>
+<span class="cm">    )</span>
+
+<span class="cm">    val weatherData = repository.weatherData.asLiveData()</span>
+
+<span class="cm">    fun loadWeather(city: String? = null) {</span>
+<span class="cm">        viewModelScope.launch {</span>
+<span class="cm">            repository.fetchWeather(city)</span>
+<span class="cm">        }</span>
+<span class="cm">    }</span>
+<span class="cm">}</span>
+<span class="cm">*/</span>
+
+<span class="c1">// 在iOS使用(Swift)</span>
+<span class="cm">/*</span>
+<span class="cm">class WeatherViewModel: ObservableObject {</span>
+<span class="cm">    @Published var state: WeatherState = .loading</span>
+
+<span class="cm">    private let repository: WeatherRepository</span>
+
+<span class="cm">    init() {</span>
+<span class="cm">        repository = WeatherRepository(</span>
+<span class="cm">            api: WeatherApi(),</span>
+<span class="cm">            locationProvider: LocationProvider()</span>
+<span class="cm">        )</span>
+
+<span class="cm">        // 创建一个Kotlin协程作用域</span>
+<span class="cm">        let scope = CoroutineScope(Dispatchers.Main.immediate)</span>
+
+<span class="cm">        // 收集Flow</span>
+<span class="cm">        scope.launch {</span>
+<span class="cm">            repository.weatherData.collect { state in</span>
+<span class="cm">                // 更新SwiftUI状态</span>
+<span class="cm">                self.state = state</span>
+<span class="cm">            }</span>
+<span class="cm">        }</span>
+<span class="cm">    }</span>
+
+<span class="cm">    func loadWeather(city: String? = nil) {</span>
+<span class="cm">        let scope = CoroutineScope(Dispatchers.Main.immediate)</span>
+<span class="cm">        scope.launch {</span>
+<span class="cm">            repository.fetchWeather(city: city)</span>
+<span class="cm">        }</span>
+<span class="cm">    }</span>
+<span class="cm">}</span>
+<span class="cm">*/</span>
+</code></pre></div>
+<p>这个例子展示了如何使用KMP构建跨平台的天气应用核心功能，包含了以下关键元素：</p>
+<h3 id="_8">核心组件解释<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>数据模型层</strong></li>
+<li>使用<code>kotlinx.serialization</code>定义可序列化的数据类</li>
+<li>
+<p>数据模型完全共享，不需要平台特定代码</p>
+</li>
+<li>
+<p><strong>网络层</strong></p>
+</li>
+<li>使用Ktor客户端进行网络请求</li>
+<li>
+<p>共享API调用逻辑，但平台特定的HTTP引擎通过依赖注入</p>
+</li>
+<li>
+<p><strong>平台特定功能</strong></p>
+</li>
+<li>使用<code>expect/actual</code>模式处理需要平台特定实现的功能</li>
+<li>
+<p>示例中的<code>LocationProvider</code>在不同平台有不同实现</p>
+</li>
+<li>
+<p><strong>业务逻辑层</strong></p>
+</li>
+<li><code>WeatherRepository</code>封装所有业务规则</li>
+<li>使用协程和Flow处理异步操作和数据流</li>
+<li>实现了数据处理规则，如温度警告和天气状态处理</li>
+</ol>
+<h3 id="_9">如何使用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>该示例展示了KMP项目的组织结构，包括：</p>
+<ul>
+<li><code>commonMain</code>：包含所有共享代码</li>
+<li><code>androidMain</code>：Android特定实现</li>
+<li><code>iosMain</code>：iOS特定实现</li>
+</ul>
+<p>在实际项目中，你只需要在各自平台上实现UI层，而核心的业务逻辑、网络请求和数据处理可以完全共享。</p>
+<h3 id="_10">优势<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>代码复用</strong>：网络层、数据模型和业务规则只需编写一次</li>
+<li><strong>类型安全</strong>：使用Kotlin强类型系统，减少错误</li>
+<li><strong>灵活性</strong>：可以轻松处理平台特定功能</li>
+<li><strong>现代API</strong>：利用协程和Flow处理异步操作</li>
+</ol>
+<p>这个例子虽然简化了一些细节，但展示了KMP在实际项目中如何应用于业务逻辑层面。你可以基于这个结构扩展更复杂的功能，如缓存策略、离线支持、更复杂的业务规则等。</p>
+</details>
+<h2 id="kmpokhttp-retrofit">KMP能否使用Okhttp Retrofit这类已经很易用的库？并且还能够跨平台？<a class="headerlink" href="#kmpokhttp-retrofit" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<p>KMP（Kotlin Multiplatform）对于使用OkHttp和Retrofit这类Java/Android库存在一些限制。我来解释一下这种情况：</p>
+<h3 id="okhttp-retrofit-kmp">OkHttp 和 Retrofit 在 KMP 中的使用<a class="headerlink" href="#okhttp-retrofit-kmp" title="Permanent link">&para;</a></h3>
+<p>OkHttp 和 Retrofit 是针对 JVM 平台设计的，主要面向 Android 和 Java 服务器开发：</p>
+<ol>
+<li><strong>直接在共享代码中使用的限制</strong>：</li>
+<li>这些库<strong>不能</strong>直接在 KMP 的共享代码（<code>commonMain</code>）中使用</li>
+<li>
+<p>它们依赖于 JVM 平台的特定功能，无法在 iOS/Native 平台上运行</p>
+</li>
+<li>
+<p><strong>仅限 Android 平台使用</strong>：</p>
+</li>
+<li>可以在 KMP 项目的 <code>androidMain</code> 源集中使用这些库</li>
+<li>但这意味着你需要为 iOS 提供一个独立的实现</li>
+</ol>
+<h3 id="_11">替代方案<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>KMP 提供了专门设计的跨平台网络库，其中最主要的是：</p>
+<ol>
+<li><strong>Ktor Client</strong>：</li>
+<li>专为跨平台设计的网络库</li>
+<li>提供类似功能，但能在所有 KMP 目标平台上运行</li>
+<li>支持不同平台的引擎（Android、iOS、JS）</li>
+<li>
+<p>提供拦截器、序列化、请求/响应处理等功能</p>
+</li>
+<li>
+<p><strong>对 Retrofit 功能的模拟</strong>：</p>
+</li>
+<li>虽然 Ktor 不提供完全相同的 API 接口定义方式</li>
+<li>但可以创建扩展函数和模块化 API 类来实现类似的代码组织</li>
+</ol>
+<h3 id="_12">实际方案<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>在 KMP 项目中处理网络请求有以下几种方式：</p>
+<ol>
+<li><strong>完全共享方案</strong>：</li>
+<li>在共享代码中使用 Ktor Client</li>
+<li>
+<p>所有平台使用相同的网络代码</p>
+</li>
+<li>
+<p><strong>混合方案</strong>：</p>
+</li>
+<li>在 Android 端使用现有的 OkHttp/Retrofit 代码 </li>
+<li>在 iOS 端使用 Ktor 或原生网络库</li>
+<li>
+<p>通过 <code>expect/actual</code> 模式提供统一接口</p>
+</li>
+<li>
+<p><strong>抽象接口方案</strong>：</p>
+</li>
+<li>在共享代码中定义接口</li>
+<li>Android 实现使用 Retrofit</li>
+<li>iOS 实现使用其他技术</li>
+<li>缺点是实现代码冗余</li>
+</ol>
+<p>大多数 KMP 项目选择方案 1，完全使用 Ktor 代替 Retrofit/OkHttp，因为这样可以最大化代码共享并减少维护成本。Ktor 虽然与 Retrofit 的使用方式不同，但功能上完全可以满足需求，且已经相当成熟和稳定。</p>
+</details>
+<h2 id="kmp_8">KMP常用库<a class="headerlink" href="#kmp_8" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<h1 id="kmp_9">KMP项目常用库及其作用<a class="headerlink" href="#kmp_9" title="Permanent link">&para;</a></h1>
+<p>以下是Kotlin Multiplatform (KMP)项目中经常使用的库及其主要功能：</p>
+<h2 id="_13">网络请求<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Ktor Client</strong></li>
+<li><strong>作用</strong>：跨平台HTTP客户端</li>
+<li><strong>特点</strong>：支持协程、灵活的插件系统、可配置的序列化</li>
+<li>
+<p><strong>官方维护</strong>：由JetBrains开发</p>
+</li>
+<li>
+<p><strong>Kermit</strong></p>
+</li>
+<li><strong>作用</strong>：跨平台日志框架</li>
+<li><strong>特点</strong>：支持多平台的日志记录，灵活的日志输出配置</li>
+</ol>
+<h2 id="_14">数据存储<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>SQLDelight</strong></li>
+<li><strong>作用</strong>：跨平台SQL数据库访问</li>
+<li><strong>特点</strong>：从SQL语句生成类型安全的Kotlin API</li>
+<li>
+<p><strong>平台实现</strong>：在Android上使用SQLite，iOS上使用SQLite或Core Data</p>
+</li>
+<li>
+<p><strong>Multiplatform Settings</strong></p>
+</li>
+<li><strong>作用</strong>：跨平台键值对存储</li>
+<li><strong>特点</strong>：简单的偏好设置存储</li>
+<li>
+<p><strong>平台实现</strong>：Android上使用SharedPreferences，iOS上使用NSUserDefaults</p>
+</li>
+<li>
+<p><strong>Realm Kotlin</strong></p>
+</li>
+<li><strong>作用</strong>：跨平台移动数据库</li>
+<li><strong>特点</strong>：对象数据库，实时同步功能</li>
+</ol>
+<h2 id="_15">序列化<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Kotlinx.Serialization</strong></li>
+<li><strong>作用</strong>：跨平台数据序列化框架</li>
+<li><strong>特点</strong>：编译时代码生成，不依赖反射</li>
+<li><strong>官方维护</strong>：Kotlin官方库</li>
+</ol>
+<h2 id="_16">并发与异步<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Kotlinx.Coroutines</strong></li>
+<li><strong>作用</strong>：跨平台协程支持</li>
+<li><strong>特点</strong>：结构化并发，Flow API</li>
+<li>
+<p><strong>官方维护</strong>：Kotlin官方库</p>
+</li>
+<li>
+<p><strong>KotlinX.AtomicFu</strong></p>
+</li>
+<li><strong>作用</strong>：提供无锁线程安全操作</li>
+<li><strong>特点</strong>：在Native平台上也能高效运行的原子操作</li>
+</ol>
+<h2 id="_17">依赖注入<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Koin</strong></li>
+<li><strong>作用</strong>：轻量级依赖注入框架</li>
+<li>
+<p><strong>特点</strong>：纯Kotlin实现，易于使用</p>
+</li>
+<li>
+<p><strong>Kodein</strong></p>
+<ul>
+<li><strong>作用</strong>：另一个依赖注入框架</li>
+<li><strong>特点</strong>：专为Kotlin设计，支持多平台</li>
+</ul>
+</li>
+</ol>
+<h2 id="_18">日期/时间处理<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>KotlinX.DateTime</strong><ul>
+<li><strong>作用</strong>：跨平台日期和时间API</li>
+<li><strong>特点</strong>：不可变的日期时间类型</li>
+<li><strong>官方维护</strong>：Kotlin官方库</li>
+</ul>
+</li>
+</ol>
+<h2 id="_19">图像处理<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Imageio</strong><ul>
+<li><strong>作用</strong>：跨平台图像加载和处理</li>
+<li><strong>特点</strong>：支持常见图像格式的读写</li>
+</ul>
+</li>
+</ol>
+<h2 id="ui">UI相关（共享视图模型）<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>MVIKotlin</strong></p>
+<ul>
+<li><strong>作用</strong>：实现MVI架构模式</li>
+<li><strong>特点</strong>：响应式UI状态管理</li>
+</ul>
+</li>
+<li>
+<p><strong>Decompose</strong></p>
+<ul>
+<li><strong>作用</strong>：组件化UI导航和状态保存</li>
+<li><strong>特点</strong>：与Compose Multiplatform配合使用</li>
+</ul>
+</li>
+</ol>
+<h2 id="_20">测试<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>KotlinTest</strong></p>
+<ul>
+<li><strong>作用</strong>：跨平台单元测试框架</li>
+<li><strong>特点</strong>：类似于ScalaTest的风格</li>
+</ul>
+</li>
+<li>
+<p><strong>MockK</strong></p>
+<ul>
+<li><strong>作用</strong>：Kotlin模拟框架</li>
+<li><strong>特点</strong>：支持协程和跨平台测试</li>
+</ul>
+</li>
+</ol>
+<h2 id="_21">其他实用工具<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>UUID</strong></p>
+<ul>
+<li><strong>作用</strong>：跨平台UUID生成</li>
+<li><strong>特点</strong>：符合标准的UUID实现</li>
+</ul>
+</li>
+<li>
+<p><strong>kotlin-logging</strong></p>
+<ul>
+<li><strong>作用</strong>：跨平台的类似SLF4J的日志抽象</li>
+<li><strong>特点</strong>：简洁的日志API</li>
+</ul>
+</li>
+<li>
+<p><strong>Napier</strong></p>
+<ul>
+<li><strong>作用</strong>：简单的跨平台日志库</li>
+<li><strong>特点</strong>：轻量级，易于配置</li>
+</ul>
+</li>
+<li>
+<p><strong>KMP-NativeCoroutines</strong></p>
+<ul>
+<li><strong>作用</strong>：简化从Swift/Objective-C调用Kotlin协程</li>
+<li><strong>特点</strong>：改善iOS平台上的协程使用体验</li>
+</ul>
+</li>
+</ol>
+<p>这些库构成了KMP开发的核心工具链，它们专门为跨平台开发设计，能够在不同目标平台上提供一致的API。选择合适的库组合可以大大提高跨平台项目的开发效率和代码质量。</p>
+</details>
+<h2 id="kmp_10">KMP 常规面试题<a class="headerlink" href="#kmp_10" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 </details>
-<h2 id="kmp_1">哪些是目前KMP的局限？<a class="headerlink" href="#kmp_1" title="Permanent link">&para;</a></h2>
-<details class="answer">
-<summary>答案</summary>
-</details>
-<h2 id="kmpui">可以通过KMP实现UI的跨平台吗？<a class="headerlink" href="#kmpui" title="Permanent link">&para;</a></h2>
-<details class="answer">
-<summary>答案</summary>
-</details>
-<h2 id="kmp_2">哪些是官方KMP目前没有办法实现的？举几个例子。<a class="headerlink" href="#kmp_2" title="Permanent link">&para;</a></h2>
+<h2 id="_22"><a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 </details>

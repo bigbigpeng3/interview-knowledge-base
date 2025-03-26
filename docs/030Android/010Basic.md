@@ -751,6 +751,68 @@
     通过这些措施，可以有效减少内存泄漏的发生。
 
 
+## Android平台的网络请求导致内存泄漏
+??? answer "答案"
+    Android平台网络请求引起的内存泄漏
+    是的，在Android平台上，网络请求确实可能引起内存泄漏。以下是几种常见的情况：
+
+    常见的内存泄漏案例
+    1. 持有Activity/Fragment引用的回调
+    案例：
+
+    java
+    复制
+    public class MyActivity extends AppCompatActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            
+            ApiClient.getUserData(new Callback() {
+                @Override
+                public void onSuccess(UserData data) {
+                    // 更新UI
+                    updateUI(data);
+                }
+                
+                @Override
+                public void onFailure(Error error) {
+                    showError(error);
+                }
+            });
+        }
+        
+        private void updateUI(UserData data) {
+            // 更新UI代码
+        }
+    }
+    泄漏对象：Activity实例
+
+    原因：匿名内部类Callback隐式持有外部类MyActivity的引用。如果网络请求耗时较长，而用户在请求完成前旋转屏幕或退出Activity，Activity实例将因为被Callback持有而无法被GC回收。
+
+    解决方案
+    1 使用弱引用：
+
+    java
+    WeakReference<MyActivity> weakActivity = new WeakReference<>(this);
+
+    2 及时取消请求：
+
+    java
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
+        // 或者取消Retrofit Call
+        call.cancel();
+    }
+    3 使用ViewModel+LiveData架构，将网络请求与UI生命周期分离
+
+    4 使用静态内部类+弱引用处理Handler
+
+    5 使用Android Jetpack的Lifecycle-aware组件，如协程的lifecycleScope
+
 
 ## 如何使用Handler操作UI才不会导致内存泄漏？
 ??? answer "答案"
@@ -949,7 +1011,86 @@
     ### 总结
     `Looper` 通过 `ThreadLocal` 和 `prepare()` 方法的检查机制，确保每个线程只能有一个 `Looper` 实例。这种设计保证了线程消息队列的唯一性和一致性。
 
+## ThreadLocal为什么能保证多个线程内容相互隔离？
+??? answer "答案"
 
+    `ThreadLocal` 能够保证只有当前线程可以访问其存储的值，**并不仅仅是因为它定义在 `Thread` 类里面**，而是通过结合 `Thread` 类的内部设计和 `ThreadLocal` 的特殊实现机制共同实现的。JVM 并没有针对 `ThreadLocal` 做特殊的优化，而是依靠 Java 的线程模型和 `ThreadLocal` 的巧妙设计来保证线程隔离。
+
+    ---
+
+    ### **1. `ThreadLocal` 的核心实现原理**
+    `ThreadLocal` 的核心在于：
+    - 每个 `Thread` 对象内部维护了一个 **`ThreadLocalMap`**（类似于一个定制化的 `HashMap`），用于存储线程本地变量。
+    - `ThreadLocalMap` 的 key 是 `ThreadLocal` 实例本身（弱引用），value 是线程存储的值。
+    - 当调用 `ThreadLocal.set(value)` 时，实际上是将当前 `ThreadLocal` 实例作为 key，`value` 作为值，存入当前线程的 `ThreadLocalMap` 中。
+    - 当调用 `ThreadLocal.get()` 时，会从当前线程的 `ThreadLocalMap` 中取出与当前 `ThreadLocal` 实例关联的值。
+
+    关键代码逻辑（简化版）：
+    ```java
+    public void set(T value) {
+        Thread t = Thread.currentThread();  // 获取当前线程
+        ThreadLocalMap map = t.threadLocals; // 获取线程的 ThreadLocalMap
+        if (map != null) {
+            map.set(this, value);  // this 指当前 ThreadLocal 实例
+        } else {
+            createMap(t, value);  // 初始化 ThreadLocalMap
+        }
+    }
+
+    public T get() {
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = t.threadLocals;
+        if (map != null) {
+            ThreadLocalMap.Entry e = map.getEntry(this);  // 用当前 ThreadLocal 实例作为 key 查找
+            if (e != null) {
+                return (T)e.value;
+            }
+        }
+        return setInitialValue();
+    }
+    ```
+
+    ---
+
+    ### **2. 为什么只有当前线程能访问？**
+    - **数据存储在线程对象中**：每个线程的 `ThreadLocalMap` 是线程私有的（`Thread.threadLocals` 字段），其他线程无法直接访问。
+    - **通过 `ThreadLocal` 实例作为 key 区分数据**：即使多个线程使用同一个 `ThreadLocal` 实例，由于每个线程的 `ThreadLocalMap` 是独立的，它们存储的值互不影响。
+    - **没有全局共享状态**：`ThreadLocal` 本身不存储任何数据，它只是一个访问线程本地数据的“工具类”。
+
+    ---
+
+    ### **3. 关键设计点**
+    1. **`ThreadLocalMap` 是 `Thread` 的字段**  
+    - 每个 `Thread` 对象在第一次调用 `ThreadLocal.set()` 或 `get()` 时会初始化自己的 `ThreadLocalMap`。
+    - 由于线程之间不共享 `Thread` 对象，自然无法访问彼此的 `ThreadLocalMap`。
+
+    2. **`ThreadLocal` 作为 key 的弱引用**  
+    - `ThreadLocalMap` 的 key 是弱引用（`WeakReference<ThreadLocal>`），这是为了避免内存泄漏（当 `ThreadLocal` 实例被回收时，对应的 entry 能自动被清理）。
+
+    3. **哈希冲突解决**  
+    - `ThreadLocalMap` 使用线性探测法解决哈希冲突（而非链地址法），这是为了简化实现并减少内存占用。
+
+    ---
+
+    ### **4. 常见误解澄清**
+    - **误解1：`ThreadLocal` 的值存储在 `ThreadLocal` 类中**  
+    实际上，值存储在线程对象的 `ThreadLocalMap` 中，`ThreadLocal` 只是提供访问入口。
+    
+    - **误解2：JVM 做了特殊优化**  
+    JVM 没有对 `ThreadLocal` 做特殊处理，它的线程隔离完全通过 Java 代码的设计实现。
+
+    - **误解3：`ThreadLocal` 是线程安全的**  
+    `ThreadLocal` 的线程隔离是天然的，但它存储的对象本身如果不是线程安全的，仍需额外同步（例如，多个线程通过 `ThreadLocal` 共享同一个 `ArrayList` 时仍需加锁）。
+
+    ---
+
+    ### **5. 总结**
+    `ThreadLocal` 的线程隔离能力依赖于：
+    1. 数据存储在线程私有的 `ThreadLocalMap` 中。
+    2. 通过 `ThreadLocal` 实例作为 key 区分不同变量。
+    3. 线程无法访问其他线程的 `Thread` 对象内部数据。
+
+    这种设计避免了同步开销，同时保证了线程安全，是典型的 **“空间换时间”** 思想的应用。
 
 ## 为什么Looper.loop()方法一直在循环，App不会ANR?
 ??? answer "答案"
