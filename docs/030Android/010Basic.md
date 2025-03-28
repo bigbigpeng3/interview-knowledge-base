@@ -1505,14 +1505,10 @@
         return consume;
     }
     ViewGroup：所以dispatch就是分发，没有其他的作用，onIntercept就是拦截，onTouchEvent就是搞你想搞的事情。
-    View：ondispatchTouchEvent, onTouch, onTouchEvent, 
+    View：ondispatchTouchEvent, onTouch, onTouchEvent,
 
 
     
-
-
-
-??? answer "答案"
 
 ## 手指滑出了该控件的范围会有什么事件？
 ??? answer "答案"
