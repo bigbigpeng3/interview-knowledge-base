@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1247,6 +1247,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Java中开启线程的三种方式？分别有什么优势？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 继承 Thread 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-runnable" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 实现 Runnable 接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-callable-futuretask" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 实现 Callable 接口并通过 FutureTask 启动线程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1260,7 +1302,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-thread" class="md-nav__link">
+  <a href="#1-thread_1" class="md-nav__link">
     <span class="md-ellipsis">
       1. Thread
     </span>
@@ -1269,7 +1311,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-runnable" class="md-nav__link">
+  <a href="#2-runnable_1" class="md-nav__link">
     <span class="md-ellipsis">
       2. Runnable
     </span>
@@ -1305,7 +1347,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       关系与区别
     </span>
@@ -1314,7 +1356,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1383,7 +1425,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       示例代码
     </span>
@@ -1392,7 +1434,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1470,7 +1512,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1584,7 +1626,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1598,7 +1640,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       在理解默认线程池的前提下，自己实现线程池
     </span>
@@ -1608,7 +1650,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       简易线程池实现
     </span>
@@ -1617,7 +1659,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       代码解析
     </span>
@@ -1668,7 +1710,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       测试运行
     </span>
@@ -1677,7 +1719,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       功能扩展
     </span>
@@ -1686,7 +1728,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1719,7 +1761,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明：
     </span>
@@ -1728,7 +1770,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项：
     </span>
@@ -1737,7 +1779,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果：
     </span>
@@ -1755,7 +1797,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -1764,7 +1806,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明
     </span>
@@ -1773,7 +1815,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果
     </span>
@@ -1782,7 +1824,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项
     </span>
@@ -1791,7 +1833,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
+  <a href="#_35" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1809,7 +1851,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
+  <a href="#_36" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -1818,7 +1860,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
+  <a href="#_37" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明
     </span>
@@ -1827,7 +1869,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
+  <a href="#_38" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果
     </span>
@@ -1836,7 +1878,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
+  <a href="#_39" class="md-nav__link">
     <span class="md-ellipsis">
       优点
     </span>
@@ -1845,7 +1887,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
+  <a href="#_40" class="md-nav__link">
     <span class="md-ellipsis">
       扩展：多生产者和多消费者
     </span>
@@ -1854,7 +1896,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
+  <a href="#_41" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1878,7 +1920,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明：
     </span>
@@ -1887,7 +1929,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果：
     </span>
@@ -1896,7 +1938,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项：
     </span>
@@ -1928,7 +1970,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       对象锁和类锁是否会互相影响
     </span>
@@ -1965,7 +2007,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       示例
     </span>
@@ -1974,7 +2016,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1997,7 +2039,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_47" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     <span class="md-ellipsis">
       
     </span>
@@ -3345,6 +3387,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Java中开启线程的三种方式？分别有什么优势？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 继承 Thread 类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-runnable" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 实现 Runnable 接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-callable-futuretask" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 实现 Callable 接口并通过 FutureTask 启动线程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3358,7 +3442,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-thread" class="md-nav__link">
+  <a href="#1-thread_1" class="md-nav__link">
     <span class="md-ellipsis">
       1. Thread
     </span>
@@ -3367,7 +3451,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-runnable" class="md-nav__link">
+  <a href="#2-runnable_1" class="md-nav__link">
     <span class="md-ellipsis">
       2. Runnable
     </span>
@@ -3403,7 +3487,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       关系与区别
     </span>
@@ -3412,7 +3496,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3481,7 +3565,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       示例代码
     </span>
@@ -3490,7 +3574,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3568,7 +3652,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3682,7 +3766,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3696,7 +3780,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       在理解默认线程池的前提下，自己实现线程池
     </span>
@@ -3706,7 +3790,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       简易线程池实现
     </span>
@@ -3715,7 +3799,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       代码解析
     </span>
@@ -3766,7 +3850,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       测试运行
     </span>
@@ -3775,7 +3859,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       功能扩展
     </span>
@@ -3784,7 +3868,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3817,7 +3901,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明：
     </span>
@@ -3826,7 +3910,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项：
     </span>
@@ -3835,7 +3919,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果：
     </span>
@@ -3853,7 +3937,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
+  <a href="#_31" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -3862,7 +3946,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_32" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明
     </span>
@@ -3871,7 +3955,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果
     </span>
@@ -3880,7 +3964,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项
     </span>
@@ -3889,7 +3973,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
+  <a href="#_35" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3907,7 +3991,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
+  <a href="#_36" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -3916,7 +4000,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
+  <a href="#_37" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明
     </span>
@@ -3925,7 +4009,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
+  <a href="#_38" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果
     </span>
@@ -3934,7 +4018,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
+  <a href="#_39" class="md-nav__link">
     <span class="md-ellipsis">
       优点
     </span>
@@ -3943,7 +4027,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
+  <a href="#_40" class="md-nav__link">
     <span class="md-ellipsis">
       扩展：多生产者和多消费者
     </span>
@@ -3952,7 +4036,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
+  <a href="#_41" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -3976,7 +4060,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     <span class="md-ellipsis">
       代码说明：
     </span>
@@ -3985,7 +4069,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       运行结果：
     </span>
@@ -3994,7 +4078,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项：
     </span>
@@ -4026,7 +4110,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       对象锁和类锁是否会互相影响
     </span>
@@ -4063,7 +4147,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       示例
     </span>
@@ -4072,7 +4156,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -4095,7 +4179,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_47" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     <span class="md-ellipsis">
       
     </span>
@@ -5318,102 +5402,89 @@
 <p>理解两者的区别有助于在多线程编程中选择合适的工具来实现线程控制。</p>
 </details>
 <h2 id="java_3">Java中开启线程的三种方式？分别有什么优势？<a class="headerlink" href="#java_3" title="Permanent link">&para;</a></h2>
-<p>??? answer "答案
-    在Java中，开启线程主要有以下三种方式：</p>
-<div class="highlight"><pre><span></span><code>### 1. 继承 `Thread` 类
-通过继承 `Thread` 类并重写 `run()` 方法来创建线程。
+<details class="answer">
+<summary>答案</summary>
+<p>在Java中，开启线程主要有以下三种方式：</p>
+<h3 id="1-thread">1. 继承 <code>Thread</code> 类<a class="headerlink" href="#1-thread" title="Permanent link">&para;</a></h3>
+<p>通过继承 <code>Thread</code> 类并重写 <code>run()</code> 方法来创建线程。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MyThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 线程执行的代码</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-```java
-class MyThread extends Thread {
-    @Override
-    public void run() {
-        // 线程执行的代码
-    }
-}
-
-// 使用
-MyThread thread = new MyThread();
-thread.start();
-```
-
-**优势：**
+<span class="c1">// 使用</span>
+<span class="n">MyThread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyThread</span><span class="p">();</span>
+<span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>优势：</strong>
 - 简单易用，适合简单的线程任务。
-- 可以直接调用 `Thread` 类的方法，如 `getName()`、`setName()` 等。
+- 可以直接调用 <code>Thread</code> 类的方法，如 <code>getName()</code>、<code>setName()</code> 等。</p>
+<p><strong>劣势：</strong>
+- Java不支持多继承，因此如果类已经继承了其他类，就无法再继承 <code>Thread</code>。
+- 代码的复用性较差，因为线程逻辑与 <code>Thread</code> 类耦合。</p>
+<h3 id="2-runnable">2. 实现 <code>Runnable</code> 接口<a class="headerlink" href="#2-runnable" title="Permanent link">&para;</a></h3>
+<p>通过实现 <code>Runnable</code> 接口并将实例传递给 <code>Thread</code> 对象来创建线程。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MyRunnable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 线程执行的代码</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-**劣势：**
-- Java不支持多继承，因此如果类已经继承了其他类，就无法再继承 `Thread`。
-- 代码的复用性较差，因为线程逻辑与 `Thread` 类耦合。
-
-### 2. 实现 `Runnable` 接口
-通过实现 `Runnable` 接口并将实例传递给 `Thread` 对象来创建线程。
-
-```java
-class MyRunnable implements Runnable {
-    @Override
-    public void run() {
-        // 线程执行的代码
-    }
-}
-
-// 使用
-Thread thread = new Thread(new MyRunnable());
-thread.start();
-```
-
-**优势：**
+<span class="c1">// 使用</span>
+<span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyRunnable</span><span class="p">());</span>
+<span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>优势：</strong>
 - 避免了单继承的限制，因为可以实现多个接口。
-- 更适合多个线程共享相同资源的场景，因为可以将同一个 `Runnable` 实例传递给多个 `Thread` 对象。
-- 代码的复用性更好，线程逻辑与 `Thread` 类解耦。
+- 更适合多个线程共享相同资源的场景，因为可以将同一个 <code>Runnable</code> 实例传递给多个 <code>Thread</code> 对象。
+- 代码的复用性更好，线程逻辑与 <code>Thread</code> 类解耦。</p>
+<p><strong>劣势：</strong>
+- 无法直接访问 <code>Thread</code> 类的方法，需要通过 <code>Thread.currentThread()</code> 获取当前线程对象。</p>
+<h3 id="3-callable-futuretask">3. 实现 <code>Callable</code> 接口并通过 <code>FutureTask</code> 启动线程<a class="headerlink" href="#3-callable-futuretask" title="Permanent link">&para;</a></h3>
+<p>通过实现 <code>Callable</code> 接口并使用 <code>FutureTask</code> 来创建线程。<code>Callable</code> 与 <code>Runnable</code> 类似，但它可以返回结果并抛出异常。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.FutureTask</span><span class="p">;</span>
 
-**劣势：**
-- 无法直接访问 `Thread` 类的方法，需要通过 `Thread.currentThread()` 获取当前线程对象。
+<span class="kd">class</span> <span class="nc">MyCallable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 线程执行的代码</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;任务完成&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-### 3. 实现 `Callable` 接口并通过 `FutureTask` 启动线程
-通过实现 `Callable` 接口并使用 `FutureTask` 来创建线程。`Callable` 与 `Runnable` 类似，但它可以返回结果并抛出异常。
+<span class="c1">// 使用</span>
+<span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">futureTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FutureTask</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyCallable</span><span class="p">());</span>
+<span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">futureTask</span><span class="p">);</span>
+<span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
 
-```java
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-
-class MyCallable implements Callable&lt;String&gt; {
-    @Override
-    public String call() throws Exception {
-        // 线程执行的代码
-        return &quot;任务完成&quot;;
-    }
-}
-
-// 使用
-FutureTask&lt;String&gt; futureTask = new FutureTask&lt;&gt;(new MyCallable());
-Thread thread = new Thread(futureTask);
-thread.start();
-
-// 获取结果
-String result = futureTask.get();
-```
-
-**优势：**
+<span class="c1">// 获取结果</span>
+<span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">futureTask</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>优势：</strong>
 - 可以返回线程执行的结果，适合需要获取线程执行结果的场景。
 - 可以抛出异常，方便处理线程中的异常情况。
-- 与 `ExecutorService` 结合使用，可以更好地管理线程池和任务。
-
-**劣势：**
-- 使用相对复杂，需要处理 `FutureTask` 和 `Callable` 的关系。
-- 获取结果时会阻塞当前线程，直到任务完成。
-
-### 总结
-- **继承 `Thread` 类**：适合简单的线程任务，但受限于单继承。
-- **实现 `Runnable` 接口**：适合需要共享资源的场景，代码复用性好。
-- **实现 `Callable` 接口**：适合需要返回结果或处理异常的场景，通常与线程池结合使用。
-
-根据具体需求选择合适的方式。
-</code></pre></div>
+- 与 <code>ExecutorService</code> 结合使用，可以更好地管理线程池和任务。</p>
+<p><strong>劣势：</strong>
+- 使用相对复杂，需要处理 <code>FutureTask</code> 和 <code>Callable</code> 的关系。
+- 获取结果时会阻塞当前线程，直到任务完成。</p>
+<h3 id="_15">总结<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>继承 <code>Thread</code> 类</strong>：适合简单的线程任务，但受限于单继承。</li>
+<li><strong>实现 <code>Runnable</code> 接口</strong>：适合需要共享资源的场景，代码复用性好。</li>
+<li><strong>实现 <code>Callable</code> 接口</strong>：适合需要返回结果或处理异常的场景，通常与线程池结合使用。</li>
+</ul>
+<p>根据具体需求选择合适的方式。</p>
+</details>
 <h2 id="threadrunnablecallablefutrue">Thread、Runnable、Callable、Futrue类关系与区别<a class="headerlink" href="#threadrunnablecallablefutrue" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p><code>Thread</code>、<code>Runnable</code>、<code>Callable</code> 和 <code>Future</code> 是 Java 多线程编程中常用的类和接口，它们之间的关系和区别如下：</p>
 <hr />
-<h3 id="1-thread">1. <strong>Thread</strong><a class="headerlink" href="#1-thread" title="Permanent link">&para;</a></h3>
+<h3 id="1-thread_1">1. <strong>Thread</strong><a class="headerlink" href="#1-thread_1" title="Permanent link">&para;</a></h3>
 <p><code>Thread</code> 是 Java 中表示线程的类。每个 <code>Thread</code> 对象代表一个独立的执行线程。</p>
 <ul>
 <li><strong>特点</strong>：</li>
@@ -5444,7 +5515,7 @@ String result = futureTask.get();
 </li>
 </ul>
 <hr />
-<h3 id="2-runnable">2. <strong>Runnable</strong><a class="headerlink" href="#2-runnable" title="Permanent link">&para;</a></h3>
+<h3 id="2-runnable_1">2. <strong>Runnable</strong><a class="headerlink" href="#2-runnable_1" title="Permanent link">&para;</a></h3>
 <p><code>Runnable</code> 是一个函数式接口，用于定义线程的任务逻辑。</p>
 <ul>
 <li><strong>特点</strong>：</li>
@@ -5581,7 +5652,7 @@ String result = futureTask.get();
 </li>
 </ul>
 <hr />
-<h3 id="_15">关系与区别<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h3 id="_16">关系与区别<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -5638,7 +5709,7 @@ String result = futureTask.get();
 </tbody>
 </table>
 <hr />
-<h3 id="_16">总结<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h3 id="_17">总结<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong><code>Thread</code></strong>：直接操作线程，适合简单任务，但受限于单继承。</li>
 <li><strong><code>Runnable</code></strong>：解耦线程逻辑，适合共享资源的任务。</li>
@@ -5675,7 +5746,7 @@ String result = futureTask.get();
 <ul>
 <li><strong>自定义线程池</strong>：通过<code>ThreadPoolExecutor</code>类，可以根据需求自定义线程池参数，如核心线程数、最大线程数等。</li>
 </ul>
-<h3 id="_17">示例代码<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h3 id="_18">示例代码<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ExecutorService</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Executors</span><span class="p">;</span>
 
@@ -5708,7 +5779,7 @@ String result = futureTask.get();
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_18">总结<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h3 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>JDK线程池通过复用线程、控制资源、提升性能、简化管理和提供灵活性，显著优于直接使用<code>Thread</code>类，适合高并发和多任务场景。</p>
 </details>
 <h2 id="jdk">JDK中默认提供了哪些线程池，各自有何优势<a class="headerlink" href="#jdk" title="Permanent link">&para;</a></h2>
@@ -5812,7 +5883,7 @@ String result = futureTask.get();
 <li>并行计算任务。</li>
 </ul>
 <hr />
-<h3 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_20">总结<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -5983,7 +6054,7 @@ https://juejin.cn/post/6926471351452565512</p>
 - <code>afterExecute(Runnable r, Throwable t)</code>：任务执行后调用。
 - <code>terminated()</code>：线程池终止时调用。</p>
 <hr />
-<h3 id="_20">总结<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_21">总结<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p><code>ThreadPoolExecutor</code> 的核心特性包括：
 1. <strong>灵活的线程管理</strong>：支持核心线程、非核心线程和任务队列的动态调整。
 2. <strong>丰富的任务调度机制</strong>：优先创建核心线程，队列满时创建非核心线程，最终触发拒绝策略。
@@ -5992,12 +6063,12 @@ https://juejin.cn/post/6926471351452565512</p>
 5. <strong>高性能设计</strong>：通过 <code>Worker</code> 类和 <code>ctl</code> 状态机实现高效的任务调度和线程管理。</p>
 <p>通过深入理解 <code>ThreadPoolExecutor</code> 的源码，可以更好地使用和扩展线程池，满足不同场景的需求。</p>
 </details>
-<h2 id="_21">在理解默认线程池的前提下，自己实现线程池<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h2 id="_22">在理解默认线程池的前提下，自己实现线程池<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>实现一个简易线程池可以帮助深入理解线程池的工作原理。以下是一个基于 <code>ThreadPoolExecutor</code> 核心思想的简易线程池实现，包含任务队列、线程管理和任务调度功能。</p>
 <hr />
-<h3 id="_22">简易线程池实现<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_23">简易线程池实现<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.BlockingQueue</span><span class="p">;</span>
@@ -6084,7 +6155,7 @@ https://juejin.cn/post/6926471351452565512</p>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="_23">代码解析<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h3 id="_24">代码解析<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <h4 id="1_4">1. <strong>任务队列</strong><a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>使用 <code>BlockingQueue</code> 存储任务，支持线程安全的入队和出队操作。</li>
@@ -6107,7 +6178,7 @@ https://juejin.cn/post/6926471351452565512</p>
 <li>当线程池关闭时，工作线程会检查队列是否为空，确保所有任务执行完毕。</li>
 </ul>
 <hr />
-<h3 id="_24">测试运行<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h3 id="_25">测试运行<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <p>运行 <code>main</code> 方法，输出如下：
 <div class="highlight"><pre><span></span><code>Worker-0 is executing task 0
 Worker-1 is executing task 1
@@ -6121,7 +6192,7 @@ Worker-2 is executing task 8
 Worker-0 is executing task 9
 </code></pre></div></p>
 <hr />
-<h3 id="_25">功能扩展<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<h3 id="_26">功能扩展<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>支持动态调整线程数</strong>：</li>
 <li>
@@ -6145,7 +6216,7 @@ Worker-0 is executing task 9
 <li>添加方法统计任务数量、活跃线程数等。</li>
 </ol>
 <hr />
-<h3 id="_26">总结<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<h3 id="_27">总结<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <p>这个简易线程池实现了线程池的核心功能，包括任务队列、工作线程管理和任务调度。通过这个实现，可以更好地理解 <code>ThreadPoolExecutor</code> 的工作原理，并为进一步扩展和优化线程池打下基础。</p>
 </details>
 <h2 id="java_4">Java设计一个生产者，消费者模型<a class="headerlink" href="#java_4" title="Permanent link">&para;</a></h2>
@@ -6226,7 +6297,7 @@ Worker-0 is executing task 9
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_27">代码说明：<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h3 id="_28">代码说明：<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>缓冲区</strong>：使用<code>Queue&lt;Integer&gt;</code>作为缓冲区，<code>LinkedList</code>实现了<code>Queue</code>接口。</li>
 <li><strong>锁对象</strong>：使用<code>Object</code>类型的<code>lock</code>作为同步锁。</li>
@@ -6239,19 +6310,19 @@ Worker-0 is executing task 9
 <li>如果缓冲区为空，消费者线程会调用<code>lock.wait()</code>进入等待状态，直到生产者线程通知它。</li>
 <li>消费者线程在取出数据后，调用<code>lock.notifyAll()</code>通知生产者线程。</li>
 </ol>
-<h3 id="_28">注意事项：<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_29">注意事项：<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>wait()</code>和<code>notifyAll()</code>必须在同步块或同步方法中调用。</li>
 <li><code>wait()</code>会释放锁，而<code>notifyAll()</code>会唤醒所有等待该锁的线程。</li>
 <li>使用<code>while</code>循环检查条件，而不是<code>if</code>，以防止虚假唤醒。</li>
 </ul>
-<h3 id="_29">运行结果：<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<h3 id="_30">运行结果：<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <p>运行该程序后，你会看到生产者和消费者交替输出生产和消费的数据，确保缓冲区不会溢出或下溢。</p>
 <p>这个模型可以进一步扩展，例如使用<code>BlockingQueue</code>来简化同步操作，或者增加多个生产者和消费者线程。</p>
 <h3 id="2-queue">案例2 不带Queue<a class="headerlink" href="#2-queue" title="Permanent link">&para;</a></h3>
 <p>如果去掉<code>Queue</code>（即没有缓冲区），生产者和消费者之间将直接进行数据传递，这种情况下仍然可以保证线程安全，但实现方式会有所不同。由于没有缓冲区，生产者和消费者必须严格同步，确保生产者生产一个数据后，消费者立即消费它，然后再生产下一个数据。</p>
 <p>这种情况下，可以使用<strong>信号量</strong>或<strong>条件变量</strong>来实现生产者和消费者之间的同步。下面是一个使用<code>Object</code>的<code>wait()</code>和<code>notify()</code>方法实现的<strong>无缓冲区生产者-消费者模型</strong>：</p>
-<h3 id="_30">代码实现<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h3 id="_31">代码实现<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProducerConsumerWithoutBuffer</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// 用于直接传递数据的变量</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span><span class="w"> </span><span class="c1">// 锁对象</span>
@@ -6325,7 +6396,7 @@ Worker-0 is executing task 9
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="_31">代码说明<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h3 id="_32">代码说明<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>数据传递</strong>：</li>
 <li>使用一个<code>Integer</code>类型的变量<code>value</code>来直接传递数据。</li>
@@ -6354,7 +6425,7 @@ Worker-0 is executing task 9
 <li>任何时候只有一个线程（生产者或消费者）可以访问<code>value</code>，避免了竞争条件。</li>
 </ol>
 <hr />
-<h3 id="_32">运行结果<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h3 id="_33">运行结果<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <p>运行该程序后，你会看到生产者和消费者交替输出生产和消费的数据，例如：</p>
 <div class="highlight"><pre><span></span><code>Produced: 0
 Consumed: 0
@@ -6365,7 +6436,7 @@ Consumed: 2
 ...
 </code></pre></div>
 <hr />
-<h3 id="_33">注意事项<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<h3 id="_34">注意事项<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>无缓冲区的限制</strong>：</li>
 <li>由于没有缓冲区，生产者和消费者必须严格交替执行。</li>
@@ -6386,12 +6457,12 @@ Consumed: 2
 <li>如果需要支持多生产者或多消费者，建议使用缓冲区（如<code>BlockingQueue</code>）。</li>
 </ol>
 <hr />
-<h3 id="_34">总结<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<h3 id="_35">总结<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <p>去掉<code>Queue</code>后，仍然可以通过<code>wait()</code>和<code>notify()</code>方法实现线程安全的生产者-消费者模型。但这种方式限制了生产者和消费者的并发性，适用于简单的场景。如果需要更高的并发性和扩展性，建议使用缓冲区（如<code>Queue</code>或<code>BlockingQueue</code>）。</p>
 <h3 id="3-blockingqueue">案例3  BlockingQueue<a class="headerlink" href="#3-blockingqueue" title="Permanent link">&para;</a></h3>
 <p>使用<code>BlockingQueue</code>实现生产者-消费者模型是最简单且高效的方式之一。<code>BlockingQueue</code>是Java并发包（<code>java.util.concurrent</code>）中的一个线程安全的队列实现，它内部已经处理好了线程同步问题，生产者可以直接调用<code>put()</code>方法放入数据，消费者可以直接调用<code>take()</code>方法取出数据。如果队列满了，<code>put()</code>方法会自动阻塞；如果队列为空，<code>take()</code>方法会自动阻塞。</p>
 <p>下面是一个使用<code>BlockingQueue</code>实现的生产者-消费者模型的示例代码：</p>
-<h3 id="_35">代码实现<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<h3 id="_36">代码实现<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.BlockingQueue</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.LinkedBlockingQueue</span><span class="p">;</span>
 
@@ -6452,7 +6523,7 @@ Consumed: 2
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="_36">代码说明<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<h3 id="_37">代码说明<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong><code>BlockingQueue</code>的使用</strong>：</li>
 <li><code>BlockingQueue</code>是一个线程安全的队列，支持阻塞操作。</li>
@@ -6481,7 +6552,7 @@ Consumed: 2
 <li><code>BlockingQueue</code>内部已经实现了线程同步，无需手动加锁或使用<code>wait()</code>/<code>notify()</code>。</li>
 </ol>
 <hr />
-<h3 id="_37">运行结果<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<h3 id="_38">运行结果<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <p>运行该程序后，你会看到生产者和消费者交替输出生产和消费的数据，例如：</p>
 <div class="highlight"><pre><span></span><code>Produced: 0
 Consumed: 0
@@ -6492,7 +6563,7 @@ Consumed: 2
 ...
 </code></pre></div>
 <hr />
-<h3 id="_38">优点<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h3 id="_39">优点<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>简化代码</strong>：</li>
 <li>
@@ -6511,7 +6582,7 @@ Consumed: 2
 <li>支持多生产者和多消费者场景。</li>
 </ol>
 <hr />
-<h3 id="_39">扩展：多生产者和多消费者<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<h3 id="_40">扩展：多生产者和多消费者<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
 <p>如果需要支持多生产者和多消费者，只需创建多个生产者和消费者线程即可。例如：</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProducerConsumerWithBlockingQueue</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">QUEUE_CAPACITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -6534,7 +6605,7 @@ Consumed: 2
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="_40">总结<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<h3 id="_41">总结<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <p>使用<code>BlockingQueue</code>实现生产者-消费者模型是最推荐的方式，因为它简单、高效且线程安全。无论是单生产者-单消费者，还是多生产者-多消费者场景，<code>BlockingQueue</code>都能很好地满足需求。</p>
 </details>
 <h2 id="java12121212">Java双线程通过线程同步的方式打印12121212.......<a class="headerlink" href="#java12121212" title="Permanent link">&para;</a></h2>
@@ -6592,7 +6663,7 @@ Consumed: 2
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_41">代码说明：<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<h3 id="_42">代码说明：<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p><strong>Printer类</strong>：这个类有两个方法 <code>print1</code> 和 <code>print2</code>，分别用于打印 <code>1</code> 和 <code>2</code>。<code>print1Turn</code> 是一个布尔变量，用于控制哪个线程应该打印。</p>
@@ -6607,9 +6678,9 @@ Consumed: 2
 <p><strong>无限循环</strong>：两个线程都在无限循环中运行，交替打印 <code>1</code> 和 <code>2</code>。</p>
 </li>
 </ol>
-<h3 id="_42">运行结果：<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<h3 id="_43">运行结果：<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <p>运行这个程序后，控制台会不断输出 <code>12121212...</code>，直到你手动停止程序。</p>
-<h3 id="_43">注意事项：<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<h3 id="_44">注意事项：<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
 <ul>
 <li>这个程序是一个简单的示例，实际应用中可能需要更复杂的线程管理和同步机制。</li>
 <li>如果你想要停止程序，可以通过添加一个停止条件并在适当的时候调用 <code>Thread.interrupt()</code> 来中断线程。</li>
@@ -6663,7 +6734,7 @@ https://cloud.tencent.com/developer/article/1998110</p>
 <p>总结
 synchronized 用 3 种用法，用它可以来修饰普通方法、静态方法和代码块，其中最常用的是修饰代码块，而修饰代码块时需要指定一个加锁对象，这个加锁对象通常使用 this 或 xxx.class 来表示，当使用 this 时，表示使用当前对象来加锁，而使用 class 时，表示表示使用某个类（非类对象实例）来加锁，它是全局生效的。</p>
 </details>
-<h2 id="_44">对象锁和类锁是否会互相影响<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h2>
+<h2 id="_45">对象锁和类锁是否会互相影响<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在Java中，对象锁和类锁是两种不同的锁机制，它们不会互相影响。</p>
@@ -6701,7 +6772,7 @@ synchronized 用 3 种用法，用它可以来修饰普通方法、静态方法�
 <li><strong>类锁</strong>：锁定的是类的Class对象。</li>
 </ul>
 <p>由于对象锁和类锁锁定的是不同的对象（实例对象 vs 类的Class对象），因此它们不会互相影响。一个线程可以同时持有对象锁和类锁，而不会导致冲突。</p>
-<h3 id="_45">示例<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<h3 id="_46">示例<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">instanceMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// 对象锁</span>
@@ -6716,7 +6787,7 @@ synchronized 用 3 种用法，用它可以来修饰普通方法、静态方法�
 - 线程A调用<code>instanceMethod()</code>时，会获取<code>MyClass</code>的某个实例的对象锁。
 - 线程B调用<code>staticMethod()</code>时，会获取<code>MyClass</code>类的类锁。</p>
 <p>这两个操作不会互相阻塞，因为它们锁定的是不同的对象。</p>
-<h3 id="_46">总结<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<h3 id="_47">总结<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
 <ul>
 <li>对象锁和类锁是独立的，不会互相影响。</li>
 <li>对象锁锁定的是实例对象，类锁锁定的是类的Class对象。</li>
@@ -6752,7 +6823,7 @@ volatile禁止指令重排优化，这就保证了代码的程序会严格按照
 <p>除了以上场景，都需要使用其他方式来保证原子性，如synchronized或者concurrent包。</p>
 <p>synchronized可以保证原子性、有序性和可见性，而volatile只能保证有序性和可见性。</p>
 </details>
-<h2 id="_47"><a class="headerlink" href="#_47" title="Permanent link">&para;</a></h2>
+<h2 id="_48"><a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
 
 
 

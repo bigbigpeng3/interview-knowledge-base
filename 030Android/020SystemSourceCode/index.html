@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#android" class="md-skip">
           跳转至
         </a>
       
@@ -676,6 +676,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -705,6 +707,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1920,7 +1924,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
+  <a href="#android_1" class="md-nav__link">
     <span class="md-ellipsis">
       Android进程名称是如何被指定的？
     </span>
@@ -2232,7 +2236,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_1" class="md-nav__link">
+  <a href="#android_2" class="md-nav__link">
     <span class="md-ellipsis">
       你知道哪些Android系统源码的设计模式？
     </span>
@@ -2391,7 +2395,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_2" class="md-nav__link">
+  <a href="#android_3" class="md-nav__link">
     <span class="md-ellipsis">
       Android如何安全加载大图片？
     </span>
@@ -2493,7 +2497,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_3" class="md-nav__link">
+  <a href="#android_4" class="md-nav__link">
     <span class="md-ellipsis">
       Android中的类加载器
     </span>
@@ -2839,6 +2843,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4053,7 +4059,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
+  <a href="#android_1" class="md-nav__link">
     <span class="md-ellipsis">
       Android进程名称是如何被指定的？
     </span>
@@ -4365,7 +4371,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_1" class="md-nav__link">
+  <a href="#android_2" class="md-nav__link">
     <span class="md-ellipsis">
       你知道哪些Android系统源码的设计模式？
     </span>
@@ -4524,7 +4530,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_2" class="md-nav__link">
+  <a href="#android_3" class="md-nav__link">
     <span class="md-ellipsis">
       Android如何安全加载大图片？
     </span>
@@ -4626,7 +4632,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android_3" class="md-nav__link">
+  <a href="#android_4" class="md-nav__link">
     <span class="md-ellipsis">
       Android中的类加载器
     </span>
@@ -4695,8 +4701,7 @@
 
 
 
-  <h1>Android系统源码解析</h1>
-
+<h1 id="android">Android系统源码分析<a class="headerlink" href="#android" title="Permanent link">&para;</a></h1>
 <h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h2 id="android-activity">Android Activity的启动过程<a class="headerlink" href="#android-activity" title="Permanent link">&para;</a></h2>
 <details class="answer">
@@ -5811,7 +5816,7 @@ IJKPlayer默认使用SurfaceView，但是也提供了TextureView可以选择。<
 </ul>
 <p>通过对 <code>ActivityThread</code> 源码的解析，你可以更好地理解 Android 应用程序的启动过程、生命周期管理和消息处理机制。</p>
 </details>
-<h2 id="android">Android进程名称是如何被指定的？<a class="headerlink" href="#android" title="Permanent link">&para;</a></h2>
+<h2 id="android_1">Android进程名称是如何被指定的？<a class="headerlink" href="#android_1" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在Android系统中，进程名称的指定主要与<code>ActivityThread</code>类和<code>Process</code>类相关。以下是源码角度的分析：</p>
@@ -5983,7 +5988,7 @@ IJKPlayer默认使用SurfaceView，但是也提供了TextureView可以选择。<
 <h3 id="6_3">6. 总结<a class="headerlink" href="#6_3" title="Permanent link">&para;</a></h3>
 <p>AMS是Android系统中负责管理Activity、Service、Application等组件生命周期的核心服务。它通过Binder机制与应用程序进程通信，处理组件的启动、切换、销毁等操作。AMS还负责进程管理、任务栈管理等功能，确保系统资源的合理分配和应用程序的正常运行。理解AMS的机制对于开发高性能、稳定的Android应用至关重要。</p>
 </details>
-<h2 id="android_1">你知道哪些Android系统源码的设计模式？<a class="headerlink" href="#android_1" title="Permanent link">&para;</a></h2>
+<h2 id="android_2">你知道哪些Android系统源码的设计模式？<a class="headerlink" href="#android_2" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在Android系统源码中，设计模式被广泛用于解决常见问题并提升代码的可维护性和扩展性。以下是一些常用的设计模式及其应用场景：</p>
@@ -6113,7 +6118,7 @@ bitmap.recycle();
 ### 总结
 `Bitmap` 是Android中处理图像的核心类，功能强大但需注意内存管理，避免OOM问题。
 </code></pre></div>
-<h2 id="android_2">Android如何安全加载大图片？<a class="headerlink" href="#android_2" title="Permanent link">&para;</a></h2>
+<h2 id="android_3">Android如何安全加载大图片？<a class="headerlink" href="#android_3" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在Android中加载大图片时，直接加载可能导致内存溢出（OOM）。以下是安全加载大图片的几种方法：</p>
@@ -6204,7 +6209,7 @@ bitmap.recycle();
 <h3 id="_18">总结<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>安全加载大图片的关键是减少内存占用，可通过采样、加载部分图像、使用第三方库、重用内存、异步加载等方法实现。</p>
 </details>
-<h2 id="android_3">Android中的类加载器<a class="headerlink" href="#android_3" title="Permanent link">&para;</a></h2>
+<h2 id="android_4">Android中的类加载器<a class="headerlink" href="#android_4" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>PathClassLoader，只能加载系统中已经安装过的 apk

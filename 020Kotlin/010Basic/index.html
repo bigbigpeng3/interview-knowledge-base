@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -965,1170 +965,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="域函数使用得多吗，有哪些域函数，分别有什么区别，在什么地方使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-let" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. let
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. run
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-with" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. with
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-apply" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. apply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. also
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-inline-oninline-crossline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin inline oninline crossline分别有什么作用
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin inline oninline crossline分别有什么作用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inline" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. inline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-noinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. noinline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. crossinline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    <span class="md-ellipsis">
-      Android 系统源码中的使用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      crossinline案例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="crossinline案例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 异步任务中的非局部返回问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. 异步任务中的非局部返回问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 1：没有 crossinline 的问题
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 2：使用 crossinline 修复问题
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. UI 线程中的非局部返回问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. UI 线程中的非局部返回问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 3：没有 crossinline 的问题
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 4：使用 crossinline 修复问题
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 总结：为什么要使用 crossinline？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-crossinline_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. crossinline 的典型使用场景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 最终总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin强转符号是什么？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin强转符号是什么？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      强制类型转换的关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="强制类型转换的关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      安全类型转换
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全类型转换">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意事项
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectcompanion" class="md-nav__link">
-    <span class="md-ellipsis">
-      object和companion的区别。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="object和companion的区别。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. object 关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. object 关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. companion 关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. companion 关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-object-companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. object 和 companion 的区别
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-object-java-static" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. object 是否具有 Java static 的效果？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. object 是否具有 Java static 的效果？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      单例对象的静态效果
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javakotlinstatic" class="md-nav__link">
-    <span class="md-ellipsis">
-      反编译后的Java代码，可以看到的是，仅仅是Kotlin加了一层语法糖，所以看起来像是static。
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#companion-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      与 companion object 的区别
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      companion关键字是什么？有什么作用？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="companion关键字是什么？有什么作用？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的语法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="伴生对象的语法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 1：基本用法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 2：命名伴生对象
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 3：实现接口
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的特点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象 vs 普通对象
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#object" class="md-nav__link">
-    <span class="md-ellipsis">
-      object关键字有什么作用？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin 将 object 关键字设计为同时支持单例模式和匿名对象，主要是为了简化代码、提高语言的一致性和灵活性。这种设计背后的原因可以从以下几个方面来理解：
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 将 object 关键字设计为同时支持单例模式和匿名对象，主要是为了简化代码、提高语言的一致性和灵活性。这种设计背后的原因可以从以下几个方面来理解：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 单例模式的需求
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 匿名对象的需求
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 统一的设计哲学
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 灵活性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 与 Java 的互操作性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 减少语言复杂性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin委托是什么，有什么作用？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin委托是什么，有什么作用？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      委托的基本概念
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
-    <span class="md-ellipsis">
-      类委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
-    <span class="md-ellipsis">
-      属性委托
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="属性委托">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Lazy 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-observable" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Observable 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-vetoable" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Vetoable 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Map 委托
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
-    <span class="md-ellipsis">
-      常见使用案例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlinandroid" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin委托在Android上的一些应用。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin委托在Android上的一些应用。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-lazy-view" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. lazy 委托：延迟初始化 View
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-observable_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. observable 委托：监听属性变化
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-vetoable_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. vetoable 委托：属性赋值前的验证
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-map_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. map 委托：动态属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-sharedpreferences" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 自定义委托：简化 SharedPreferences 访问
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 类委托：实现接口的默认行为
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Lifecycle 委托：自动管理资源
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin中是否存在扩展属性？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin中是否存在扩展属性？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
-    <span class="md-ellipsis">
-      定义扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
-    <span class="md-ellipsis">
-      好处
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
-    <span class="md-ellipsis">
-      限制
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin扩展属性案例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin扩展属性案例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-mutablelist-lastindex" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 1：为 MutableList 添加 lastIndex 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-string-reversedtext" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 2：为 String 添加可读写的 reversedText 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-map-keysaslist" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 3：为 Map 添加泛型扩展属性 keysAsList
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-int-iseven" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 4：为 Int 添加 isEven 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-pair-swapped" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 5：为 Pair 添加泛型扩展属性 swapped
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-file-ishidden" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 6：为 File 添加 isHidden 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-localdate-isleapyear" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 7：为 LocalDate 添加 isLeapYear 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-anyjava-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      请问Kotlin Any和Java 的Object类有什么区别?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="请问Kotlin Any和Java 的Object类有什么区别?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 类层次结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 可空性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 扩展函数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 平台类型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#anyobject" class="md-nav__link">
-    <span class="md-ellipsis">
-      那请问Any的底层原理是什么？和Object有关系吗？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="那请问Any的底层原理是什么？和Object有关系吗？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-any" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Any 的底层实现
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Any 的方法与 Object 的关系
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 为什么 Any 没有 Object 的其他方法？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 基本数据类型的处理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-any" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 可空类型 (Any?) 的处理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 总结：Any 和 Object 的关系
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-kotlin" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 示例：Kotlin 代码与编译后的字节码对比
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
-    <span class="md-ellipsis">
-      结论
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-lateinit-by-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin lateinit 和 by lazy有什么区别，各自有什么特性，是否可以为空？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin lateinit 和 by lazy有什么区别，各自有什么特性，是否可以为空？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lateinit" class="md-nav__link">
-    <span class="md-ellipsis">
-      lateinit 的特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#by-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      by lazy 的特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlinsequence" class="md-nav__link">
-    <span class="md-ellipsis">
-      谈谈Kotlin中的Sequence，为什么它处理集合操作更加高效？
-    </span>
-  </a>
-  
 </li>
       
     </ul>
@@ -2913,1170 +1749,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="域函数使用得多吗，有哪些域函数，分别有什么区别，在什么地方使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-let" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. let
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. run
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-with" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. with
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-apply" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. apply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. also
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-inline-oninline-crossline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin inline oninline crossline分别有什么作用
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin inline oninline crossline分别有什么作用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-inline" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. inline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-noinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. noinline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. crossinline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    <span class="md-ellipsis">
-      Android 系统源码中的使用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      crossinline案例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="crossinline案例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 异步任务中的非局部返回问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. 异步任务中的非局部返回问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 1：没有 crossinline 的问题
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 2：使用 crossinline 修复问题
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. UI 线程中的非局部返回问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. UI 线程中的非局部返回问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 3：没有 crossinline 的问题
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-crossinline" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 4：使用 crossinline 修复问题
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-crossinline_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 总结：为什么要使用 crossinline？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-crossinline_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. crossinline 的典型使用场景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 最终总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin强转符号是什么？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin强转符号是什么？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      强制类型转换的关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="强制类型转换的关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      安全类型转换
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="安全类型转换">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意事项
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectcompanion" class="md-nav__link">
-    <span class="md-ellipsis">
-      object和companion的区别。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="object和companion的区别。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. object 关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. object 关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. companion 关键字
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. companion 关键字">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-object-companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. object 和 companion 的区别
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-object-java-static" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. object 是否具有 Java static 的效果？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. object 是否具有 Java static 的效果？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      单例对象的静态效果
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#javakotlinstatic" class="md-nav__link">
-    <span class="md-ellipsis">
-      反编译后的Java代码，可以看到的是，仅仅是Kotlin加了一层语法糖，所以看起来像是static。
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#companion-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      与 companion object 的区别
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#companion" class="md-nav__link">
-    <span class="md-ellipsis">
-      companion关键字是什么？有什么作用？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="companion关键字是什么？有什么作用？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的语法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="伴生对象的语法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 1：基本用法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 2：命名伴生对象
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例 3：实现接口
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象的特点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      伴生对象 vs 普通对象
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#object" class="md-nav__link">
-    <span class="md-ellipsis">
-      object关键字有什么作用？
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin 将 object 关键字设计为同时支持单例模式和匿名对象，主要是为了简化代码、提高语言的一致性和灵活性。这种设计背后的原因可以从以下几个方面来理解：
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 将 object 关键字设计为同时支持单例模式和匿名对象，主要是为了简化代码、提高语言的一致性和灵活性。这种设计背后的原因可以从以下几个方面来理解：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 单例模式的需求
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 匿名对象的需求
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 统一的设计哲学
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 灵活性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 与 Java 的互操作性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 减少语言复杂性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin委托是什么，有什么作用？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin委托是什么，有什么作用？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      委托的基本概念
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
-    <span class="md-ellipsis">
-      类委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
-    <span class="md-ellipsis">
-      属性委托
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="属性委托">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Lazy 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-observable" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Observable 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-vetoable" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Vetoable 委托
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Map 委托
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
-    <span class="md-ellipsis">
-      常见使用案例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlinandroid" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin委托在Android上的一些应用。
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin委托在Android上的一些应用。">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-lazy-view" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. lazy 委托：延迟初始化 View
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-observable_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. observable 委托：监听属性变化
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-vetoable_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. vetoable 委托：属性赋值前的验证
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-map_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. map 委托：动态属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-sharedpreferences" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 自定义委托：简化 SharedPreferences 访问
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 类委托：实现接口的默认行为
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Lifecycle 委托：自动管理资源
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin中是否存在扩展属性？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin中是否存在扩展属性？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
-    <span class="md-ellipsis">
-      定义扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
-    <span class="md-ellipsis">
-      示例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
-    <span class="md-ellipsis">
-      好处
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
-    <span class="md-ellipsis">
-      限制
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin扩展属性案例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin扩展属性案例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-mutablelist-lastindex" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 1：为 MutableList 添加 lastIndex 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-string-reversedtext" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 2：为 String 添加可读写的 reversedText 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-map-keysaslist" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 3：为 Map 添加泛型扩展属性 keysAsList
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-int-iseven" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 4：为 Int 添加 isEven 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-pair-swapped" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 5：为 Pair 添加泛型扩展属性 swapped
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-file-ishidden" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 6：为 File 添加 isHidden 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-localdate-isleapyear" class="md-nav__link">
-    <span class="md-ellipsis">
-      案例 7：为 LocalDate 添加 isLeapYear 扩展属性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-anyjava-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      请问Kotlin Any和Java 的Object类有什么区别?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="请问Kotlin Any和Java 的Object类有什么区别?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 类层次结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 可空性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 扩展函数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 平台类型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#anyobject" class="md-nav__link">
-    <span class="md-ellipsis">
-      那请问Any的底层原理是什么？和Object有关系吗？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="那请问Any的底层原理是什么？和Object有关系吗？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-any" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Any 的底层实现
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Any 的方法与 Object 的关系
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 为什么 Any 没有 Object 的其他方法？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 基本数据类型的处理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-any" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 可空类型 (Any?) 的处理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-any-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 总结：Any 和 Object 的关系
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-kotlin" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 示例：Kotlin 代码与编译后的字节码对比
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
-    <span class="md-ellipsis">
-      结论
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-lateinit-by-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kotlin lateinit 和 by lazy有什么区别，各自有什么特性，是否可以为空？
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin lateinit 和 by lazy有什么区别，各自有什么特性，是否可以为空？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lateinit" class="md-nav__link">
-    <span class="md-ellipsis">
-      lateinit 的特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#by-lazy" class="md-nav__link">
-    <span class="md-ellipsis">
-      by lazy 的特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlinsequence" class="md-nav__link">
-    <span class="md-ellipsis">
-      谈谈Kotlin中的Sequence，为什么它处理集合操作更加高效？
-    </span>
-  </a>
-  
 </li>
       
     </ul>
@@ -4429,77 +2101,255 @@
 <h2 id="_6">域函数使用得多吗，有哪些域函数，分别有什么区别，在什么地方使用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
-<p>在Kotlin中，域函数（Scope Functions）是一组用于在特定上下文中执行代码块的函数。它们包括 <code>let</code>、<code>run</code>、<code>with</code>、<code>apply</code> 和 <code>also</code>。这些函数在Android开发中非常有用，可以帮助简化代码并提高可读性。以下是它们的详细介绍及日常使用场景：</p>
-<h3 id="1-let">1. <code>let</code><a class="headerlink" href="#1-let" title="Permanent link">&para;</a></h3>
-<p><strong>用途</strong>：通常用于非空对象的操作，或需要在对象上执行一些操作并返回结果。</p>
-<p><strong>示例</strong>：
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">user</span><span class="p">:</span><span class="w"> </span><span class="n">User? </span><span class="o">=</span><span class="w"> </span><span class="n">getUser</span><span class="p">()</span>
-<span class="n">user</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 在非空情况下执行操作</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="nb">it</span><span class="p">.</span><span class="na">name</span><span class="p">)</span>
-<span class="w">    </span><span class="n">updateUser</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span>
+<h1 id="kotlin_3">Kotlin 域函数原理分析（从源码角度）<a class="headerlink" href="#kotlin_3" title="Permanent link">&para;</a></h1>
+<p>Kotlin 的域函数（Scope Functions）包括 <code>let</code>、<code>run</code>、<code>with</code>、<code>apply</code> 和 <code>also</code>，它们都是通过扩展函数或内联函数实现的。下面我从源码角度分析它们的实现原理。</p>
+<h2 id="1_2">1. 基本实现方式<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h2>
+<p>所有域函数都定义在 <code>Standard.kt</code> 文件中（位于 kotlin-stdlib 中）。它们的主要特点：</p>
+<ol>
+<li>都是扩展函数（除了 <code>with</code>）</li>
+<li>大多数使用 <code>inline</code> 修饰符</li>
+<li>通过 lambda 表达式接收器或参数来改变作用域</li>
+</ol>
+<h2 id="2_2">2. 各函数源码分析<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
+<h3 id="21-let">2.1 let 函数<a class="headerlink" href="#21-let" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@kotlin.internal.InlineOnly</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">let</span><span class="p">(</span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contract</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callsInPlace</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationKind</span><span class="p">.</span><span class="na">EXACTLY_ONCE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">block</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<strong>Android使用场景</strong>：
-- 处理可空对象时，避免空指针异常。
-- 链式调用时，对中间结果进行操作。</p>
-<h3 id="2-run">2. <code>run</code><a class="headerlink" href="#2-run" title="Permanent link">&para;</a></h3>
-<p><strong>用途</strong>：在对象上下文中执行代码块，并返回结果。类似于 <code>let</code>，但 <code>run</code> 可以直接访问对象的属性和方法。</p>
-<p><strong>示例</strong>：
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">run</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 直接访问user的属性和方法</span>
-<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span>
-<span class="w">    </span><span class="n">updateUser</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
-<span class="w">    </span><span class="s">&quot;User updated&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Android使用场景</strong>：
-- 需要在对象上下文中执行多个操作，并返回结果。
-- 初始化对象并立即使用。</p>
-<h3 id="3-with">3. <code>with</code><a class="headerlink" href="#3-with" title="Permanent link">&para;</a></h3>
-<p><strong>用途</strong>：与 <code>run</code> 类似，但 <code>with</code> 不是扩展函数，需要将对象作为参数传递。</p>
-<p><strong>示例</strong>：
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getUser</span><span class="p">()</span>
-<span class="n">with</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 直接访问user的属性和方法</span>
-<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span>
-<span class="w">    </span><span class="n">updateUser</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Android使用场景</strong>：
-- 对同一个对象进行多个操作时，简化代码。
-- 初始化或配置对象。</p>
-<h3 id="4-apply">4. <code>apply</code><a class="headerlink" href="#4-apply" title="Permanent link">&para;</a></h3>
-<p><strong>用途</strong>：在对象上下文中执行代码块，并返回对象本身。通常用于对象的初始化或配置。</p>
-<p><strong>示例</strong>：
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span>
-<span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Android使用场景</strong>：
-- 初始化或配置对象，如 <code>View</code>、<code>Intent</code> 等。
-- 链式调用时，返回对象本身。</p>
-<h3 id="5-also">5. <code>also</code><a class="headerlink" href="#5-also" title="Permanent link">&para;</a></h3>
-<p><strong>用途</strong>：在对象上下文中执行代码块，并返回对象本身。类似于 <code>apply</code>，但 <code>also</code> 更侧重于副作用操作。</p>
-<p><strong>示例</strong>：
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getUser</span><span class="p">().</span><span class="na">also</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 执行一些副作用操作</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;User: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Android使用场景</strong>：
-- 在链式调用中执行一些副作用操作，如日志记录、调试等。
-- 对对象进行额外操作而不改变其状态。</p>
-<h3 id="_7">总结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><code>let</code></strong>：用于非空对象的操作，返回代码块的结果。</li>
-<li><strong><code>run</code></strong>：在对象上下文中执行代码块，返回代码块的结果。</li>
-<li><strong><code>with</code></strong>：与 <code>run</code> 类似，但需要将对象作为参数传递。</li>
-<li><strong><code>apply</code></strong>：在对象上下文中执行代码块，返回对象本身，通常用于初始化或配置。</li>
-<li><strong><code>also</code></strong>：在对象上下文中执行代码块，返回对象本身，通常用于副作用操作。</li>
+<li>原理：接收一个将 <code>T</code> 转换为 <code>R</code> 的函数，并返回该函数的执行结果</li>
+<li>特点：</li>
+<li><code>this</code> 作为参数传入 lambda</li>
+<li>返回 lambda 的结果</li>
+<li>使用 <code>@InlineOnly</code> 和内联优化</li>
 </ul>
-<p>在Android开发中，这些域函数可以帮助你更简洁地处理对象操作，减少冗余代码，并提高代码的可读性和可维护性。</p>
+<h3 id="22-run">2.2 run 函数（扩展函数版本）<a class="headerlink" href="#22-run" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@kotlin.internal.InlineOnly</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">.()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contract</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callsInPlace</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationKind</span><span class="p">.</span><span class="na">EXACTLY_ONCE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">block</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>原理：在 <code>T</code> 的上下文中执行 lambda，返回 lambda 结果</li>
+<li>特点：</li>
+<li>lambda 内部 <code>this</code> 指向接收者对象</li>
+<li>返回 lambda 的结果</li>
+</ul>
+<h3 id="23-with">2.3 with 函数<a class="headerlink" href="#23-with" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@kotlin.internal.InlineOnly</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">with</span><span class="p">(</span><span class="n">receiver</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">.()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contract</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callsInPlace</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationKind</span><span class="p">.</span><span class="na">EXACTLY_ONCE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">receiver</span><span class="p">.</span><span class="na">block</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>原理：非扩展函数，显式接收对象作为参数</li>
+<li>特点：</li>
+<li>第一个参数是接收者对象</li>
+<li>返回 lambda 的结果</li>
+</ul>
+<h3 id="24-apply">2.4 apply 函数<a class="headerlink" href="#24-apply" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@kotlin.internal.InlineOnly</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">.()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">):</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contract</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callsInPlace</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationKind</span><span class="p">.</span><span class="na">EXACTLY_ONCE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">block</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>原理：在对象上下文中执行 lambda，然后返回对象本身</li>
+<li>特点：</li>
+<li>总是返回接收者对象 (<code>this</code>)</li>
+<li>适合对象初始化</li>
+</ul>
+<h3 id="25-also">2.5 also 函数<a class="headerlink" href="#25-also" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@kotlin.internal.InlineOnly</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">also</span><span class="p">(</span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">):</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contract</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">callsInPlace</span><span class="p">(</span><span class="n">block</span><span class="p">,</span><span class="w"> </span><span class="n">InvocationKind</span><span class="p">.</span><span class="na">EXACTLY_ONCE</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">block</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>原理：接收 lambda 对对象执行操作，然后返回对象本身</li>
+<li>特点：</li>
+<li>类似 <code>apply</code>，但 lambda 参数是 <code>it</code> 而非 <code>this</code></li>
+<li>适合副作用操作</li>
+</ul>
+<h2 id="3_2">3. 关键实现细节<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>内联优化</strong>：所有函数都使用 <code>inline</code> 修饰符，避免了 lambda 带来的运行时开销</li>
+<li>编译时会将 lambda 体直接插入调用处</li>
+<li>
+<p>不会创建额外的函数对象</p>
+</li>
+<li>
+<p><strong>合约(contract)</strong>：使用 <code>contract</code> API 告诉编译器关于函数行为的保证</p>
+</li>
+<li><code>callsInPlace</code> 表示 block 只会在函数内部调用一次</li>
+<li>
+<p>帮助编译器进行优化和静态分析</p>
+</li>
+<li>
+<p><strong>接收者与参数的区别</strong>：</p>
+</li>
+<li><code>T.() -&gt; R</code> 形式：lambda 内部 <code>this</code> 指向接收者</li>
+<li><code>(T) -&gt; R</code> 形式：lambda 内部通过参数访问对象</li>
+</ol>
+<h2 id="4_2">4. 性能考虑<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h2>
+<p>由于这些函数都是内联的，在运行时不会有额外的函数调用开销。编译后的代码类似于直接编写了 lambda 体中的代码。</p>
+<p>例如：
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+编译后大致相当于：
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">.</span><span class="na">length</span>
+</code></pre></div></p>
+<h2 id="5_1">5. 设计目的<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<p>这些域函数的设计主要是为了：</p>
+<ol>
+<li>提供更清晰的代码结构</li>
+<li>减少临时变量</li>
+<li>提供链式调用能力</li>
+<li>区分对象作为参数或接收者的不同场景</li>
+</ol>
+<p>通过分析源码可以看出，Kotlin 标准库通过简单的扩展函数和内联优化，实现了这些强大的 DSL 特性。</p>
+<h1 id="kotlin_4">Kotlin 域函数反编译分析<a class="headerlink" href="#kotlin_4" title="Permanent link">&para;</a></h1>
+<p>当你将使用 Kotlin 域函数的代码反编译为 Java 代码时，可以看到这些内联函数的实际效果。由于域函数都是 <code>inline</code> 的，它们在反编译后的 Java 代码中不会保留函数调用，而是直接展开了 lambda 表达式的内容。</p>
+<h2 id="1_3">1. 各域函数反编译效果<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h2>
+<h3 id="11-let">1.1 <code>let</code> 函数示例<a class="headerlink" href="#11-let" title="Permanent link">&para;</a></h3>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// lambda 内容直接内联</span>
+</code></pre></div></p>
+<h3 id="12-run">1.2 <code>run</code> 函数示例<a class="headerlink" href="#12-run" title="Permanent link">&para;</a></h3>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">.</span><span class="na">run</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="n">length</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// lambda 内容直接内联</span>
+</code></pre></div></p>
+<h3 id="13-with">1.3 <code>with</code> 函数示例<a class="headerlink" href="#13-with" title="Permanent link">&para;</a></h3>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">()</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">with</span><span class="p">(</span><span class="n">sb</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">length</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+<span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// lambda 内容直接内联</span>
+</code></pre></div></p>
+<h3 id="14-apply">1.4 <code>apply</code> 函数示例<a class="headerlink" href="#14-apply" title="Permanent link">&para;</a></h3>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+<span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
+<span class="c1">// apply 返回对象本身，所以不需要额外赋值</span>
+</code></pre></div></p>
+<h3 id="15-also">1.5 <code>also</code> 函数示例<a class="headerlink" href="#15-also" title="Permanent link">&para;</a></h3>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">().</span><span class="na">also</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">it</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">it</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="c1">// also 返回对象本身，所以不需要额外赋值</span>
+</code></pre></div></p>
+<h2 id="2_3">2. 反编译后的关键特点<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>无额外函数调用</strong>：由于是内联函数，反编译后看不到 <code>let</code>、<code>run</code> 等函数的调用痕迹</p>
+</li>
+<li>
+<p><strong>lambda 内容直接展开</strong>：lambda 表达式的内容被直接插入到调用处</p>
+</li>
+<li>
+<p><strong>无匿名类生成</strong>：与普通高阶函数不同，不会生成额外的 <code>FunctionN</code> 类</p>
+</li>
+<li>
+<p><strong>上下文对象处理</strong>：</p>
+</li>
+<li>对于 <code>T.()</code> 形式（如 <code>run</code>、<code>apply</code>），直接使用对象作为 <code>this</code></li>
+<li>
+<p>对于 <code>(T)</code> 形式（如 <code>let</code>、<code>also</code>），对象作为参数传递</p>
+</li>
+<li>
+<p><strong>返回值处理</strong>：</p>
+</li>
+<li>返回对象本身的函数（<code>apply</code>、<code>also</code>）在反编译后看起来就像直接操作对象</li>
+<li>返回 lambda 结果的函数（<code>let</code>、<code>run</code>、<code>with</code>）会将结果直接赋给变量</li>
+</ol>
+<h2 id="3_3">3. 对比非内联函数<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h2>
+<p>如果对比非内联的高阶函数，差异很明显：</p>
+<p><strong>Kotlin 非内联函数:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">myLet</span><span class="p">(</span><span class="n">block</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">R</span><span class="p">):</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">block</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">.</span><span class="na">myLet</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// 会生成额外的 Function1 匿名类</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StandardKt</span><span class="p">.</span><span class="na">myLet</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Function1</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></p>
+<p>可以看到非内联函数会生成额外的匿名类，带来运行时开销。</p>
+<h2 id="4_3">4. 性能启示<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h2>
+<p>从反编译结果可以看出：</p>
+<ol>
+<li><strong>无运行时开销</strong>：域函数在运行时与直接编写代码性能相同</li>
+<li><strong>无对象分配</strong>：不会创建额外的函数对象</li>
+<li><strong>编译期优化</strong>：所有转换在编译期完成</li>
+<li><strong>调试信息保留</strong>：虽然内联，但调试时仍能看到原始 Kotlin 代码结构</li>
+</ol>
+<h2 id="5_2">5. 特殊情况<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h2>
+<p>当域函数用于可空类型时，反编译后会看到 null 检查：</p>
+<p><strong>Kotlin 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getString</span><span class="p">()</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div></p>
+<p><strong>反编译后的 Java 代码:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getString</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div></p>
+<p>这种安全调用转换也是编译期完成的优化。</p>
 </details>
 <h2 id="kotlin-inline-oninline-crossline">Kotlin inline oninline crossline分别有什么作用<a class="headerlink" href="#kotlin-inline-oninline-crossline" title="Permanent link">&para;</a></h2>
 <details class="answer">
@@ -4580,7 +2430,7 @@
 </li>
 <li>Kotlin 协程库中的许多函数（如 <code>launch</code> 和 <code>async</code>）也使用了 <code>inline</code> 和 <code>crossinline</code> 来确保 Lambda 表达式在协程上下文中正确执行。</li>
 </ol>
-<h3 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_7">总结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>inline</code>：用于内联函数，减少高阶函数的开销。</li>
 <li><code>noinline</code>：用于标记不被内联的 Lambda 参数。</li>
@@ -4593,7 +2443,7 @@
 <h2 id="crossinline">crossinline案例<a class="headerlink" href="#crossinline" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
-<h3 id="1_2">1. <strong>异步任务中的非局部返回问题</strong><a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<h3 id="1_4">1. <strong>异步任务中的非局部返回问题</strong><a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
 <p>假设我们有一个内联函数，用于在后台线程执行任务，并在任务完成后更新 UI。如果不使用 <code>crossinline</code>，可能会发生非局部返回，导致意外的行为。</p>
 <h4 id="1-crossinline">示例 1：没有 <code>crossinline</code> 的问题<a class="headerlink" href="#1-crossinline" title="Permanent link">&para;</a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="kd">inline</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">doAsyncTask</span><span class="p">(</span><span class="n">action</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4710,31 +2560,31 @@ End
 <li><strong>延迟执行</strong>：在 <code>Handler.post</code>、<code>Executors</code> 等延迟执行的代码块中使用。</li>
 </ul>
 <hr />
-<h3 id="5_1">5. <strong>最终总结</strong><a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<h3 id="5_3">5. <strong>最终总结</strong><a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>没有 <code>crossinline</code></strong>：Lambda 表达式中的 <code>return</code> 可能会导致非局部返回，直接返回到外层函数的调用处。</li>
 <li><strong>使用 <code>crossinline</code></strong>：Lambda 表达式中的 <code>return</code> 只能是局部返回，确保代码的行为更加可控。</li>
 </ul>
 </details>
-<h2 id="kotlin_3">Kotlin强转符号是什么？<a class="headerlink" href="#kotlin_3" title="Permanent link">&para;</a></h2>
+<h2 id="kotlin_5">Kotlin强转符号是什么？<a class="headerlink" href="#kotlin_5" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在 Kotlin 中，<strong>类型转换</strong>是将一个对象从一种类型转换为另一种类型的操作。Kotlin 提供了多种方式来实现类型转换，但需要注意的是，Kotlin 是强类型语言，不支持隐式的类型转换（例如，不能直接将 <code>Int</code> 赋值给 <code>Long</code>，必须显式转换）。</p>
-<h3 id="_9">强制类型转换的关键字<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_8">强制类型转换的关键字<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>在 Kotlin 中，强制类型转换通常使用 <code>as</code> 关键字。<code>as</code> 用于将一个对象显式转换为目标类型。</p>
-<h4 id="_10">示例<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="_9">示例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, Kotlin&quot;</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">String</span><span class="w">  </span><span class="c1">// 强制将 Any 类型转换为 String 类型</span>
 <span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w">  </span><span class="c1">// 输出: Hello, Kotlin</span>
 </code></pre></div>
-<h3 id="_11">安全类型转换<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_10">安全类型转换<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>如果强制类型转换失败（例如，对象不是目标类型），会抛出 <code>ClassCastException</code>。为了避免异常，可以使用 <code>as?</code> 进行安全类型转换。如果转换失败，<code>as?</code> 会返回 <code>null</code> 而不是抛出异常。</p>
-<h4 id="_12">示例<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<h4 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">123</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="k">as?</span><span class="w"> </span><span class="kt">String</span><span class="w">  </span><span class="c1">// 安全转换，失败时返回 null</span>
 <span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w">  </span><span class="c1">// 输出: null</span>
 </code></pre></div>
-<h3 id="_13">注意事项<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_12">注意事项<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>类型兼容性</strong>：只能将对象转换为兼容的类型。例如，不能将 <code>String</code> 转换为 <code>Int</code>。</li>
 <li><strong>基本类型转换</strong>：Kotlin 提供了显式的方法来转换基本类型（如 <code>toInt()</code>、<code>toLong()</code> 等），而不是使用 <code>as</code>。
@@ -4749,7 +2599,7 @@ End
 <span class="p">}</span>
 </code></pre></div></li>
 </ol>
-<h3 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_13">总结<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>强制类型转换使用 <code>as</code> 关键字。</li>
 <li>安全类型转换使用 <code>as?</code>，避免抛出异常。</li>
@@ -4769,7 +2619,7 @@ End
 - <strong>用途</strong>：
 - 单例模式：定义一个全局唯一的对象。
 - 匿名对象：创建一个临时的、未命名的对象（类似于 Java 的匿名内部类）。</p>
-<h4 id="_15">示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<h4 id="_14">示例<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">Database</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MyDatabase&quot;</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">connect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4790,7 +2640,7 @@ End
 - 替代 Java 中的静态成员（静态方法、静态属性）。
 - 实现工厂模式。
 - 实现接口。</p>
-<h4 id="_16">示例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h4 id="_15">示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">CONSTANT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a constant&quot;</span>
@@ -4844,12 +2694,12 @@ End
 <hr />
 <h3 id="4-object-java-static">4. <strong><code>object</code> 是否具有 Java <code>static</code> 的效果？</strong><a class="headerlink" href="#4-object-java-static" title="Permanent link">&para;</a></h3>
 <p><code>object</code> 关键字本身并不直接等同于 Java 的 <code>static</code>，但可以通过以下方式实现类似的效果：</p>
-<h4 id="_17">单例对象的静态效果<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<h4 id="_16">单例对象的静态效果<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>object</code> 定义的对象是单例的，因此它的属性和方法在全局范围内是唯一的，可以通过对象名直接访问。</li>
 <li>这种方式类似于 Java 中的静态成员，但本质上是单例对象的成员。</li>
 </ul>
-<h4 id="_18">示例<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<h4 id="_17">示例<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">Constants</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">printPi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -4881,7 +2731,7 @@ End
 <li><code>companion object</code> 是与类关联的单例对象，可以通过类名直接访问其成员，更接近 Java 的 <code>static</code>。</li>
 </ul>
 <hr />
-<h3 id="5_2">5. <strong>总结</strong><a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h3>
+<h3 id="5_4">5. <strong>总结</strong><a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -4929,7 +2779,7 @@ End
 <summary>答案</summary>
 <p>在 Kotlin 中，<code>companion</code> 关键字用于定义<strong>伴生对象（Companion Object）</strong>。伴生对象是一个与类关联的单例对象，它的主要作用是为类提供类似于 Java 中静态成员（静态方法、静态属性）的功能。Kotlin 本身没有 <code>static</code> 关键字，因此通过伴生对象来实现类似的功能。</p>
 <hr />
-<h3 id="_19">伴生对象的作用<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_18">伴生对象的作用<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>替代静态成员</strong>：</li>
 <li>在 Java 中，静态成员（如静态方法、静态属性）属于类而不是实例，可以直接通过类名访问。</li>
@@ -4954,9 +2804,9 @@ End
 <li>伴生对象可以实现接口，从而为类提供额外的功能。</li>
 </ol>
 <hr />
-<h3 id="_20">伴生对象的语法<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_19">伴生对象的语法<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>伴生对象通过 <code>companion object</code> 关键字定义，通常放在类的内部。它可以有名称，也可以没有名称（默认名称为 <code>Companion</code>）。</p>
-<h4 id="1_3">示例 1：基本用法<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h4>
+<h4 id="1_5">示例 1：基本用法<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">CONSTANT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a constant&quot;</span><span class="w">  </span><span class="c1">// 类似于静态常量</span>
@@ -4969,7 +2819,7 @@ End
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyClass</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w">  </span><span class="c1">// 通过伴生对象创建实例</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="2_2">示例 2：命名伴生对象<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<h4 id="2_4">示例 2：命名伴生对象<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="nc">Factory</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">create</span><span class="p">():</span><span class="w"> </span><span class="n">MyClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyClass</span><span class="p">()</span>
@@ -4980,7 +2830,7 @@ End
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyClass</span><span class="p">.</span><span class="na">Factory</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w">  </span><span class="c1">// 通过命名伴生对象创建实例</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="3_2">示例 3：实现接口<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<h4 id="3_4">示例 3：实现接口<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">Factory</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">create</span><span class="p">():</span><span class="w"> </span><span class="n">T</span>
 <span class="p">}</span>
@@ -4996,7 +2846,7 @@ End
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="_21">伴生对象的特点<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_20">伴生对象的特点<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>单例性</strong>：</li>
 <li>
@@ -5054,7 +2904,7 @@ End
 </tbody>
 </table>
 <hr />
-<h3 id="_22">总结<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_21">总结<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p><code>companion</code> 关键字用于定义伴生对象，其主要作用是：
 1. 提供类似于 Java 静态成员的功能。
 2. 实现工厂模式。
@@ -5065,7 +2915,7 @@ End
 <details class="answer">
 <summary>答案</summary>
 <h2 id="kotlin-object">Kotlin 将 <code>object</code> 关键字设计为同时支持<strong>单例模式</strong>和<strong>匿名对象</strong>，主要是为了简化代码、提高语言的一致性和灵活性。这种设计背后的原因可以从以下几个方面来理解：<a class="headerlink" href="#kotlin-object" title="Permanent link">&para;</a></h2>
-<h3 id="1_4">1. <strong>单例模式的需求</strong><a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<h3 id="1_6">1. <strong>单例模式的需求</strong><a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>单例模式</strong>是一种常见的设计模式，用于确保一个类只有一个实例，并提供一个全局访问点。</li>
 <li>在 Java 中，实现单例模式需要手动编写代码（如双重检查锁定、静态内部类等），容易出错且代码冗长。</li>
@@ -5083,7 +2933,7 @@ End
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
-<h3 id="2_3">2. <strong>匿名对象的需求</strong><a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<h3 id="2_5">2. <strong>匿名对象的需求</strong><a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>匿名对象</strong>是一种临时创建的对象，通常用于实现接口或抽象类，而不需要显式定义一个具名类。</li>
 <li>在 Java 中，匿名对象通过匿名内部类实现，但语法较为繁琐。</li>
@@ -5101,7 +2951,7 @@ End
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
-<h3 id="3_3">3. <strong>统一的设计哲学</strong><a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<h3 id="3_5">3. <strong>统一的设计哲学</strong><a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h3>
 <p>Kotlin 的设计哲学之一是<strong>简洁性和一致性</strong>。通过将单例模式和匿名对象统一到 <code>object</code> 关键字中，Kotlin 减少了语言中的冗余概念，使开发者更容易理解和记忆。</p>
 <ul>
 <li>单例模式和匿名对象本质上都是“创建一个对象”，只是用途不同：<ul>
@@ -5112,7 +2962,7 @@ End
 <li>通过 <code>object</code> 关键字统一这两种用途，Kotlin 避免了引入额外的关键字或语法。</li>
 </ul>
 <hr />
-<h3 id="4_2">4. <strong>灵活性</strong><a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<h3 id="4_4">4. <strong>灵活性</strong><a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>将 <code>object</code> 设计为同时支持单例模式和匿名对象，增加了语言的灵活性。</li>
 <li>开发者可以根据需要选择使用单例模式还是匿名对象，而不需要学习两种不同的语法。</li>
@@ -5130,7 +2980,7 @@ End
 <li>通过统一到 <code>object</code> 关键字，Kotlin 保持了语言的简洁性和易用性。</li>
 </ul>
 <hr />
-<h3 id="_23">总结<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h3 id="_22">总结<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <p>Kotlin 将 <code>object</code> 关键字设计为同时支持单例模式和匿名对象，主要是为了：
 1. 简化代码，减少冗余。
 2. 提高语言的一致性和灵活性。
@@ -5138,17 +2988,17 @@ End
 4. 减少语言的复杂性，使开发者更容易学习和使用。</p>
 <p>这种设计体现了 Kotlin 的核心理念：<strong>用更少的代码做更多的事情，同时保持代码的清晰和易读</strong>。</p>
 </details>
-<h2 id="kotlin_4">Kotlin委托是什么，有什么作用？<a class="headerlink" href="#kotlin_4" title="Permanent link">&para;</a></h2>
+<h2 id="kotlin_6">Kotlin委托是什么，有什么作用？<a class="headerlink" href="#kotlin_6" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>在 Kotlin 中，委托是一种设计模式，允许对象将部分职责交给另一个对象处理。Kotlin 通过 <code>by</code> 关键字支持委托，简化了实现。</p>
-<h3 id="_24">委托的基本概念<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h3 id="_23">委托的基本概念<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <p>委托的核心思想是将一个类的某些功能委托给另一个类。Kotlin 支持两种主要委托：</p>
 <ol>
 <li><strong>类委托</strong>：将一个类的实现委托给另一个类。</li>
 <li><strong>属性委托</strong>：将属性的 getter 和 setter 逻辑委托给另一个对象。</li>
 </ol>
-<h3 id="_25">类委托<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<h3 id="_24">类委托<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <p>类委托常用于实现继承的替代方案。通过委托，可以将一个类的接口实现委托给另一个类。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span>
@@ -5166,7 +3016,7 @@ End
 <span class="p">}</span>
 </code></pre></div>
 <p>在这个例子中，<code>Derived</code> 类将 <code>Base</code> 接口的实现委托给了 <code>b</code> 对象。</p>
-<h3 id="_26">属性委托<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<h3 id="_25">属性委托<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <p>属性委托允许将属性的 getter 和 setter 逻辑委托给另一个对象。Kotlin 标准库提供了几种常见的委托：</p>
 <ol>
 <li><strong>lazy</strong>：延迟初始化属性，首次访问时计算值。</li>
@@ -5229,14 +3079,14 @@ End
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="p">)</span><span class="w">   </span><span class="c1">// 输出: 25</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_27">常见使用案例<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h3 id="_26">常见使用案例<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>延迟初始化</strong>：使用 <code>lazy</code> 委托延迟初始化高成本属性。</li>
 <li><strong>属性监听</strong>：使用 <code>observable</code> 或 <code>vetoable</code> 监听属性变化。</li>
 <li><strong>动态属性</strong>：使用 <code>map</code> 委托处理动态属性。</li>
 <li><strong>接口实现委托</strong>：通过类委托减少样板代码，避免多重继承。</li>
 </ol>
-<h3 id="_28">总结<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_27">总结<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <p>Kotlin 的委托机制通过 <code>by</code> 关键字简化了代码，提升了可维护性。类委托和属性委托是其主要形式，常见于延迟初始化、属性监听、动态属性等场景。</p>
 </details>
 <h2 id="kotlinandroid">Kotlin委托在Android上的一些应用。<a class="headerlink" href="#kotlinandroid" title="Permanent link">&para;</a></h2>
@@ -5450,7 +3300,7 @@ End
 - 自动管理资源，避免内存泄漏。
 - 代码更简洁。</p>
 <hr />
-<h3 id="_29">总结<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<h3 id="_28">总结<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>在 Android 开发中，Kotlin 的委托机制可以帮助你：
 1. 延迟初始化 View（<code>lazy</code>）。
 2. 监听属性变化（<code>observable</code>）。
@@ -5461,7 +3311,7 @@ End
 7. 自动管理资源（<code>Lifecycle</code> 委托）。</p>
 <p>这些场景都是 Android 开发中非常常见的，委托可以让你的代码更简洁、更易维护！</p>
 </details>
-<h2 id="kotlin_5">Kotlin中是否存在扩展属性？<a class="headerlink" href="#kotlin_5" title="Permanent link">&para;</a></h2>
+<h2 id="kotlin_7">Kotlin中是否存在扩展属性？<a class="headerlink" href="#kotlin_7" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>扩展属性
@@ -5472,7 +3322,7 @@ End
 <p>val Foo.bar = 1 // 错误：扩展属性不能有初始化器
 扩展属性只能被声明为 val。</p>
 <p>在Kotlin中，扩展属性允许你为现有类添加新的属性，而无需修改其源代码或使用继承。扩展属性通过提供自定义的getter和setter来实现，类似于扩展函数。</p>
-<h3 id="_30">定义扩展属性<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h3 id="_29">定义扩展属性<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <p>扩展属性的定义语法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="err">&lt;</span><span class="nv">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ClassName</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="na">propertyName</span><span class="p">:</span><span class="w"> </span><span class="n">PropertyType</span>
 <span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// 自定义getter逻辑</span>
@@ -5481,7 +3331,7 @@ End
 <span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// 自定义getter逻辑</span>
 <span class="w">    </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 自定义setter逻辑 }</span>
 </code></pre></div>
-<h3 id="_31">示例<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h3 id="_30">示例<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <p>假设你想为<code>String</code>类添加一个<code>isPalindrome</code>属性，用于判断字符串是否为回文：</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">String</span><span class="p">.</span><span class="na">isPalindrome</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span>
 <span class="w">    </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">reversed</span><span class="p">()</span>
@@ -5490,23 +3340,23 @@ End
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;racecar&quot;</span>
 <span class="n">println</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="na">isPalindrome</span><span class="p">)</span><span class="w"> </span><span class="c1">// 输出: true</span>
 </code></pre></div>
-<h3 id="_32">好处<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h3 id="_31">好处<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>增强现有类</strong>：无需修改类源代码即可为其添加新属性。</li>
 <li><strong>代码组织</strong>：将与类相关的属性集中管理，提升代码可读性。</li>
 <li><strong>减少继承</strong>：避免通过继承扩展功能，保持类层次简洁。</li>
 </ol>
-<h3 id="_33">限制<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<h3 id="_32">限制<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>无实际成员</strong>：扩展属性不会在类中插入实际成员，只是语法糖。</li>
 <li><strong>访问限制</strong>：只能访问类的公有成员，无法访问私有或受保护成员。</li>
 <li><strong>命名冲突</strong>：如果扩展属性与类现有成员同名，类成员优先。</li>
 <li><strong>初始化限制</strong>：扩展属性不能有初始化器，必须通过getter和setter定义行为。</li>
 </ol>
-<h3 id="_34">总结<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<h3 id="_33">总结<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <p>扩展属性为现有类添加新属性提供了便捷方式，增强了代码的可读性和可维护性，但需注意其访问限制和命名冲突问题。</p>
 </details>
-<h2 id="kotlin_6">Kotlin扩展属性案例<a class="headerlink" href="#kotlin_6" title="Permanent link">&para;</a></h2>
+<h2 id="kotlin_8">Kotlin扩展属性案例<a class="headerlink" href="#kotlin_8" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <hr />
@@ -5606,19 +3456,19 @@ End
 <span class="n">println</span><span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="na">isLeapYear</span><span class="p">)</span><span class="w"> </span><span class="c1">// 输出: true</span>
 </code></pre></div>
 <hr />
-<h3 id="_35">总结<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<h3 id="_34">总结<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <p>通过这些案例可以看出，扩展属性非常灵活，能够为现有类添加新的功能，同时支持泛型和自定义的 <code>get</code> 和 <code>set</code> 逻辑。合理使用扩展属性可以显著提升代码的可读性和可维护性。注意不能使用var去声明。</p>
 </details>
 <h2 id="kotlin-anyjava-object">请问Kotlin Any和Java 的Object类有什么区别?<a class="headerlink" href="#kotlin-anyjava-object" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 <p>Kotlin 的 <code>Any</code> 类和 Java 的 <code>Object</code> 类在功能上非常相似，都是所有类的超类，但它们有一些关键区别：</p>
-<h3 id="1_5">1. <strong>类层次结构</strong><a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h3>
+<h3 id="1_7">1. <strong>类层次结构</strong><a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Kotlin 的 <code>Any</code></strong>: 在 Kotlin 中，<code>Any</code> 是所有类的超类，包括基本数据类型（如 <code>Int</code>、<code>Boolean</code> 等）的装箱类型。Kotlin 的基本数据类型（如 <code>Int</code>、<code>Boolean</code> 等）在底层会被编译为 Java 的基本类型（如 <code>int</code>、<code>boolean</code> 等），但在 Kotlin 中它们仍然继承自 <code>Any</code>。</li>
 <li><strong>Java 的 <code>Object</code></strong>: 在 Java 中，<code>Object</code> 是所有类的超类，但基本数据类型（如 <code>int</code>、<code>boolean</code> 等）并不继承自 <code>Object</code>。只有引用类型（如 <code>Integer</code>、<code>Boolean</code> 等）继承自 <code>Object</code>。</li>
 </ul>
-<h3 id="2_4">2. <strong>方法</strong><a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<h3 id="2_6">2. <strong>方法</strong><a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Kotlin 的 <code>Any</code></strong>: <code>Any</code> 类有三个方法：<ul>
 <li><code>equals(other: Any?): Boolean</code></li>
@@ -5642,21 +3492,21 @@ End
 </li>
 </ul>
 <p>Kotlin 的 <code>Any</code> 类没有 <code>clone()</code>、<code>finalize()</code>、<code>getClass()</code>、<code>notify()</code>、<code>notifyAll()</code> 和 <code>wait()</code> 等方法。这些方法在 Kotlin 中可以通过其他方式使用，例如通过 Java 互操作性。</p>
-<h3 id="3_4">3. <strong>可空性</strong><a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h3>
+<h3 id="3_6">3. <strong>可空性</strong><a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Kotlin 的 <code>Any</code></strong>: <code>Any</code> 是非空类型，<code>Any?</code> 是可空类型。Kotlin 的类型系统明确区分了可空和非空类型。</li>
 <li><strong>Java 的 <code>Object</code></strong>: <code>Object</code> 本身没有可空性概念，因为 Java 的类型系统不支持可空性。在 Java 中，任何对象引用都可以为 <code>null</code>。</li>
 </ul>
-<h3 id="4_3">4. <strong>扩展函数</strong><a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<h3 id="4_5">4. <strong>扩展函数</strong><a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Kotlin 的 <code>Any</code></strong>: Kotlin 允许为 <code>Any</code> 类定义扩展函数，这意味着你可以在任何对象上调用这些扩展函数。</li>
 <li><strong>Java 的 <code>Object</code></strong>: Java 不支持扩展函数，因此你不能为 <code>Object</code> 类添加新的方法。</li>
 </ul>
-<h3 id="5_3">5. <strong>平台类型</strong><a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
+<h3 id="5_5">5. <strong>平台类型</strong><a class="headerlink" href="#5_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>在 Kotlin 中，当与 Java 代码互操作时，Kotlin 会将 Java 的 <code>Object</code> 类型视为平台类型（<code>T!</code>），这意味着它既可以是非空的也可以是可空的，具体取决于上下文。</li>
 </ul>
-<h3 id="_36">总结<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<h3 id="_35">总结<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Any</code> 是 Kotlin 中所有类的超类，包括基本数据类型的装箱类型。</li>
 <li><code>Object</code> 是 Java 中所有类的超类，但不包括基本数据类型。</li>
@@ -5699,7 +3549,7 @@ End
 </code></pre></div></li>
 </ul>
 <hr />
-<h3 id="4_4">4. <strong>基本数据类型的处理</strong><a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<h3 id="4_6">4. <strong>基本数据类型的处理</strong><a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>在 Kotlin 中，基本数据类型（如 <code>Int</code>、<code>Boolean</code> 等）在底层会被编译为 JVM 的基本类型（如 <code>int</code>、<code>boolean</code> 等）。</li>
 <li>然而，Kotlin 的类型系统将这些基本数据类型视为 <code>Any</code> 的子类。这意味着在 Kotlin 中，你可以将基本数据类型赋值给 <code>Any</code> 类型的变量：
@@ -5738,7 +3588,7 @@ End
 </ul>
 <p>可以看到，Kotlin 的 <code>Any</code> 被直接映射为 Java 的 <code>Object</code>。</p>
 <hr />
-<h3 id="_37">结论<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<h3 id="_36">结论<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <p>Kotlin 的 <code>Any</code> 类在底层是通过 Java 的 <code>Object</code> 类实现的，但 Kotlin 通过语言设计和编译器优化，提供了更强大和安全的类型系统。<code>Any</code> 的设计使得 Kotlin 能够更好地与 JVM 兼容，同时提供更现代化的语言特性。</p>
 </details>
 <h2 id="kotlin-lateinit-by-lazy">Kotlin lateinit 和 by lazy有什么区别，各自有什么特性，是否可以为空？<a class="headerlink" href="#kotlin-lateinit-by-lazy" title="Permanent link">&para;</a></h2>
@@ -5790,7 +3640,7 @@ End
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">example</span><span class="p">.</span><span class="na">name</span><span class="p">)</span><span class="w"> </span><span class="c1">// 直接使用已初始化的值</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_38">总结<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h3 id="_37">总结<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong><code>lateinit</code></strong>：用于 <code>var</code> 属性，手动初始化，不能为空，适用于明确知道在使用前会初始化的场景。</li>
 <li><strong><code>by lazy</code></strong>：用于 <code>val</code> 属性，自动初始化，可以为空或非空，适用于延迟初始化且只需初始化一次的场景。</li>
@@ -5818,7 +3668,7 @@ End
 <span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// 不立即计算</span>
 <span class="w">    </span><span class="p">.</span><span class="na">first</span><span class="p">()</span><span class="w">               </span><span class="c1">// 开始计算：1→1(过滤), 4→16(匹配), 返回16</span>
 </code></pre></div>
-<h3 id="2_5">2. 避免中间集合创建<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<h3 id="2_7">2. 避免中间集合创建<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
 <p>普通集合操作每一步都会创建新的中间集合，当数据量大时这会带来显著的内存开销。Sequence则在整个操作链中只处理单个元素，不需要中间存储。</p>
 <h3 id="3-short-circuiting">3. 短路操作（Short-circuiting）<a class="headerlink" href="#3-short-circuiting" title="Permanent link">&para;</a></h3>
 <p>Sequence可以在满足条件时立即停止处理，例如<code>find</code>、<code>first</code>等操作找到结果后就不会处理剩余元素。</p>
@@ -5827,7 +3677,7 @@ End
 - 操作链较长时（多个<code>map</code>、<code>filter</code>等组合）
 - 数据集较大时
 - 只需要部分结果时（如<code>find</code>、<code>take</code>等操作）</p>
-<h2 id="_39">性能对比示例<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<h2 id="_38">性能对比示例<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// 普通集合操作 - 处理所有元素</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">listResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="m">1</span><span class="n">_000_000</span><span class="p">).</span><span class="na">toList</span><span class="p">()</span>
 <span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">}</span>
@@ -5848,7 +3698,7 @@ End
 <li>使用生成器函数：<code>generateSequence { ... }</code></li>
 <li>使用序列字面量：<code>sequence { yield(...) }</code></li>
 </ol>
-<h2 id="_40">总结<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<h2 id="_39">总结<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
 <p>Kotlin的Sequence通过惰性求值和元素级处理策略，避免了不必要的中间集合创建和全量数据处理，从而在处理复杂集合操作链时提供了显著的性能优势，特别是在大数据集和只需要部分结果的场景下。</p>
 </details>
 <h2 id="xxx">xxx<a class="headerlink" href="#xxx" title="Permanent link">&para;</a></h2>
@@ -5856,10 +3706,6 @@ End
 <summary>答案</summary>
 </details>
 <h2 id="xxx_1">xxx<a class="headerlink" href="#xxx_1" title="Permanent link">&para;</a></h2>
-<details class="answer">
-<summary>答案</summary>
-</details>
-<h2 id="xxx_2">xxx<a class="headerlink" href="#xxx_2" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
 </details>

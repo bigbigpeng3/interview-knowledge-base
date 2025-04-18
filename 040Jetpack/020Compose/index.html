@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1546,6 +1546,49 @@ Modifier 是 Compose 中用于装饰或增强组件的工具链。它们可以�
 <h2 id="android-flow-collectasstate-flow-state-composable">在 Android 上，当一个 Flow 被 collectAsState，应用转入后台时，如果这个 Flow 再进行更新，对应的 State 会不会更新？对应的 Composable 函数会不会更新？<a class="headerlink" href="#android-flow-collectasstate-flow-state-composable" title="Permanent link">&para;</a></h2>
 <details class="answer">
 <summary>答案</summary>
+<p>在 Android 上，当使用 <code>collectAsState</code> 收集 Flow 并在应用转入后台时，State 的更新行为和对应的 Composable 函数的更新行为如下：</p>
+<hr />
+<h3 id="1-state">1. <strong>State 是否会更新？</strong><a class="headerlink" href="#1-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>会更新</strong>：<code>collectAsState</code> 会继续收集 Flow 发射的数据，即使应用处于后台。因为 Flow 是<strong>冷流</strong>，它的收集器（collector）在生命周期上是独立的，除非手动取消或协程作用域被取消（如 ViewModel 的 <code>viewModelScope</code> 在 Activity 销毁时自动取消）。</li>
+<li><strong>例外情况</strong>：</li>
+<li>如果收集 <code>collectAsState</code> 的协程作用域（如 <code>LaunchedEffect</code> 或 <code>rememberCoroutineScope</code>）被取消（例如 Composable 退出组合），则收集会停止。</li>
+<li>如果 Flow 的来源（如 ViewModel 的 <code>StateFlow</code>）在后台停止发射数据，则 State 不会更新。</li>
+</ul>
+<hr />
+<h3 id="2-composable">2. <strong>Composable 函数是否会更新？</strong><a class="headerlink" href="#2-composable" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>不会立即重组</strong>：即使 State 的值被更新，Composable 函数在应用处于后台时<strong>不会触发重组</strong>。因为 Android 会暂停不可见界面的 UI 更新（属于系统优化）。</li>
+<li><strong>恢复前台后的行为</strong>：</li>
+<li>当应用回到前台时，Composable 会检查 State 的最新值，并根据需要重组（如果值发生了变化）。</li>
+<li>如果 State 在后台期间多次更新，Composable 只会响应最新的值（取决于使用的 Flow 类型，如 <code>StateFlow</code> 会保留最新值）。</li>
+</ul>
+<hr />
+<h3 id="3">3. <strong>注意事项</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>性能影响</strong>：虽然 State 在后台更新不会触发 UI 重组，但仍可能消耗资源（如 CPU、内存）。如果不需要后台更新，可以通过以下方式优化：</li>
+<li>使用 <code>Lifecycle.repeatOnLifecycle</code>（在非 Compose 代码中）或 <code>flowWithLifecycle</code> 控制 Flow 的收集生命周期。</li>
+<li>在 Compose 中，可以通过 <code>LaunchedEffect</code> 结合 <code>LifecycleOwner</code> 控制协程的启停。</li>
+<li><strong>StateFlow 特性</strong>：如果使用 <code>StateFlow</code> 或 <code>SharedFlow</code>，它们会保留最新值，确保回到前台时 UI 状态一致。</li>
+</ul>
+<hr />
+<h3 id="_10">示例代码<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">ExampleScreen</span><span class="p">(</span><span class="n">viewModel</span><span class="p">:</span><span class="w"> </span><span class="n">MyViewModel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">viewModel</span><span class="p">.</span><span class="na">myFlow</span><span class="p">.</span><span class="na">collectAsState</span><span class="p">()</span>
+
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Current value: </span><span class="si">$</span><span class="n">state</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 如果需要在后台停止收集，可以结合生命周期控制（需额外逻辑）</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="_11">总结<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>State 更新</strong>：在后台仍会更新（除非协程作用域被取消）。</li>
+<li><strong>UI 更新</strong>：重组仅在应用回到前台后触发。</li>
+<li><strong>推荐实践</strong>：根据业务需求决定是否需要在后台更新 State，必要时通过生命周期控制 Flow 的收集。</li>
+</ul>
 </details>
 
 
