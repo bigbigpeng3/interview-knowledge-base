@@ -1,0 +1,1209 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Crypto - 面试知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crypto" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="面试知识库" class="md-header__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            面试知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Crypto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../010Java/010Basic/" class="md-tabs__link">
+          
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../020Kotlin/010Basic/" class="md-tabs__link">
+          
+  
+  Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../030Android/010Basic/" class="md-tabs__link">
+          
+  
+  Android
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../040Jetpack/010Basic/" class="md-tabs__link">
+          
+  
+  Jetpack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../041KMP/010Basic/" class="md-tabs__link">
+          
+  
+  KMP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../050SystemDesign/010Basic/" class="md-tabs__link">
+          
+  
+  System Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="面试知识库" class="md-nav__button md-logo" aria-label="面试知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    面试知识库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/040MultiThreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java多线程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/020DataStructure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java数据结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/030Algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../010Java/050Pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java设计模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kotlin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../020Kotlin/020Coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin协程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/020SystemSourceCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android系统源码解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../030Android/030ThirdSDKSourceCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android三方源码解析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Jetpack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jetpack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../040Jetpack/020Compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    KMP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            KMP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../041KMP/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin Multi Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../050SystemDesign/010Basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#evmtoken" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何获取到一个地址的所有EVM链上Token，仅一个链比如以太坊。
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="crypto">Crypto<a class="headerlink" href="#crypto" title="Permanent link">&para;</a></h1>
+<h2 id="evmtoken">如何获取到一个地址的所有EVM链上Token，仅一个链比如以太坊。<a class="headerlink" href="#evmtoken" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<h1 id="evmtoken_1">在EVM链上查询用户持有的所有Token方法<a class="headerlink" href="#evmtoken_1" title="Permanent link">&para;</a></h1>
+<p>查询用户在EVM链上持有的所有Token(包括ERC20、ERC721等)是一个常见但具有挑战性的需求，因为区块链本身没有内置的"获取用户所有Token"功能。以下是几种有效的方法：</p>
+<h2 id="1">1. 扫描转账事件法（最可靠）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>通过查询该地址相关的所有转账事件来推断持有的Token：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 使用Etherscan类API</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.etherscan.io/api?module=account&amp;action=tokentx&amp;address=</span><span class="si">${</span><span class="nx">userAddress</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="c1">// 或者使用Alchemy/Infura的getAssetTransfers</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">transfers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">alchemy</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">getAssetTransfers</span><span class="p">({</span>
+<span class="nx">fromBlock</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0x0&quot;</span><span class="p">,</span>
+<span class="nx">toAddress</span><span class="o">:</span><span class="w"> </span><span class="nx">userAddress</span><span class="p">,</span>
+<span class="nx">category</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;erc20&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;erc721&quot;</span><span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><strong>优点</strong>：结果准确全面
+<strong>缺点</strong>：首次查询历史数据耗时较长</p>
+<h2 id="2-token">2. 预定义流行Token列表+余额检查<a class="headerlink" href="#2-token" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">// 预加载主流Token列表</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">popularTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="p">{</span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0xdac1...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">symbol</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USDT&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0xa0b8...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">symbol</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USDC&quot;</span><span class="p">},</span>
+<span class="c1">// ...其他常见Token</span>
+<span class="p">];</span>
+
+<span class="c1">// 使用multicall批量检查余额</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">popularTokens</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="nx">token</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+<span class="nx">callData</span><span class="o">:</span><span class="w"> </span><span class="nx">erc20</span><span class="p">.</span><span class="kr">interface</span><span class="p">.</span><span class="nx">encodeFunctionData</span><span class="p">(</span><span class="s2">&quot;balanceOf&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">userAddress</span><span class="p">])</span>
+<span class="p">}));</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">multicallContract</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span><span class="nx">calls</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>优点</strong>：响应快速
+<strong>缺点</strong>：会遗漏非主流Token</p>
+<h2 id="3-tokenregistry">3. 使用TokenRegistry合约（某些链支持）<a class="headerlink" href="#3-tokenregistry" title="Permanent link">&para;</a></h2>
+<p>一些链有维护Token注册表的合约，如ENS：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 伪代码示例</span>
+<span class="kt">function</span><span class="w"> </span><span class="nv">getUserTokens</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">user</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>view<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">address</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="kt">return</span><span class="w"> </span>TokenRegistry<span class="p">.</span>getTokensHeldBy<span class="p">(</span>user<span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="4-api">4. 第三方API服务<a class="headerlink" href="#4-api" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Etherscan/Blockscout</strong>：
+<div class="highlight"><pre><span></span><code>GET /api?module=account&amp;action=tokenlist&amp;address=0x...
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Alchemy的getTokensForOwner</strong>：
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">alchemy</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">getTokensForOwner</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Covalent API</strong>：
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://api.covalenthq.com/v1/</span><span class="si">${</span><span class="nx">chainId</span><span class="si">}</span><span class="sb">/address/</span><span class="si">${</span><span class="nx">userAddress</span><span class="si">}</span><span class="sb">/balances_v2/`</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h2 id="5">5. 链下索引服务<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>使用The Graph等索引服务创建子图，监听所有Transfer事件并建立用户-Token关系数据库。</p>
+<h2 id="_1">推荐组合策略<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>首次查询</strong>：使用第三方API获取完整列表</li>
+<li><strong>后续更新</strong>：监听新区块中的Transfer事件</li>
+<li><strong>本地缓存</strong>：维护用户Token列表的本地缓存</li>
+<li><strong>定期扫描</strong>：每周全量扫描一次确保数据完整</li>
+</ol>
+<h2 id="_2">注意事项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>包括零余额Token（用户可能想看到曾经持有过的）</li>
+<li>处理不同标准（ERC20/ERC721/ERC1155）</li>
+<li>注意代币假币问题（需验证合约真实性）</li>
+<li>对于新链，可能需要先扫描部分区块而非全历史</li>
+</ol>
+<p>这些方法可以根据你的应用场景和性能需求进行组合使用。</p>
+</details>
+<h2 id="rpctoken">如何用最少的RPC调用，获取用户所有的Token余额？<a class="headerlink" href="#rpctoken" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+<h1 id="_3">快速查询区块链钱包资产余额的方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>在开发区块链钱包App时，高效查询用户在链上的ETH和ERC20资产余额是关键功能。以下是几种优化方法，可以减少RPC调用次数：</p>
+<h2 id="1_1">1. 批量查询方法<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<h3 id="eth_getbalance-alchemy_gettokenbalances-alchemy">使用<code>eth_getBalance</code> + <code>alchemy_getTokenBalances</code> (Alchemy专属)<a class="headerlink" href="#eth_getbalance-alchemy_gettokenbalances-alchemy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 一次RPC调用获取所有ERC20余额 (仅Alchemy支持)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">alchemy</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">getTokenBalances</span><span class="p">(</span><span class="nx">walletAddress</span><span class="p">);</span>
+
+<span class="c1">// 单独获取ETH余额 (需要额外一次调用)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ethBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">provider</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">walletAddress</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="multicall">使用<code>multicall</code>合约 (通用方法)<a class="headerlink" href="#multicall" title="Permanent link">&para;</a></h3>
+<p>部署或使用现有的Multicall合约，将多个查询打包到一个交易中：
+<div class="highlight"><pre><span></span><code><span class="kt">function</span><span class="w"> </span><span class="nv">getBalances</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">user</span><span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="p">[]</span><span class="w"> </span>calldata<span class="w"> </span>tokens<span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">external</span><span class="w"> </span>
+<span class="w">    </span>view<span class="w"> </span>
+<span class="w">    </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="nv">ethBalance</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>tokenBalances<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span>ethBalance<span class="w"> </span><span class="o">=</span><span class="w"> </span>user<span class="p">.</span>balance<span class="p">;</span>
+<span class="w">    </span>tokenBalances<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[](</span>tokens<span class="p">.</span>length<span class="p">);</span>
+<span class="w">    </span><span class="kt">for</span><span class="p">(</span><span class="kt">uint</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span>tokens<span class="p">.</span>length<span class="p">;</span><span class="w"> </span>i<span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>tokenBalances<span class="p">[</span>i<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>IERC20<span class="p">(</span>tokens<span class="p">[</span>i<span class="p">]).</span>balanceOf<span class="p">(</span>user<span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="2">2. 索引服务方案<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="the-graph">使用The Graph<a class="headerlink" href="#the-graph" title="Permanent link">&para;</a></h3>
+<ul>
+<li>预先索引用户地址相关的所有转账事件</li>
+<li>通过GraphQL一次查询获取所有资产数据</li>
+</ul>
+<h3 id="etherscanblockscout-api">使用Etherscan/Blockscout API<a class="headerlink" href="#etherscanblockscout-api" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/api?module=account&amp;action=tokenlist&amp;address=0x...</code></li>
+<li>一次API调用获取地址的所有ERC20代币及其余额</li>
+</ul>
+<h2 id="3">3. 缓存策略<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>本地缓存</strong>：缓存最近查询结果，短时间内重复请求直接返回缓存</li>
+<li><strong>资产列表缓存</strong>：维护常见ERC20代币列表，减少动态发现的需求</li>
+<li><strong>余额变化监听</strong>：通过websocket订阅地址相关事件，实时更新而不需要轮询</li>
+</ol>
+<h2 id="4">4. 优化前端实现<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getAllBalances</span><span class="p">(</span><span class="nx">walletAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">tokenList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// 并行请求ETH余额和已知代币余额</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">ethBalance</span><span class="p">,</span><span class="w"> </span><span class="nx">tokenBalances</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+<span class="w">    </span><span class="nx">provider</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">walletAddress</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">multicallContract</span><span class="p">.</span><span class="nx">getTokenBalances</span><span class="p">(</span><span class="nx">walletAddress</span><span class="p">,</span><span class="w"> </span><span class="nx">tokenList</span><span class="p">)</span>
+<span class="p">]);</span>
+
+<span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">eth</span><span class="o">:</span><span class="w"> </span><span class="nx">ethBalance</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tokens</span><span class="o">:</span><span class="w"> </span><span class="nx">tokenBalances</span>
+<span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">推荐方案组合<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>对于主流链(ETH, BSC等)，使用Alchemy/Infura的批量API</li>
+<li>对于其他链，使用Multicall合约方案</li>
+<li>配合本地缓存和事件订阅保持数据新鲜度</li>
+<li>对于不活跃用户，采用按需刷新策略</li>
+</ol>
+<p>这样可以在大多数情况下将余额查询的RPC调用控制在1-2次以内。</p>
+</details>
+<h2 id="_5"><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+</details>
+<h2 id="_6"><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<details class="answer">
+<summary>答案</summary>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
